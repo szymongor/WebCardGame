@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CardGame</title>
+
+  <link  rel="stylesheet" href="libs/bootstrap/css/bootstrap.css" type="text/css"/>
+
+  <link  rel="stylesheet" href="css/style.css" type="text/css"/>
+
+  <script type="text/javascript" src="libs/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+  <div class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <a href=# class="navbar-brand">CardGame</a>
+      <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderColapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div  class="collapse navbar-collapse navHeaderColapse">
+
+        <ul id="navHeaderColapse" class="nav navbar-nav navbar-right">
+
+          <li><a href=#>Home</a></li>
+          <li>
+            <a href=# data-toggle="collapse" data-target=".form-control">Search <span class="glyphicon glyphicon-search"></span></a>
+            <form id="search" class="search" method="post" action="index.html" >
+              <input id="searchInput" type="text" class="collapse form-control" placeholder="Search for schedule" />
+              <ul id="searchResults" class="dropdown-menu dropdown-menu-left list-group">
+              </ul>
+            </form>
+          </li>
+          <li><a href=#>Add new game</a></li>
+          <li><a id="navbarLoginBtn" href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
+        </ul>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+    <div class="loginmodal-container">
+      <h1>Login to Your Account</h1><br>
+      <div id="loginMessage"></div>
+      <div>
+        <input id="loginInput" type="text" name="user" placeholder="Username">
+        <input id="passwordInput" type="password" name="pass" placeholder="Password">
+        <input type="submit" name="login" class="login loginmodal-submit" value="Login" onclick="login()">
+      </div>
+
+      <div class="login-help">
+      <a href="#" data-toggle="modal" data-target="#register-modal" onclick="hideLoginModal()">Register</a> - <a href="#">Forgot Password</a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+    <div class="loginmodal-container">
+      <h1>Register</h1><br>
+      <div id="registerMessage"></div>
+      <div>
+        <input id="registerLoginInput" type="text" name="user" placeholder="Username">
+        <input id="emailInput" type="text" name="pass" placeholder="Email">
+        <input id="password1Input" type="password" name="pass" placeholder="Password">
+        <input id="password2Input" type="password" name="pass" placeholder="Password(Again)">
+        <input type="submit" name="login" class="login loginmodal-submit" value="Register" onclick="register()">
+      </div>
+
+      <div class="login-help">
+      <a href="#" data-toggle="modal" data-target="#login-modal" onclick="hideRegisterModal()">Login </a> - <a href="#">Forgot Password</a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+    <div class="container-fluid">
+      <div id="mainContent"></div>
+    </div>
+
+  <script src="js/main.js"></script>
+
+
+  <script src="js/ApiClient/Login/LoginApi.js"></script>
+
+  <script src="js/ApiClient/Login/Login.js"></script>
+
+</body>
+</html>
