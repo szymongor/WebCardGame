@@ -72,20 +72,3 @@ function navbarLoginChange(){
   $('#navbarLoginBtn').attr("data-toggle", "modal");
   $('#navbarLoginBtn').attr("data-target", "#login-modal");
 }
-
-function showMainMenu(){
-  var button = document.createElement('button');
-//  $(button).addClass("btn btn-default btn-lg")
-//  .html(message)
-//  .appendTo($("#loginMessage"));
-  clearPage();
-  $('#mainContent').append('<div id="glyphMenu" class="row"></div>');
-  $('#glyphMenu').append('<div class="col-md-offset-1 col col-xs-5 col-md-3"><a href="#" class="thumbnail text-center menuThumbItem"><div class="glyphicon glyphiconMenuItem glyphicon-knight"></div><div>Games</div><div>');
-  $('#glyphMenu').append('<div class="col col-xs-5 col-md-3"><a href="#" class="thumbnail text-center menuThumbItem"><div class="glyphicon glyphiconMenuItem glyphicon-tower"></div><div>Achievements</div><div>');
-  $('#glyphMenu').append('<div class="col col-xs-5 col-md-3"><a href="#" class="thumbnail text-center menuThumbItem"><div class="glyphicon glyphiconMenuItem glyphicon-user"></div><div>User options</div><div>');
-
-}
-
-function clearPage(){
-  $('#mainContent').empty();
-}
