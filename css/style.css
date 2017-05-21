@@ -104,3 +104,13 @@
 div.glyphiconMenuItem {
     font-size: 7em;
 }
+
+.center{
+  margin: auto;
+  width: 50%;
+}
+
+.gamesList{
+  height: 70vh;
+  width: 90vh;
+}
