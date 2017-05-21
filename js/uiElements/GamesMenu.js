@@ -23,6 +23,16 @@ function appendGamesListGroups(){
   appendGameItem('Game3', 'l431rh');
   appendGameItem('Game4', '547buv');
   appendGameItem('Game5', '5vy6u7');
+  appendGameItem('Game1', 'l331rr');
+  appendGameItem('Game2', '323c23');
+  appendGameItem('Game3', 'l431rh');
+  appendGameItem('Game4', '547buv');
+  appendGameItem('Game5', '5vy6u7');
+  appendGameItem('Game1', 'l331rr');
+  appendGameItem('Game2', '323c23');
+  appendGameItem('Game3', 'l431rh');
+  appendGameItem('Game4', '547buv');
+  appendGameItem('Game5', '5vy6u7');
 }
 
 function appendGameItem(title, gameId){

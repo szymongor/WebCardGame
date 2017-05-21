@@ -111,6 +111,7 @@ div.glyphiconMenuItem {
 }
 
 .gamesList{
+  overflow-x: auto;
   height: 70vh;
   width: 90vh;
 }
