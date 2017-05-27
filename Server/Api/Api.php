@@ -14,13 +14,13 @@
         if(isset($_POST['login']) && isset($_POST['password'])){
           $userService = new UserService();
           $user = $userService->loginUser($_POST['login'],$_POST['password']);
-          if($user){
+          if($user['status'] == "Ok"){
             //TO DO session
             $response = array('Status' => "Ok", "Message" =>"Welcome ".$_POST['login'], "Login"=>$_POST['login']);
             echo(json_encode($response));
           }
           else{
-            $response = array('Status' => "Error", "Message" =>"No such user");
+            $response = $user;
             echo(json_encode($response));
           }
         }

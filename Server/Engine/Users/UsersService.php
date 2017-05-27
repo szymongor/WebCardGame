@@ -11,14 +11,18 @@
     }
 
     public function loginUser($login, $password){
-      $pass_hash = password_hash($password, PASSWORD_DEFAULT);
-      $user = $this->userDao->getUserByLogin($login);
 
-      if($user['password'] = $pass_hash){
-        $response = array('login' => $login, 'id'=> $user['id']);
+      $user = $this->userDao->getUserByLogin($login);
+      if($user){
+        if(password_verify($password, $user['password'])){
+          $response = array('status' =>'Ok' ,'login' => $login, 'id'=> $user['id']);
+        }
+        else{
+          $response = array('status' =>'Error' , "Message" =>"Wrong password:");
+        }
       }
       else{
-        $response = false;
+        $response = array('status' =>'Error' , "Message" =>"No such user");
       }
 
       return $response;
