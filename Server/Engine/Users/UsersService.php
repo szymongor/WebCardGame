@@ -7,12 +7,21 @@
     private $userDao;
 
     public function __construct(){
-      $userDao = new UserDao();
+      $this->userDao = new UserDao();
     }
 
     public function loginUser($login, $password){
+      $pass_hash = password_hash($password, PASSWORD_DEFAULT);
+      $user = $this->userDao->getUserByLogin($login);
 
-      return "Hello";
+      if($user['password'] = $pass_hash){
+        $response = array('login' => $login, 'id'=> $user['id']);
+      }
+      else{
+        $response = false;
+      }
+
+      return $response;
     }
 
     public function registerUser($login, $password, $email){
@@ -21,8 +30,6 @@
       return $response;
 
     }
-
-
   }
 
 

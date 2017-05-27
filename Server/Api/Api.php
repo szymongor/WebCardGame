@@ -12,7 +12,10 @@
     switch ($request) {
       case 'login':
         if(isset($_POST['login']) && isset($_POST['password'])){
-          if($_POST['login'] == "user123" && $_POST['password'] = "123"){
+          $userService = new UserService();
+          $user = $userService->loginUser($_POST['login'],$_POST['password']);
+          if($user){
+            //TO DO session
             $response = array('Status' => "Ok", "Message" =>"Welcome ".$_POST['login'], "Login"=>$_POST['login']);
             echo(json_encode($response));
           }
@@ -22,7 +25,7 @@
           }
         }
         else{
-          $response = array('Status' => "Error", "Message" =>"Type login and password");
+        $response = array('Status' => "Error", "Message" => "Type login and password");
           echo(json_encode($response));
         }
       break;
