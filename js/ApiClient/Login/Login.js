@@ -10,6 +10,7 @@ function login(){
 }
 
 function logout(){
+  loginApi.logout();
   clearPage();
   navbarLoginChange();
 }
