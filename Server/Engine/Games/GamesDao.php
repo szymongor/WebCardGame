@@ -58,23 +58,39 @@
       return $game;
     }
 
-    public function createNewGame($gameID, $playerId){
+    public function createNewGame($playerId, $gameID){
       $gameInfo = $this->getGameInfoById($gameID);
-      if($gameInfo == null){
-        $this->addGameToDB($gameID);
-        $this->setPlayerPlayingGame($playerId,$gameID);
-        $gameFilePath = $this->gamesFolder."/".$gameID.".json";
-        $gamesFile = fopen($gameFilePath, "w");
-        $game = array('Message' => "Yo2");
-        fwrite($gamesFile,json_encode($game));
-        fclose($gamesFile);
-      }
-      else{
+      if($gameInfo != null){
         throw new Exception("Game already exist");
       }
+      $playerGames = $this->getPlayerGameId($playerId);
+      if($playerGames != null){
+        throw new Exception("You are already assigned to the game");
+      }
+      $this->addGameToDB($gameID);
+      $this->setPlayerPlayingGame($playerId,$gameID);
+      $gameFilePath = $this->gamesFolder."/".$gameID.".json";
+      $gamesFile = fopen($gameFilePath, "w");
+      $game = array('Message' => "Yo2");
+      fwrite($gamesFile,json_encode($game));
+      fclose($gamesFile);
     }
 
-    public function getPlayerGame($playerId){
+    public function getPlayerGameId($playerId){
+      $this->startConnection();
+      $queryStr = sprintf("SELECT * FROM `plays` WHERE user = %s",$playerId);
+    	$result = @$this->db_connect->query($queryStr);
+      if (!$result) {
+          throw new Exception("Database Error [{$this->db_connect->errno}] {$this->db_connect->error}");
+      }
+    	$game = $result->fetch_assoc();
+      mysqli_close($this->db_connect);
+      if($game != null){
+        return $game['game'];
+      }
+      else{
+        return null;
+      }
 
     }
 
@@ -114,7 +130,7 @@
       $this->deleteGameFile($gameId);
     }
 
-    public function unsetPlayingGame($gameId){
+    private function unsetPlayingGame($gameId){
       $this->startConnection();
     	$queryStr = sprintf("DELETE FROM `plays` WHERE game = \"%s\"",$gameId);
     	$result = @$this->db_connect->query($queryStr);
@@ -144,11 +160,11 @@
 
   }
 
-  $gamesDao = new GamesDao();
+  //$gamesDao = new GamesDao();
   //$gamesDao->unsetPlayerPlayingGame(1);
   //$gamesDao->createNewGame("myNewGame",1);
-  $gamesDao->deleteGame("myNewGame");
-  //$response = $gamesDao->getAllGames();
+  //$gamesDao->deleteGame("myNewGame");
+  //$response = $gamesDao->getPlayerGameId(1);
   //echo json_encode($response);
 
 ?>
