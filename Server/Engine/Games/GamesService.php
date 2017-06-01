@@ -25,14 +25,20 @@
       return $response;
     }
 
+    public function deleteGame($gameId){
+      $this->gamesDao->deleteGame($gameId);
+    }
+
+    public function deleteGameByOwner($ownerId){
+      return $this->gamesDao->deleteGameByOwner($ownerId);
+    }
+
 
   }
 
-  $gamesService = new GamesService();
-
-  $response = $gamesService->createNewGame(1,"myNewGame1");
-
-  echo json_encode($response);
+  //$gamesService = new GamesService();
+  //$response = $gamesService->createNewGame(1, "myNewGame");
+  //echo json_encode($response);
 
 
 

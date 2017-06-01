@@ -3,10 +3,13 @@
 
   class GamesDao{
 
-    private $gamesFolder = "../../CurrentGamesFiles/";
+    private $gamesFolder;
     private $db_connect;
 
-    public function __construct(){}
+    public function __construct(){
+      $this->gamesFolder = $_SERVER['DOCUMENT_ROOT']."/CardGame/Server/CurrentGamesFiles/";
+
+    }
 
     private function startConnection(){
       global $host, $db_user, $db_password, $db_name;
@@ -44,6 +47,18 @@
       return $row;
     }
 
+    public function getGameByOwner($ownerId){
+      $this->startConnection();
+      $queryStr = sprintf("SELECT * FROM `games` WHERE userOwner = %s",$ownerId);
+    	$result = @$this->db_connect->query($queryStr);
+      if (!$result) {
+          throw new Exception("Database Error [{$this->db_connect->errno}] {$this->db_connect->error}");
+      }
+    	$row = $result->fetch_assoc();
+      mysqli_close($this->db_connect);
+      return $row;
+    }
+
     public function getGameFileById($gameId){
       $gameFilePath = $this->gamesFolder.$gameId.".json";
       try{
@@ -67,9 +82,13 @@
       if($playerGames != null){
         throw new Exception("You are already assigned to the game");
       }
-      $this->addGameToDB($gameID);
+      $this->addGameToDB($playerId,$gameID);
       $this->setPlayerPlayingGame($playerId,$gameID);
-      $gameFilePath = $this->gamesFolder."/".$gameID.".json";
+      $this->createNewGameFile($playerId, $gameID);
+    }
+
+    private function createNewGameFile($playerId, $gameID){
+      $gameFilePath = $this->gamesFolder.$gameID.".json";
       $gamesFile = fopen($gameFilePath, "w");
       $game = array('Message' => "Yo2");
       fwrite($gamesFile,json_encode($game));
@@ -94,9 +113,9 @@
 
     }
 
-    private function addGameToDB($gameId){
+    private function addGameToDB($ownerId, $gameId){
       $this->startConnection();
-    	$queryStr = sprintf("INSERT INTO `games`(`id`, `generationDate`) VALUES (\"%s\",%s)",$gameId,time());
+    	$queryStr = sprintf("INSERT INTO `games`(`id`, `generationDate`, `userOwner`) VALUES (\"%s\",%s,%s)",$gameId,time(),$ownerId);
     	$result = @$this->db_connect->query($queryStr);
       if (!$result) {
           throw new Exception("Database Error [{$this->db_connect->errno}] {$this->db_connect->error}");
@@ -128,6 +147,19 @@
       $this->unsetPlayingGame($gameId);
       $this->deleteGameInfo($gameId);
       $this->deleteGameFile($gameId);
+    }
+
+    public function deleteGameByOwner($ownerId){
+      $game = $this->getGameByOwner($ownerId);
+      if(isset($game['id'])){
+        $this->deleteGame($game['id']);
+        $response = array('Status' => 'Ok', 'Message' => "Game successfully deleted");
+      }
+      else{
+        $response = array('Status' => 'Error', 'Message' => "No such game");
+      }
+      return $response;
+
     }
 
     private function unsetPlayingGame($gameId){
