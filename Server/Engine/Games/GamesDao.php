@@ -47,7 +47,7 @@
       return $row;
     }
 
-    public function getGameByOwner($ownerId){
+    public function getGameInfoByOwner($ownerId){
       $this->startConnection();
       $queryStr = sprintf("SELECT * FROM `games` WHERE userOwner = %s",$ownerId);
     	$result = @$this->db_connect->query($queryStr);
@@ -57,6 +57,28 @@
     	$row = $result->fetch_assoc();
       mysqli_close($this->db_connect);
       return $row;
+    }
+
+    public function getGameInfoByPlayer($playerId){
+      $this->startConnection();
+      $queryStr = sprintf("SELECT * FROM `games` WHERE id = (SELECT game FROM plays WHERE user = %s)",$playerId);
+    	$result = @$this->db_connect->query($queryStr);
+      if (!$result) {
+          throw new Exception("Database Error [{$this->db_connect->errno}] {$this->db_connect->error}");
+      }
+    	$row = $result->fetch_assoc();
+      mysqli_close($this->db_connect);
+      return $row;
+    }
+
+    public function getGameFileByPlayer($playerId){
+      $gameInfo = $this->getGameInfoByPlayer($playerId);
+      if(isset($gameInfo['id'])){
+        return $this->getGameFileById($gameInfo['id']);
+      }
+      else{
+        return null;
+      }
     }
 
     public function getGameFileById($gameId){
@@ -150,7 +172,7 @@
     }
 
     public function deleteGameByOwner($ownerId){
-      $game = $this->getGameByOwner($ownerId);
+      $game = $this->getGameInfoByOwner($ownerId);
       if(isset($game['id'])){
         $this->deleteGame($game['id']);
         $response = array('Status' => 'Ok', 'Message' => "Game successfully deleted");
@@ -188,6 +210,7 @@
       }
       mysqli_close($this->db_connect);
     }
+
 
 
   }

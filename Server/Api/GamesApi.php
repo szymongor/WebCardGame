@@ -47,6 +47,17 @@
         echo(json_encode($response));
       }
     break;
+    case "getGameState":
+      if (isset($_SESSION['loggedUserId'])){
+        $gamesService = new GamesService();
+        $response = $gamesService->getGameFileByPlayer($_SESSION['loggedUserId']);
+        echo(json_encode($response));
+      }
+      else{
+        $response = array('Status' => "Error", "Message" => "You are not logged");
+        echo(json_encode($response));
+      }
+    break;
 
 
   }

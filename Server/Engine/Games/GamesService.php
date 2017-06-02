@@ -33,6 +33,17 @@
       return $this->gamesDao->deleteGameByOwner($ownerId);
     }
 
+    public function getGameFileByPlayer($playerId){
+        $gameFile = $this->gamesDao->getGameFileByPlayer($playerId);
+        if($gameFile){
+          $response = array("Status" => "Ok", "GameState" => $gameFile);
+        }
+        else{
+          $response = array("Status" => "Error", "Message" => "No such game");
+        }
+        return $response;
+    }
+
 
   }
 
