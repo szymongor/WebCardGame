@@ -10,8 +10,8 @@
       $this->gamesDao = new GamesDao();
     }
 
-    public function getAllGames(){
-      return $this->gamesDao->getAllGames();
+    public function getAllPendingGames(){
+      return $this->gamesDao->getAllPendingGames();
     }
 
     public function createNewGame($playerId, $gameId){

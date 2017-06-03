@@ -1,14 +1,18 @@
 <?php
   require_once $_SERVER['DOCUMENT_ROOT']."/CardGame/Server/DB/connect.php";
+  require_once "GamesUtils.php";
+  require_once "GameState.php";
 
   class GamesDao{
 
+
+    private $gamesUtils;
     private $gamesFolder;
     private $db_connect;
 
     public function __construct(){
       $this->gamesFolder = $_SERVER['DOCUMENT_ROOT']."/CardGame/Server/CurrentGamesFiles/";
-
+      $this->gamesUtils = new GamesUtils();
     }
 
     private function startConnection(){
@@ -23,9 +27,9 @@
       }
     }
 
-    public function getAllGames(){
+    public function getAllPendingGames(){
       $this->startConnection();
-      $queryStr = sprintf("SELECT * FROM `games`");
+      $queryStr = sprintf("SELECT * FROM `games` WHERE pending = 1");
     	$result = @$this->db_connect->query($queryStr);
       if (!$result) {
           throw new Exception("Database Error [{$this->db_connect->errno}] {$this->db_connect->error}");
@@ -88,7 +92,8 @@
         if (!$gamesFile) {
           throw new Exception('No such file');
         }
-        $game = json_decode(fread($gamesFile,filesize($gameFilePath)),true);
+        $gameState = new GameState(fread($gamesFile,filesize($gameFilePath)));
+        $game = $gameState->toArray();
       } catch(Exception $e){
         $game= null;
       }
@@ -112,7 +117,7 @@
     private function createNewGameFile($playerId, $gameID){
       $gameFilePath = $this->gamesFolder.$gameID.".json";
       $gamesFile = fopen($gameFilePath, "w");
-      $game = array('Message' => "Yo2");
+      $game = $this->gamesUtils->newGameJson($playerId);
       fwrite($gamesFile,json_encode($game));
       fclose($gamesFile);
     }
@@ -146,6 +151,11 @@
     }
 
     public function setPlayerPlayingGame($playerId, $gameId){
+      $this->setPlayerPlayingGameInfo($playerId, $gameId);
+      $this->setPlayerPlayingGameFile($playerId, $gameId);
+    }
+
+    private function setPlayerPlayingGameInfo($playerId, $gameId){
       $this->startConnection();
     	$queryStr = sprintf("INSERT INTO `plays`(`user`, `game`) VALUES (%s,\"%s\")",$playerId,$gameId);
     	$result = @$this->db_connect->query($queryStr);
@@ -153,6 +163,10 @@
           throw new Exception("Database Error [{$this->db_connect->errno}] {$this->db_connect->error}");
       }
       mysqli_close($this->db_connect);
+    }
+
+    private function setPlayerPlayingGameFile($playerId, $gameId){
+
     }
 
     public function unsetPlayerPlayingGame($playerId){

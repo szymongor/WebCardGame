@@ -7,10 +7,10 @@
 
   $request = getRequestType($_SERVER['REQUEST_URI']);
   switch ($request) {
-    case "games":
+    case "pendingGames":
       if (isset($_SESSION['loggedUserId'])){
         $gamesService = new GamesService();
-        $games = $gamesService->getAllGames();
+        $games = $gamesService->getAllPendingGames();
         $response = array('Status' => "Ok", "Message" => "Succes", "Games" => $games);
         echo(json_encode($response));
       }
