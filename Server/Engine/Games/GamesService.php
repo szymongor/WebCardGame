@@ -44,6 +44,9 @@
         return $response;
     }
 
+    public function setPlayerPlayingGame($playerId, $gameId){
+      return $this->gamesDao->setPlayerPlayingGame($playerId, $gameId);
+    }
 
   }
 

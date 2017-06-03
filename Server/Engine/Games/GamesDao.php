@@ -151,8 +151,24 @@
     }
 
     public function setPlayerPlayingGame($playerId, $gameId){
-      $this->setPlayerPlayingGameInfo($playerId, $gameId);
-      $this->setPlayerPlayingGameFile($playerId, $gameId);
+      try{
+        $gameInfo = $this->getGameInfoById($gameId);
+        if($gameInfo == null){
+          $response = array('Status'=>'Error', 'Message' => 'No such game');
+        }
+        else if($gameInfo['pending'] == 0){
+          $response = array('Status'=>'Error', 'Message' => 'You can not join the game during the match');
+        }
+        else{
+          $this->setPlayerPlayingGameInfo($playerId, $gameId);
+          $this->setPlayerPlayingGameFile($playerId, $gameId);
+          $response = array('Status'=>'Ok', 'Message' => 'You are assigned to the game: '.$gameId);
+        }  
+      }
+      catch(PlayerAlreadyAssignedException $e){
+        $response = array('Status'=>'Error', 'Message' => 'You are already assigned to the game');
+      }
+      return $response;
     }
 
     private function setPlayerPlayingGameInfo($playerId, $gameId){
@@ -160,7 +176,7 @@
     	$queryStr = sprintf("INSERT INTO `plays`(`user`, `game`) VALUES (%s,\"%s\")",$playerId,$gameId);
     	$result = @$this->db_connect->query($queryStr);
       if (!$result) {
-          throw new Exception("Database Error [{$this->db_connect->errno}] {$this->db_connect->error}");
+          throw new PlayerAlreadyAssignedException("");
       }
       mysqli_close($this->db_connect);
     }
@@ -224,10 +240,9 @@
       }
       mysqli_close($this->db_connect);
     }
-
-
-
   }
+
+  class PlayerAlreadyAssignedException extends Exception { }
 
   //$gamesDao = new GamesDao();
   //$gamesDao->unsetPlayerPlayingGame(1);
