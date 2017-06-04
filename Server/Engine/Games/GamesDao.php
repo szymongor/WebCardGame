@@ -27,6 +27,18 @@
       }
     }
 
+    private function updateGameStateFile($gameState, $gameId){
+      $gameFilePath = $this->gamesFolder.$gameId.".json";
+      $gameFile = fopen($gameFilePath, 'a');
+      $gameStr = $gameState->toString();
+      if (flock($gameFile, LOCK_EX)) {
+          ftruncate($gameFile, 0);
+          fputs($gameFile, $gameStr);
+          flock($gameFile, LOCK_UN);
+      }
+      fclose($gameFile);
+    }
+
     public function getAllPendingGames(){
       $this->startConnection();
       $queryStr = sprintf("SELECT * FROM `games` WHERE pending = 1");
@@ -92,8 +104,8 @@
         if (!$gamesFile) {
           throw new Exception('No such file');
         }
-        $gameState = new GameState(fread($gamesFile,filesize($gameFilePath)));
-        $game = $gameState->toArray();
+        $game = new GameState(fread($gamesFile,filesize($gameFilePath)));
+        //$game = $gameState->toArray();
       } catch(Exception $e){
         $game= null;
       }
@@ -110,14 +122,15 @@
         throw new Exception("You are already assigned to the game");
       }
       $this->addGameToDB($playerId,$gameID);
-      $this->setPlayerPlayingGame($playerId,$gameID);
       $this->createNewGameFile($playerId, $gameID);
+      $this->setPlayerPlayingGame($playerId,$gameID);
+
     }
 
     private function createNewGameFile($playerId, $gameID){
       $gameFilePath = $this->gamesFolder.$gameID.".json";
       $gamesFile = fopen($gameFilePath, "w");
-      $game = $this->gamesUtils->newGameJson($playerId);
+      $game = $this->gamesUtils->newGameJson();
       fwrite($gamesFile,json_encode($game));
       fclose($gamesFile);
     }
@@ -163,7 +176,7 @@
           $this->setPlayerPlayingGameInfo($playerId, $gameId);
           $this->setPlayerPlayingGameFile($playerId, $gameId);
           $response = array('Status'=>'Ok', 'Message' => 'You are assigned to the game: '.$gameId);
-        }  
+        }
       }
       catch(PlayerAlreadyAssignedException $e){
         $response = array('Status'=>'Error', 'Message' => 'You are already assigned to the game');
@@ -182,7 +195,9 @@
     }
 
     private function setPlayerPlayingGameFile($playerId, $gameId){
-
+      $gameState = $this->getGameFileById($gameId);
+      $gameState->addPlayer($playerId);
+      $this->updateGameStateFile($gameState,$gameId);
     }
 
     public function unsetPlayerPlayingGame($playerId){
@@ -240,6 +255,7 @@
       }
       mysqli_close($this->db_connect);
     }
+
   }
 
   class PlayerAlreadyAssignedException extends Exception { }

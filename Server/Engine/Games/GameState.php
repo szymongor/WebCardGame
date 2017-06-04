@@ -1,7 +1,6 @@
 <?php
 
 
-
   class GameState{
 
     private $players;
@@ -23,6 +22,13 @@
       return $gameArray;
     }
 
+    public function toString(){
+      return json_encode($this->toArray());
+    }
+
+    public function addPlayer($playerId){
+      $this->players[] = $playerId;
+    }
 
 
   }
