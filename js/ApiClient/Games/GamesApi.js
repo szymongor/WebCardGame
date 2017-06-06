@@ -1,6 +1,3 @@
-
-var gamesApi = new GamesApi();
-
 function GamesApi(){
 
   this.getAllPendingGames = function(){
@@ -9,7 +6,7 @@ function GamesApi(){
   		url: 'Server/Api/GamesApi.php/pendingGames',
       data : {},
   		success: function(data){
-          console.log(data);
+          //console.log(data);
           var serverResponse = $.parseJSON(data);
           pendingGamesResponse(serverResponse);
           //checkServerResponse(serverResponse);
@@ -23,7 +20,9 @@ function GamesApi(){
   		url: 'Server/Api/GamesApi.php/addNewGame',
       data : {'gameName':gameName,'rules':""},
   		success: function(data){
-          console.log(data);
+        //console.log(data);
+        var serverResponse = $.parseJSON(data);
+        addNewGameResponse(serverResponse);
   		}
   	});
   };

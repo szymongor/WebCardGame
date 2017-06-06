@@ -12,7 +12,7 @@ function appendFunctionsButtons(){
     $('#gamesListMenu').append('<div id="gamesListFunctions" class=""></div>');
 
     $('#gamesListFunctions').append('<button type="button" class="btn btn-primary" onclick="showAddNewGameModal()">Add new game</button>');
-    $('#gamesListFunctions').append('<button type="button" class="btn btn-primary">Find Game</button>');
+    $('#gamesListFunctions').append('<button type="button" class="btn btn-primary" onclick="refreshGamesList()">Refresh games</button>');
 }
 
 function appendGamesListGroups(){
@@ -38,5 +38,9 @@ function appendGameItem(title, gameId){
 function showAddNewGameModal(){
   $('#addNewGame-modal').modal({
     show: 'true'
-});
+  });
+}
+
+function hideAddNewGameModal(){
+  $('#addNewGame-modal').modal('hide');
 }
