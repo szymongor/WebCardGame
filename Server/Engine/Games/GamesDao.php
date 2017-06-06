@@ -46,7 +46,11 @@
       if (!$result) {
           throw new Exception("Database Error [{$this->db_connect->errno}] {$this->db_connect->error}");
       }
-    	$games = $result->fetch_assoc();
+
+      while($row = $result->fetch_array(MYSQLI_ASSOC))
+      {
+        $games[] = $row;
+      }
       mysqli_close($this->db_connect);
       return $games;
     }
@@ -88,9 +92,10 @@
     }
 
     public function getGameFileByPlayer($playerId){
-      $gameInfo = $this->getGameInfoByPlayer($playerId);
-      if(isset($gameInfo['id'])){
-        return $this->getGameFileById($gameInfo['id']);
+      //$gameInfo = $this->getGameInfoByPlayer($playerId);
+      $gameId = $this->getPlayerGameId($playerId);
+      if(isset($gameId)){
+        return $this->getGameFileById($gameId);
       }
       else{
         return null;
