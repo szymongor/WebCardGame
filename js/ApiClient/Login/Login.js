@@ -24,7 +24,7 @@ function register(){
   console.log(userLogin+":"+userEmail+":"+userPassword1);
 }
 
-function checkServerResponse(serverData){
+function checkServerLoginResponse(serverData){
   if(serverData.Status == "Ok"){
     hideLoginModal();
     userData.login=serverData.Login;

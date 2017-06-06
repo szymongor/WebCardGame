@@ -11,28 +11,14 @@ function showGamesMenu(){
 function appendFunctionsButtons(){
     $('#gamesListMenu').append('<div id="gamesListFunctions" class=""></div>');
 
-    $('#gamesListFunctions').append('<button type="button" class="btn btn-primary">Add new game</button>');
+    $('#gamesListFunctions').append('<button type="button" class="btn btn-primary" onclick="showAddNewGameModal()">Add new game</button>');
     $('#gamesListFunctions').append('<button type="button" class="btn btn-primary">Find Game</button>');
 }
 
 function appendGamesListGroups(){
   $('#gamesListMenu').append('<div id="gamesList" class="list-group gamesList well"></div>');
-
-  appendGameItem('Game1', 'l331rr');
-  appendGameItem('Game2', '323c23');
-  appendGameItem('Game3', 'l431rh');
-  appendGameItem('Game4', '547buv');
-  appendGameItem('Game5', '5vy6u7');
-  appendGameItem('Game1', 'l331rr');
-  appendGameItem('Game2', '323c23');
-  appendGameItem('Game3', 'l431rh');
-  appendGameItem('Game4', '547buv');
-  appendGameItem('Game5', '5vy6u7');
-  appendGameItem('Game1', 'l331rr');
-  appendGameItem('Game2', '323c23');
-  appendGameItem('Game3', 'l431rh');
-  appendGameItem('Game4', '547buv');
-  appendGameItem('Game5', '5vy6u7');
+  gamesApi.getAllPendingGames();
+  //appendGameItem('Game1', 'l331rr');
 }
 
 function appendGameItem(title, gameId){
@@ -47,4 +33,10 @@ function appendGameItem(title, gameId){
       itemStr += '</a>';
 
   $('#gamesList').append(itemStr);
+}
+
+function showAddNewGameModal(){
+  $('#addNewGame-modal').modal({
+    show: 'true'
+});
 }

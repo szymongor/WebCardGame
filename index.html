@@ -83,6 +83,19 @@
   </div>
   </div>
 
+  <div class="modal fade" id="addNewGame-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+    <div class="loginmodal-container">
+      <h1>Create new game</h1><br>
+      <div id="serverMessage"></div>
+      <div>
+        <input id="gameName" type="text" name="user" placeholder="Game name">
+        <input type="submit" name="login" class="login loginmodal-submit" value="Create game" onclick="register()">
+      </div>
+    </div>
+  </div>
+  </div>
+
 
 
 
@@ -94,8 +107,11 @@
 
 
   <script src="js/ApiClient/Login/LoginApi.js"></script>
+  <script src="js/ApiClient/Games/GamesApi.js"></script>
 
   <script src="js/ApiClient/Login/Login.js"></script>
+  <script src="js/ApiClient/Games/Games.js"></script>
+
   <script src="js/uiElements/glyphMenu.js"></script>
   <script src="js/uiElements/GamesMenu.js"></script>
 
