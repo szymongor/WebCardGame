@@ -1,11 +1,15 @@
 <?php
 
+  require_once "PlayerState.php";
 
   class GameState{
 
     private $players;
     private $pending;
     private $turn;
+
+    private $cardsDeck;
+    private $playersState;
 
     public function __construct($gameStateJSON){
       $gamesStateObj = json_decode($gameStateJSON,true);
@@ -32,6 +36,10 @@
 
     public function startGame(){
       $this->pending = 0;
+      $this->playersState = array();
+      for($i = 0 ; $i < count($this->players) ; $i++ ){
+        $this->playersState[] = new PlayerState();
+      }
     }
 
 
