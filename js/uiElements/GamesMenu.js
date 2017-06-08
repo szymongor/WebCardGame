@@ -21,17 +21,20 @@ function appendGamesListGroups(){
   //appendGameItem('Game1', 'l331rr');
 }
 
-function appendGameItem(title, gameId){
-
+function appendGameItem(title, gameId, owner){
   var itemStr = '<a class="list-group-item clearfix" onclick="">';
-      itemStr += title + "\n";
-      itemStr += '<span class="pull-right">';
-      itemStr += '<span class="btn btn-xs btn-default" onclick="console.log(\''+gameId+'\')">';
-      itemStr += '<span class="glyphicon glyphicon-play" aria-hidden="true"></span>';
-      itemStr += 'Join game</span>';
-      itemStr += '</span>';
-      itemStr += '</a>';
-
+  itemStr += title + "\n";
+  itemStr += '<span class="pull-right">';
+  if(owner == userData.login){
+    itemStr += '<span class="btn btn-xs btn-default" onclick="deleteGame()">';
+    itemStr += '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
+    itemStr += 'Delete game</span>';
+  }
+  itemStr += '<span class="btn btn-xs btn-default" onclick="joinGame(\''+gameId+'\')">';
+  itemStr += '<span class="glyphicon glyphicon-play" aria-hidden="true"></span>';
+  itemStr += 'Join game</span>';
+  itemStr += '</span>';
+  itemStr += '</a>';
   $('#gamesList').append(itemStr);
 }
 

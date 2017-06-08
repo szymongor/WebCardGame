@@ -41,7 +41,7 @@
 
     public function getAllPendingGames(){
       $this->startConnection();
-      $queryStr = sprintf("SELECT * FROM `games` WHERE pending = 1");
+      $queryStr = sprintf("SELECT g.id, g.generationDate, u.login Owner FROM `games` as g LEFT JOIN users as u ON g.userOwner = u.id WHERE pending = 1");
     	$result = @$this->db_connect->query($queryStr);
       if (!$result) {
           throw new Exception("Database Error [{$this->db_connect->errno}] {$this->db_connect->error}");

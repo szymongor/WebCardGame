@@ -27,4 +27,29 @@ function GamesApi(){
   	});
   };
 
+  this.joinGame = function(gameName){
+  	$.ajax({
+  		type: 'POST',
+  		url: 'Server/Api/GamesApi.php/joinGame',
+      data : {'gameName':gameName},
+  		success: function(data){
+        var serverResponse = $.parseJSON(data);
+        joinGameResponse(serverResponse);
+  		}
+  	});
+  };
+
+  this.deleteGame = function(){
+  	$.ajax({
+  		type: 'POST',
+  		url: 'Server/Api/GamesApi.php/deleteGame',
+      data : {},
+  		success: function(data){
+        console.log(data);
+        //var serverResponse = $.parseJSON(data);
+        //joinGameResponse(serverResponse);
+  		}
+  	});
+  };
+
 }

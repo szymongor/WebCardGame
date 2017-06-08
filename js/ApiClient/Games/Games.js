@@ -15,7 +15,7 @@ function pendingGamesResponse(response){
     $('#gamesList').empty();
     //console.log(response.Games);
     $.each(response.Games, function( index, value ) {
-      appendGameItem(value.id, value.id);
+      appendGameItem(value.id, value.id, value.Owner);
       //console.log(value);
     });
   }
@@ -37,4 +37,22 @@ function appendAddGameErrorMessage(message){
   $(errorMsg).addClass("alert alert-danger")
   .html(message)
   .appendTo($("#serverMessage"));
+}
+
+function joinGame(gameName){
+  gamesApi.joinGame(gameName);
+}
+
+function joinGameResponse(response){
+  if(response.Status == "Ok"){
+    console.log("To do: open game View: " );
+  }
+  else{
+    console.log(response.Message);
+  }
+}
+
+function deleteGame(){
+  gamesApi.deleteGame();
+  refreshGamesList();
 }
