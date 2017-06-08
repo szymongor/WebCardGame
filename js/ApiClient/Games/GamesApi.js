@@ -6,7 +6,7 @@ function GamesApi(){
   		url: 'Server/Api/GamesApi.php/pendingGames',
       data : {},
   		success: function(data){
-          //console.log(data);
+          console.log(data);
           var serverResponse = $.parseJSON(data);
           pendingGamesResponse(serverResponse);
           //checkServerResponse(serverResponse);

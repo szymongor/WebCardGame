@@ -30,6 +30,10 @@
       $this->players[] = $playerId;
     }
 
+    public function startGame(){
+      $this->pending = 0;
+    }
+
 
   }
 

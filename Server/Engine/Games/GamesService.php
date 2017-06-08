@@ -34,9 +34,9 @@
     }
 
     public function getGameFileByPlayer($playerId){
-        $gameFile = $this->gamesDao->getGameFileByPlayer($playerId);
-        if($gameFile){
-          $response = array("Status" => "Ok", "GameState" => $gameFile->toArray());
+        $game = $this->gamesDao->getGameFileByPlayer($playerId);
+        if($game){
+          $response = array("Status" => "Ok","GameId"=>$game['GameId'], "GameState" => $game['GameState']->toArray());
         }
         else{
           $response = array("Status" => "Error", "Message" => "No such game");
@@ -46,6 +46,10 @@
 
     public function setPlayerPlayingGame($playerId, $gameId){
       return $this->gamesDao->setPlayerPlayingGame($playerId, $gameId);
+    }
+
+    public function startGameByOwner($ownerId){
+      return $this->gamesDao->startGameByOwner($ownerId);
     }
 
   }

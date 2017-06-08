@@ -46,12 +46,12 @@
       if (!$result) {
           throw new Exception("Database Error [{$this->db_connect->errno}] {$this->db_connect->error}");
       }
-
       while($row = $result->fetch_array(MYSQLI_ASSOC))
       {
         $games[] = $row;
       }
       mysqli_close($this->db_connect);
+      if(isset($games))
       return $games;
     }
 
@@ -95,7 +95,8 @@
       //$gameInfo = $this->getGameInfoByPlayer($playerId);
       $gameId = $this->getPlayerGameId($playerId);
       if(isset($gameId)){
-        return $this->getGameFileById($gameId);
+        $game = array("GameId" => $gameId, "GameState" => $this->getGameFileById($gameId));
+        return $game;
       }
       else{
         return null;
@@ -166,6 +167,22 @@
           throw new Exception("Database Error [{$this->db_connect->errno}] {$this->db_connect->error}");
       }
       mysqli_close($this->db_connect);
+    }
+
+    public function getPlayersPlayingGame($gameId){
+      $this->startConnection();
+      $queryStr = sprintf("SELECT * FROM `plays` WHERE game = \"$gameId\"");
+    	$result = @$this->db_connect->query($queryStr);
+      if (!$result) {
+          throw new Exception("Database Error [{$this->db_connect->errno}] {$this->db_connect->error}");
+      }
+
+      while($row = $result->fetch_array(MYSQLI_ASSOC))
+      {
+        $players[] = $row;
+      }
+      mysqli_close($this->db_connect);
+      return $players;
     }
 
     public function setPlayerPlayingGame($playerId, $gameId){
@@ -260,6 +277,63 @@
       }
       mysqli_close($this->db_connect);
     }
+
+    public function startGameByOwner($ownerId){
+      $gameInfo = $this->getGameInfoByOwner($ownerId);
+      if(isset($gameInfo['id'])){
+        $response =  $this->startGame($gameInfo['id']);
+      }
+      else{
+        $response = array("Status" => "Error", "Message" => "No such game");
+      }
+      return $response;
+    }
+
+    public function startGame($gameId){
+      $gameInfo = $this->getGameInfoById($gameId);
+      if(!isset($gameInfo)){
+        $response = array("Status" => "Error", "Message" => "No such game");
+      }
+      elseif ($gameInfo['pending'] != 1) {
+        $response = array("Status" => "Error", "Message" => "Game is already starded");
+      }
+      elseif($this->checkIfGameHasPlayers($gameId)){
+        $this->startGameSetInfo($gameId);
+        $this->startGameSetState($gameId);
+        $response = array("Status" => "Ok", "Message" => "The game has started");
+      }
+      else{
+        $response = array("Status" => "Error", "Message" => "Need more players to start game");
+      }
+      return $response;
+    }
+
+    public function checkIfGameHasPlayers($gameId){
+      $players =  $this->getPlayersPlayingGame($gameId);
+      if(count($players) > 1){
+        return true;
+      }
+      else{
+        return false;
+      }
+    }
+
+    private function startGameSetInfo($gameId){
+      $this->startConnection();
+      $queryStr = sprintf("UPDATE `games` SET `pending`= 0  WHERE id = \"$gameId\"");
+    	$result = @$this->db_connect->query($queryStr);
+      if (!$result) {
+          throw new Exception("Database Error [{$this->db_connect->errno}] {$this->db_connect->error}");
+      }
+      mysqli_close($this->db_connect);
+    }
+
+    private function startGameSetState($gameId){
+      $gameState = $this->getGameFileById($gameId);
+      $gameState->startGame();
+      $this->updateGameStateFile($gameState,$gameId);
+    }
+
 
   }
 
