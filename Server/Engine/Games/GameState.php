@@ -16,6 +16,14 @@
       $this->players = $gamesStateObj['Players'];
       $this->pending = $gamesStateObj['Pending'];
       $this->turn = $gamesStateObj['Turn'];
+      if($this->pending == 0){
+        $this->playersState = array();
+        for($i = 0 ; $i < count($gamesStateObj['PlayersState']) ; $i++){
+          $playerState = new PlayerState();
+          $playerState->fromArray($gamesStateObj['PlayersState'][$i]);
+          $this->playersState[] = $playerState;
+        }
+      }
     }
 
     public function toArray(){
@@ -23,6 +31,12 @@
       $gameArray['Players'] = $this->players;
       $gameArray['Pending'] = $this->pending;
       $gameArray['Turn'] = $this->turn;
+      if($this->pending == 0){
+        $gameArray['PlayersState'] = array();
+        for($i = 0 ; $i < count($this->playersState) ; $i++){
+          $gameArray['PlayersState'][] = $this->playersState[$i]->toArray();
+        }
+      }
       return $gameArray;
     }
 
@@ -41,7 +55,6 @@
         $this->playersState[] = new PlayerState();
       }
     }
-
 
   }
 
