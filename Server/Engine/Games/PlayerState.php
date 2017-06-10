@@ -1,4 +1,5 @@
 <?php
+  require_once $_SERVER['DOCUMENT_ROOT']."/CardGame/Server/Engine/Card/CardsService.php";
 
   class PlayerState{
 
@@ -56,6 +57,10 @@
 
     public function addACard($cardsId){
       $this->hand[] = $cardsId;
+    }
+
+    public function getCardId($cardPositionInHand){
+      return $this->hand[$cardPositionInHand];
     }
 
   }

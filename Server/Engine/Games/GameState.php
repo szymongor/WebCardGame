@@ -5,15 +5,19 @@
   class GameState{
 
     private static $CARDS_NUMBER = 102;
+    private static $CARDS_ON_HAND = 6;
+
+    private $cardsService;
 
     private $players;
     private $pending;
-    private $turn;
 
+    private $turn;
     private $cardsDeck;
     private $playersState;
 
     public function __construct($gameStateJSON){
+      $cardsService = new CardsService();
       $gamesStateObj = json_decode($gameStateJSON,true);
       $this->players = $gamesStateObj['Players'];
       $this->pending = $gamesStateObj['Pending'];
@@ -57,12 +61,22 @@
         $this->playersState[] = new PlayerState();
       }
       $this->shuffleCards();
+      $this->dealCards();
     }
 
     private function shuffleCards(){
       $this->cardsDeck = range(0, self::$CARDS_NUMBER-1);
       shuffle($this->cardsDeck);
       return $this->cardsDeck;
+    }
+
+    private function dealCards(){
+      for($i = 0 ; $i < count($this->players) ; $i++ ){
+        for($j = 0 ; $j < self::$CARDS_ON_HAND ; $j++ ){
+          $cardId = $this->drawACard();
+          $this->playersState[$i]->addACard($cardId);
+        }
+      }
     }
 
     private function drawACard(){
@@ -74,6 +88,23 @@
       return $cardId;
     }
 
+    private getPlayerStateById($playerId){
+      $index = array_search($playerId, $this->players);
+      return $this->playersState[$index];
+    }
+
+    public function playersMove($playerId, $cardPositionInHand, $isDiscarded, $target){
+      if($playerId != $this->turn){
+        $response = array("Status" > "Error", "Message" => "Not your turn");
+      }
+      else{
+        $playerState = $this->getPlayerStateById($playerId);
+        $playedCardId = $playerState->getCardId($cardPositionInHand);
+        $playedCard = $cardsService->getCardById($playedCardId);
+
+        //to do - check players resources, act card effect, ..., draw new card.
+      }
+    }
 
   }
 
