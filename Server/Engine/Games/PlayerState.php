@@ -54,7 +54,9 @@
       $this->hand = $stateArray['Hand'];
     }
 
-
+    public function addACard($cardsId){
+      $this->hand[] = $cardsId;
+    }
 
   }
 

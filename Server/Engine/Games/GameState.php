@@ -4,6 +4,8 @@
 
   class GameState{
 
+    private static $CARDS_NUMBER = 102;
+
     private $players;
     private $pending;
     private $turn;
@@ -54,9 +56,32 @@
       for($i = 0 ; $i < count($this->players) ; $i++ ){
         $this->playersState[] = new PlayerState();
       }
+      $this->shuffleCards();
     }
 
+    private function shuffleCards(){
+      $this->cardsDeck = range(0, self::$CARDS_NUMBER-1);
+      shuffle($this->cardsDeck);
+      return $this->cardsDeck;
+    }
+
+    private function drawACard(){
+      if(count($this->cardsDeck) == 0){
+        $this->shuffleCards();
+      }
+      $cardId = $this->cardsDeck[count($this->cardsDeck)-1];
+      unset($this->cardsDeck[count($this->cardsDeck)-1]);
+      return $cardId;
+    }
+
+
   }
+
+  // $gameState = new GameState("{}");
+  // for($i = 0 ; $i < 20 ; $i++){
+  //   $response = $gameState->drawACard();
+  //   echo(json_encode($response)."</br>");
+  // }
 
 
 ?>
