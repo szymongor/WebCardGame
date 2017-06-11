@@ -52,6 +52,11 @@
       return $this->gamesDao->startGameByOwner($ownerId);
     }
 
+    public function getStateForPlayer($playerId){
+      $game = $this->gamesDao->getGameFileByPlayer($playerId)['GameState'];
+      return $game->getStateForPlayer($playerId);
+    }
+
   }
 
   //$gamesService = new GamesService();

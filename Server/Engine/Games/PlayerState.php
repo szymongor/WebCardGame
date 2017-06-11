@@ -29,7 +29,7 @@
       $this->hand = array();
     }
 
-    public function toArray(){
+    public function publicStateToArray(){
       $stateArray = array();
       $stateArray['Tower'] = $this->tower;
       $stateArray['Wall'] = $this->wall;
@@ -39,6 +39,11 @@
       $stateArray['Gems'] = $this->gems;
       $stateArray['Dungeon'] = $this->dungeon;
       $stateArray['Recruits'] = $this->recruits;
+      return $stateArray;
+    }
+
+    public function toArray(){
+      $stateArray = $this->publicStateToArray();
       $stateArray['Hand'] = $this->hand;
       return $stateArray;
     }

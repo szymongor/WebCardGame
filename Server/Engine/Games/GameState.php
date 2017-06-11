@@ -88,7 +88,7 @@
       return $cardId;
     }
 
-    private getPlayerStateById($playerId){
+    private function getPlayerStateById($playerId){
       $index = array_search($playerId, $this->players);
       return $this->playersState[$index];
     }
@@ -104,6 +104,27 @@
 
         //to do - check players resources, act card effect, ..., draw new card.
       }
+    }
+
+    public function getStateForPlayer($playerId){
+      $gameArray = array();
+      $gameArray['Players'] = $this->players;
+      $gameArray['Pending'] = $this->pending;
+      $gameArray['Turn'] = $this->turn;
+      if($this->pending == 0){
+        $gameArray['PlayersState'] = array();
+        for($i = 0 ; $i < count($this->playersState) ; $i++){
+          if($this->players[$i] == $playerId)
+          {
+            $gameArray['PlayersState'][] = $this->playersState[$i]->toArray();
+          }
+          else{
+            $gameArray['PlayersState'][] = $this->playersState[$i]->publicStateToArray();
+          }
+        }
+      }
+      return $gameArray;
+
     }
 
   }
