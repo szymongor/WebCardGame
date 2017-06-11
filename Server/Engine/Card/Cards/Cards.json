@@ -1,0 +1,419 @@
+{
+	"0": {
+		"Title": "Brick Shortage",
+		"Image": "brick.jpg",
+		"Cost": "0",
+		"Action": "All players lose 8 bricks",
+		"Type": "red"
+
+	},
+		"1": {
+		"Title": "Lucky Cache",
+		"Image": "gems.jpg",
+		"Cost": "0",
+		"Action": ["+2 Bricks", "+2 Gems", "Play Again"],
+		"Type": "red"
+
+	},
+
+		"2": {
+		"Title": "Friendly Terrain",
+		"Image": "field.jpg",
+		"Cost": "1",
+		"Action": ["+1 Wall", "Play again"],
+		"Type": "red"
+
+	},
+
+		"3": {
+		"Title": "Miners",
+		"Image": "mine.jpg",
+		"Cost": "3",
+		"Action": "+1 Quarry",
+		"Type": "red"
+
+	},
+		"4": {
+		"Title": "Mother Lode",
+		"Image": "ore.jpg",
+		"Cost": "4",
+		"Action": ["If quarry<enemy quarry, +2 quarry","Else, +1 quarry"],
+		"Type": "red"
+
+	},
+
+		"5": {
+		"Title": "Dwarven Miners",
+		"Image": "mine.jpg",
+		"Cost": "7",
+		"Action": ["+4 Wall","+1 Quarry"],
+		"Type": "red"
+
+	},
+		"6": {
+		"Title": "Work Overtime",
+		"Image": "work.jpg",
+		"Cost": "2",
+		"Action": ["+5 Wall","You lose 6 gems"],
+		"Type": "red"
+
+	},
+		"7": {
+		"Title": "Copping the Tech",
+		"Image": "tech.jpg",
+		"Cost": "5",
+		"Action": "If quarry<enemy quarry, quarry=enemy quarry",
+		"Type": "red"
+
+	},
+		"8": {
+		"Title": "Basic Wall",
+		"Image": "wall.jpg",
+		"Cost": "2",
+		"Action": "+3 Wall",
+		"Type": "red"
+
+	},
+		"9": {
+		"Title": "Sturdy Wall",
+		"Image": "wall.jpg",
+		"Cost": "3",
+		"Action": "+4 Wall",
+		"Type": "red"
+
+	},
+		"10": {
+		"Title": "Innovations",
+		"Image": "tech.jpg",
+		"Cost": "2",
+		"Action": "+1 to all player's quarrys, you gain 4 gems",
+		"Type": "red"
+
+	},
+		"11": {
+		"Title": "Foundations",
+		"Image": "rocks.jpg",
+		"Cost": "3",
+		"Action": "If wall =0, +6 wall, else +3 wall",
+		"Type": "red"
+
+	},
+
+		"12": {
+		"Title": "Tremors",
+		"Image": "tremors.jpg",
+		"Cost": "7",
+		"Action": "All walls take 5 damge. Play again.",
+		"Type": "red"
+
+	},
+
+		"13": {
+		"Title": "Secret Room",
+		"Image": "door.jpg",
+		"Cost": "8",
+		"Action": ["+1 Magic","Play again"],
+		"Type": "red"
+
+	},
+		"14": {
+		"Title": "Earthquake",
+		"Image": "earthquake.jpg",
+		"Cost": "0",
+		"Action": "-1 to all player's quarrys",
+		"Type": "red"
+
+	},
+		"15": {
+		"Title": "Big Wall",
+		"Image": "wall.jpg",
+		"Cost": "5",
+		"Action": "+6 Wall",
+		"Type": "red"
+
+	},
+		"16": {
+		"Title": "Collapse!",
+		"Image": "collapse.jpg",
+		"Cost": "4",
+		"Action": "-1 Enemy quarry",
+		"Type": "red"
+
+	},
+		"17": {
+		"Title": "New Equipment",
+		"Image": "tools.jpg",
+		"Cost": "6",
+		"Action": "+2 quarry",
+		"Type": "red"
+
+	},
+		"18": {
+		"Title": "Strip Mine",
+		"Image": "mine.jpg",
+		"Cost": "0",
+		"Action": "-1 Quarry, +10 wall. You gain 5 gems",
+		"Type": "red"
+
+	},
+		"19": {
+		"Title": "Reinforced Wall",
+		"Image": "wall.jpg",
+		"Cost": "8",
+		"Action": "+8 Wall",
+		"Type": "red"
+
+	},
+		"20": {
+		"Title": "Porticulus",
+		"Image": "defense.jpg",
+		"Cost": "9",
+		"Action": ["+5 Wall","+1 Dungeon"],
+		"Type": "red"
+
+	},
+		"21": {
+		"Title": "Crystal Rocks",
+		"Image": "crystalrocks.jpg",
+		"Cost": "9",
+		"Action": ["+7 Wall","gain 7 gems"],
+		"Type": "red"
+
+	},
+		"22": {
+		"Title": "Harmonic Ore",
+		"Image": "ore.jpg",
+		"Cost": "11",
+		"Action": ["+6 Wall","+3 Tower"],
+		"Type": "red"
+
+	},
+		"23": {
+		"Title": "MondoWall",
+		"Image": "wall.jpg",
+		"Cost": "13",
+		"Action": "+12 Wall",
+		"Type": "red"
+
+	},
+		"24": {
+		"Title": "Focused Designs",
+		"Image": "tech.jpg",
+		"Cost": "15",
+		"Action": ["+8 Wall","+5 Tower"],
+		"Type": "red"
+
+	},
+
+		"25": {
+		"Title": "Great Wall",
+		"Image": "wall.jpg",
+		"Cost": "16",
+		"Action": "+15 Wall",
+		"Type": "red"
+
+	},
+		"26": {
+		"Title": "Rock Launcher",
+		"Image": "rocks.jpg",
+		"Cost": "18",
+		"Action": ["+6 Wall","10 Damage to enemy"],
+		"Type": "red"
+
+	},
+		"27": {
+		"Title": "Dragon's Heart",
+		"Image": "heart.jpg",
+		"Cost": "24",
+		"Action": ["+20 Wall","+8 Tower"],
+		"Type": "red"
+
+	},
+		"28": {
+		"Title": "Forced Labor",
+		"Image": "whip.jpg",
+		"Cost": "7",
+		"Action": ["+9 Wall","Lose 5 recruits"],
+		"Type": "red"
+
+	},
+
+		"29": {
+		"Title": "Rock Garden",
+		"Image": "rgarden.jpg",
+		"Cost": "1",
+		"Action": ["+1 Wall","+1 Tower","+2 recruits"],
+		"Type": "red"
+
+	},
+		"30": {
+		"Title": "Flood Water",
+		"Image": "floodwater.jpg",
+		"Cost": "6",
+		"Action": "Player(s) w/lowest Wall are -1 Dungeon and 2 damage to Tower",
+		"Type": "red"
+
+	},
+		"31": {
+		"Title": "Barracks",
+		"Image": "barracks.jpg",
+		"Cost": "10",
+		"Action": ["+6 recruits, +6 Wall","If dungeon < enemy dungeon, +1 dungeon"],
+		"Type": "red"
+
+	},
+		"32": {
+		"Title": "Battlements",
+		"Image": "battlements.jpg",
+		"Cost": "14",
+		"Action": ["+7 Wall","6 damage to enemy"],
+		"Type": "red"
+
+	},
+		"33": {
+		"Title": "Shift",
+		"Image": "shift.jpg",
+		"Cost": "14",
+		"Action": "Switch your Wall with enemy Wall",
+		"Type": "red"
+
+	},
+		"34": {
+		"Title": "Quartz",
+		"Image": "quartz.jpg",
+		"Cost": "1",
+		"Action": ["+1 Tower","Play again"],
+		"Type": "blue"
+
+	},
+		"35": {
+		"Title": "Smoky Quartz",
+		"Image": "squartz.jpg",
+		"Cost": "2",
+		"Action": "1 damage to enemy tower. Play again.",
+		"Type": "blue"
+
+	},
+		"36": {
+		"Title": "Amethyst",
+		"Image": "amethyst.jpg",
+		"Cost": "2",
+		"Action": "+3 Tower",
+		"Type": "blue"
+
+	},
+
+		"37": {
+		"Title": "Spell Weavers",
+		"Image": "mspell.jpg",
+		"Cost": "3",
+		"Action": "+1 Magic",
+		"Type": "blue"
+
+	},
+		"38": {
+		"Title": "Prism",
+		"Image": "prism.jpg",
+		"Cost": "2",
+		"Action": ["Draw 1 card","Discard 1 card","Play again"],
+		"Type": "blue"
+
+	},
+		"39": {
+		"Title": "Lodestone",
+		"Image": "magne.jpg",
+		"Cost": "5",
+		"Action": "+3 Tower. This card can't be discarded without pplaying it",
+		"Type": "blue"
+
+	},
+
+		"40": {
+		"Title": "Solar Flare",
+		"Image": "solar.jpg",
+		"Cost": "4",
+		"Action": ["+2 Tower","2 Damage to enemy tower"],
+		"Type": "blue"
+
+	},
+		"41": {
+		"Title": "Crystal Matrix",
+		"Image": "crystal.jpg",
+		"Cost": "6",
+		"Action": ["+1 Magic","+3 Tower","+1 Enemy tower"],
+		"Type": "blue"
+
+	},
+		"42": {
+		"Title": "Gemstone Flaw",
+		"Image": "gem.jpg",
+		"Cost": "2",
+		"Action": "3 damage to enemy tower",
+		"Type": "blue"
+
+	},
+		"43": {
+		"Title": "Ruby",
+		"Image": "ruby.jpg",
+		"Cost": "3",
+		"Action": "+5 Tower",
+		"Type": "blue"
+
+	},
+		"44": {
+		"Title": "Gem Spear",
+		"Image": "spear.jpg",
+		"Cost": "4",
+		"Action": "5 damage to enemy tower",
+		"Type": "blue"
+
+	},
+		"45": {
+		"Title": "Power Burn",
+		"Image": "power.jpg",
+		"Cost": "3",
+		"Action": ["5 damage to your tower","+2 Magic"],
+		"Type": "blue"
+
+	},
+		"46": {
+		"Title": "Harmonic Vibe",
+		"Image": "vibe.jpg",
+		"Cost": "7",
+		"Action": ["+1 Magic","+3 Tower","+3 Wall"],
+		"Type": "blue"
+
+	},
+		"47": {
+		"Title": "Parity",
+		"Image": "scales.jpg",
+		"Cost": "7",
+		"Action": "All player's magic equals the highest player's magic",
+		"Type": "blue"
+
+	},
+		"48": {
+		"Title": "Emerald",
+		"Image": "emerald.jpg",
+		"Cost": "6",
+		"Action": "+8 Tower",
+		"Type": "blue"
+
+	},
+		"49": {
+		"Title": "Pearl of Wisdom",
+		"Image": "pearl.jpg",
+		"Cost": "9",
+		"Action": ["+5 Tower","+1 Magic"],
+		"Type": "blue"
+
+	},
+		"50": {
+		"Title": "Shatterer",
+		"Image": "tremors.jpg",
+		"Cost": "9",
+		"Action": ["-1 Magic","9 damage to enemy tower"],
+		"Type": "blue"
+
+	}
+}

@@ -68,6 +68,43 @@
       return $this->hand[$cardPositionInHand];
     }
 
+    public function chceckResources($type, $amount){
+      switch($type){
+        case "red":
+          if($this->bricks >= $amount)
+            return true;
+          else
+            return false;
+        case "blue":
+          if($this->gems >= $amount)
+            return true;
+          else
+            return false;
+        case "green":
+          if($this->recruits >= $amount)
+            return true;
+          else
+            return false;
+      }
+    }
+
+    public function transferResource($type, $amount){
+      switch($type){
+        case "red":
+          $this->bricks += $amount;
+          if($this->bricks < 0) $this->bricks = 0;
+          break;
+        case "blue":
+          $this->gems += $amount;
+          if($this->gems < 0) $this->gems = 0;
+          break;
+        case "green":
+          $this->recruits += $amount;
+          if($this->recruits < 0) $this->recruits = 0;
+          break;
+      }
+    }
+
   }
 
 
