@@ -26,6 +26,14 @@
       return $this->json;
     }
 
+    public function getCost(){
+      return $this->cost;
+    }
+
+    public function getType(){
+      return $this->type;
+    }
+
 
   }
 

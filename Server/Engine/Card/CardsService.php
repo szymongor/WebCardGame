@@ -21,10 +21,9 @@
     }
   }
 
-  $cardsService = new CardsService();
-  $response = $cardsService->getCardById(7)->toJson();
-
-  echo(json_encode($response));
+  //$cardsService = new CardsService();
+  //$response = $cardsService->getCardById(7)->toJson();
+  //echo(json_encode($response));
 
 
 ?>

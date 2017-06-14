@@ -53,8 +53,12 @@
     }
 
     public function getStateForPlayer($playerId){
-      $game = $this->gamesDao->getGameFileByPlayer($playerId)['GameState'];
+      $game = $this->getGameStateByPlayer($playerId);
       return $game->getStateForPlayer($playerId);
+    }
+
+    public function getGameStateByPlayer($playerId){
+      return $this->gamesDao->getGameFileByPlayer($playerId)['GameState'];
     }
 
   }
