@@ -27,9 +27,9 @@
 
   }
 
-  $cardsDao = new CardsDao();
-  $response = $cardsDao->getCardsFile()[50];
-  echo(json_encode($response));
+  //$cardsDao = new CardsDao();
+  //$response = $cardsDao->getCardsFile()[50];
+  //echo(json_encode($response));
 
 
 

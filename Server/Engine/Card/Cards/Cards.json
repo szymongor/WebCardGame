@@ -37,7 +37,7 @@
 		"Title": "Mother Lode",
 		"Image": "ore.jpg",
 		"Cost": "4",
-		"Action": ["If quarry<enemy quarry, +2 quarry","Else, +1 quarry"],
+		"Action": ["If quarry < enemy quarry, +2 quarry","Else, +1 quarry"],
 		"Type": "red"
 
 	},
@@ -62,7 +62,7 @@
 		"Title": "Copping the Tech",
 		"Image": "tech.jpg",
 		"Cost": "5",
-		"Action": "If quarry<enemy quarry, quarry=enemy quarry",
+		"Action": "If quarry < enemy quarry, quarry = enemy quarry",
 		"Type": "red"
 
 	},
@@ -94,7 +94,7 @@
 		"Title": "Foundations",
 		"Image": "rocks.jpg",
 		"Cost": "3",
-		"Action": "If wall =0, +6 wall, else +3 wall",
+		"Action": "If wall = 0, +6 wall, else +3 wall",
 		"Type": "red"
 
 	},
