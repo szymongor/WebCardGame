@@ -20,6 +20,10 @@
       return $game->getStateForPlayer($playerId);
     }
 
+    public function playersMove($playerId, $cardsPositionInHand, $isDiscarded){
+      
+    }
+
   }
 
 
