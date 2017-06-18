@@ -17,7 +17,7 @@
     private $playersState;
 
     public function __construct($gameStateJSON){
-      $cardsService = new CardsService();
+      $this->cardsService = new CardsService();
       $gamesStateObj = json_decode($gameStateJSON,true);
       $this->players = $gamesStateObj['Players'];
       $this->pending = $gamesStateObj['Pending'];
@@ -93,20 +93,40 @@
       return $this->playersState[$index];
     }
 
+    private function currentTurnPlayerId(){
+      return $this->players[$this->turn];
+    }
+
+    private function checkTurn($playerIdToCheck){
+      if($this->currentTurnPlayerId() == $playerIdToCheck){
+        return true;
+      }
+      else{
+        return false;
+      }
+    }
+
     public function playersMove($playerId, $cardPositionInHand, $isDiscarded, $target){
-      if($playerId != $this->turn){
-        $response = array("Status" > "Error", "Message" => "Not your turn");
+      if(!$this->checkTurn($playerId)){
+        $response = array("Status" => "Error", "Message" => "Not your turn: ".$this->turn.":".json_encode($this->players));
       }
       else{
         $playerState = $this->getPlayerStateById($playerId);
         $playedCardId = $playerState->getCardId($cardPositionInHand);
-        $playedCard = $cardsService->getCardById($playedCardId);
+        $playedCard = $this->cardsService->getCardById($playedCardId);
 
-        //to do - check players resources, act card effect, ..., draw new card.
+        if($playerState->chceckResources($playedCard->getType(),$playedCard->getCost())){
+          $response = array("Status" => "Ok", "Message" => "Done");
+        }
+        else{
+          $response = array("Status" => "Error", "Message" => "You dont have enough resources");
+        }
+      //to do - check players resources, act card effect, ..., draw new card.
       }
+      return $response;
     }
 
-    public function getStateForPlayer($playerId){
+    public function getGameStateForPlayer($playerId){
       $gameArray = array();
       $gameArray['Players'] = $this->players;
       $gameArray['Pending'] = $this->pending;

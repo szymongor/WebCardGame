@@ -12,16 +12,18 @@
     }
 
     private function getGameStateByPlayer($playerId){
-      return $this->getGameStateByPlayer($playerId);
+      return $this->gamesService->getGameStateByPlayer($playerId);
     }
 
-    public function getStateForPlayer($playerId){
-      $game = $this->gamesService->getGameStateByPlayer($playerId);
-      return $game->getStateForPlayer($playerId);
+    public function getGameStateForPlayer($playerId){
+      $game = $this->getGameStateByPlayer($playerId);
+      return $game->getGameStateForPlayer($playerId);
     }
 
-    public function playersMove($playerId, $cardsPositionInHand, $isDiscarded){
-      
+    public function playersMove($playerId, $cardsPositionInHand, $isDiscarded, $target){
+      $gameState = $this->getGameStateByPlayer($playerId);
+      $response = $gameState->playersMove($playerId, $cardsPositionInHand, $isDiscarded, $target);
+      return $response;
     }
 
   }
