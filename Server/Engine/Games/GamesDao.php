@@ -27,7 +27,7 @@
       }
     }
 
-    private function updateGameStateFile($gameState, $gameId){
+    public function updateGameStateFile($gameState, $gameId){
       $gameFilePath = $this->gamesFolder.$gameId.".json";
       $gameFile = fopen($gameFilePath, 'a');
       $gameStr = $gameState->toString();

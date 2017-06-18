@@ -21,8 +21,12 @@
     }
 
     public function playersMove($playerId, $cardsPositionInHand, $isDiscarded, $target){
-      $gameState = $this->getGameStateByPlayer($playerId);
-      $response = $gameState->playersMove($playerId, $cardsPositionInHand, $isDiscarded, $target);
+      $this->gameState = $this->getGameStateByPlayer($playerId);
+      $response = $this->gameState->playersMove($playerId, $cardsPositionInHand, $isDiscarded, $target);
+      if($response['Status'] == 'Ok'){
+        $gameId = $this->gamesService->getGameFileByPlayer($playerId)['GameId'];
+        $this->gamesService->saveGameState($this->gameState, $gameId);
+      }
       return $response;
     }
 

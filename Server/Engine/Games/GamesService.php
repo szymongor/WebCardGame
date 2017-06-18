@@ -61,6 +61,10 @@
       return $this->gamesDao->getGameFileByPlayer($playerId)['GameState'];
     }
 
+    public function saveGameState($gameState, $gameId){
+      $this->gamesDao->updateGameStateFile($gameState, $gameId);
+    }
+
   }
 
   //$gamesService = new GamesService();

@@ -106,6 +106,13 @@
       }
     }
 
+    private function startNextTurn(){
+      $this->turn++;
+      if($this->turn > Count($this->players)){
+        $this->turn = 0;
+      }
+    }
+
     public function playersMove($playerId, $cardPositionInHand, $isDiscarded, $target){
       if(!$this->checkTurn($playerId)){
         $response = array("Status" => "Error", "Message" => "Not your turn: ".$this->turn.":".json_encode($this->players));
@@ -116,12 +123,13 @@
         $playedCard = $this->cardsService->getCardById($playedCardId);
 
         if($playerState->chceckResources($playedCard->getType(),$playedCard->getCost())){
+          $this->startNextTurn();
           $response = array("Status" => "Ok", "Message" => "Done");
         }
         else{
           $response = array("Status" => "Error", "Message" => "You dont have enough resources");
         }
-      //to do - check players resources, act card effect, ..., draw new card.
+      //to do - act card effect, ..., discard and draw new card.
       }
       return $response;
     }
