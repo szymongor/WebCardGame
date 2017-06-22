@@ -105,6 +105,72 @@
       }
     }
 
+    //Cards effects:
+
+    public function addWallPoints($amount){
+      $this->wall += $amount;
+      $passDamage = 0
+      if($this->wall < 0){
+        $passDamage = $this->wall;
+        $this->wall = 0;
+      }
+      return $passDamage;
+    }
+
+    public function addTowerPoints($amount){
+      $this->tower += $amount;
+      if($this->tower < 0){}
+        $this->tower = 0;
+      }
+    }
+
+    public function dealDamage($amount){
+      $passDamage = $this->addWallPoints(-$amount);
+      $this->tower -= $passDamage;
+    }
+
+    public function addQuarry($amount){
+      $this->quarry += $amount;
+      if($this->quarry < 0){}
+        $this->quarry = 0;
+      }
+    }
+
+    public function addBricks($amount){
+      $this->bricks += $amount;
+      if($this->bricks < 0){}
+        $this->bricks = 0;
+      }
+    }
+
+    public function addMagic($amount){
+      $this->magic += $amount;
+      if($this->magic < 0){}
+        $this->magic = 0;
+      }
+    }
+
+    public function addGems($amount){
+      $this->gems += $amount;
+      if($this->gems < 0){}
+        $this->bricks = 0;
+      }
+    }
+
+    public function addDungeon($amount){
+      $this->dungeon += $amount;
+      if($this->dungeon < 0){}
+        $this->bricks = 0;
+      }
+    }
+
+    public function addRecruits($amount){
+      $this->recruits += $amount;
+      if($this->recruits < 0){}
+        $this->bricks = 0;
+      }
+    }
+
   }
 
 

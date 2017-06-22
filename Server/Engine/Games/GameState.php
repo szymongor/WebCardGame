@@ -155,6 +155,50 @@
 
     }
 
+    //Cards effect:
+
+    public function addPlayerWall($amount, $target){
+      $this->playersState[$target]->addWallPoints($amount);
+    }
+
+    public function addPlayerTower($amount, $target){
+      $this->playersState[$target]->addTowerPoints($amount);
+    }
+
+    public function dealDamageToPlayer($amount, $target){
+      $this->playersState[$target]->dealDamage($amount);
+    }
+
+    public function addPlayerQuarry($amount, $target){
+      $this->playersState[$target]->addQuarry($amount);
+    }
+
+    public function addPlayerBricks($amount, $target){
+      $this->playersState[$target]->addBricks($amount);
+    }
+
+    public function addPlayerMagic($amount, $target){
+      $this->playersState[$target]->addMagic($amount);
+    }
+
+    public function addPlayerGems($amount, $target){
+      $this->playersState[$target]->addGems($amount);
+    }
+
+    public function addPlayerDungeon($amount, $target){
+      $this->playersState[$target]->addDungeon($amount);
+    }
+
+    public function addPlayerRecruits($amount, $target){
+      $this->playersState[$target]->addRecruits($amount);
+    }
+
+
+
+
+
+
+
   }
 
   // $gameState = new GameState("{}");
