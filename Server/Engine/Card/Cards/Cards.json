@@ -5,415 +5,614 @@
 		"Cost": "0",
 		"Action": "All players lose 8 bricks",
 		"Type": "red"
-
 	},
-		"1": {
+	"1": {
 		"Title": "Lucky Cache",
 		"Image": "gems.jpg",
 		"Cost": "0",
 		"Action": ["+2 Bricks", "+2 Gems", "Play Again"],
 		"Type": "red"
-
 	},
-
-		"2": {
+	"2": {
 		"Title": "Friendly Terrain",
 		"Image": "field.jpg",
 		"Cost": "1",
 		"Action": ["+1 Wall", "Play again"],
 		"Type": "red"
-
 	},
-
-		"3": {
+	"3": {
 		"Title": "Miners",
 		"Image": "mine.jpg",
 		"Cost": "3",
 		"Action": "+1 Quarry",
 		"Type": "red"
-
 	},
-		"4": {
-		"Title": "Mother Lode",
-		"Image": "ore.jpg",
-		"Cost": "4",
-		"Action": ["If quarry < enemy quarry, +2 quarry","Else, +1 quarry"],
-		"Type": "red"
-
-	},
-
-		"5": {
+	"4": {
 		"Title": "Dwarven Miners",
 		"Image": "mine.jpg",
 		"Cost": "7",
-		"Action": ["+4 Wall","+1 Quarry"],
+		"Action": ["+4 Wall", "+1 Quarry"],
 		"Type": "red"
-
 	},
-		"6": {
+	"5": {
 		"Title": "Work Overtime",
 		"Image": "work.jpg",
 		"Cost": "2",
-		"Action": ["+5 Wall","You lose 6 gems"],
+		"Action": ["+5 Wall", "You lose 6 gems"],
 		"Type": "red"
-
 	},
-		"7": {
-		"Title": "Copping the Tech",
-		"Image": "tech.jpg",
-		"Cost": "5",
-		"Action": "If quarry < enemy quarry, quarry = enemy quarry",
-		"Type": "red"
-
-	},
-		"8": {
+	"6": {
 		"Title": "Basic Wall",
 		"Image": "wall.jpg",
 		"Cost": "2",
 		"Action": "+3 Wall",
 		"Type": "red"
-
 	},
-		"9": {
+	"7": {
 		"Title": "Sturdy Wall",
 		"Image": "wall.jpg",
 		"Cost": "3",
 		"Action": "+4 Wall",
 		"Type": "red"
-
 	},
-		"10": {
+	"8": {
 		"Title": "Innovations",
 		"Image": "tech.jpg",
 		"Cost": "2",
 		"Action": "+1 to all player's quarrys, you gain 4 gems",
 		"Type": "red"
-
 	},
-		"11": {
-		"Title": "Foundations",
-		"Image": "rocks.jpg",
-		"Cost": "3",
-		"Action": "If wall = 0, +6 wall, else +3 wall",
-		"Type": "red"
-
-	},
-
-		"12": {
+	"9": {
 		"Title": "Tremors",
 		"Image": "tremors.jpg",
 		"Cost": "7",
 		"Action": "All walls take 5 damge. Play again.",
 		"Type": "red"
-
 	},
-
-		"13": {
+	"10": {
 		"Title": "Secret Room",
 		"Image": "door.jpg",
 		"Cost": "8",
-		"Action": ["+1 Magic","Play again"],
+		"Action": ["+1 Magic", "Play again"],
 		"Type": "red"
-
 	},
-		"14": {
+	"11": {
 		"Title": "Earthquake",
 		"Image": "earthquake.jpg",
 		"Cost": "0",
 		"Action": "-1 to all player's quarrys",
 		"Type": "red"
-
 	},
-		"15": {
+	"12": {
 		"Title": "Big Wall",
 		"Image": "wall.jpg",
 		"Cost": "5",
 		"Action": "+6 Wall",
 		"Type": "red"
-
 	},
-		"16": {
+	"13": {
 		"Title": "Collapse!",
 		"Image": "collapse.jpg",
 		"Cost": "4",
 		"Action": "-1 Enemy quarry",
 		"Type": "red"
-
 	},
-		"17": {
+	"14": {
 		"Title": "New Equipment",
 		"Image": "tools.jpg",
 		"Cost": "6",
 		"Action": "+2 quarry",
 		"Type": "red"
-
 	},
-		"18": {
+	"15": {
 		"Title": "Strip Mine",
 		"Image": "mine.jpg",
 		"Cost": "0",
 		"Action": "-1 Quarry, +10 wall. You gain 5 gems",
 		"Type": "red"
-
 	},
-		"19": {
+	"16": {
 		"Title": "Reinforced Wall",
 		"Image": "wall.jpg",
 		"Cost": "8",
 		"Action": "+8 Wall",
 		"Type": "red"
-
 	},
-		"20": {
+	"17": {
 		"Title": "Porticulus",
 		"Image": "defense.jpg",
 		"Cost": "9",
-		"Action": ["+5 Wall","+1 Dungeon"],
+		"Action": ["+5 Wall", "+1 Dungeon"],
 		"Type": "red"
-
 	},
-		"21": {
+	"18": {
 		"Title": "Crystal Rocks",
 		"Image": "crystalrocks.jpg",
 		"Cost": "9",
-		"Action": ["+7 Wall","gain 7 gems"],
+		"Action": ["+7 Wall", "gain 7 gems"],
 		"Type": "red"
-
 	},
-		"22": {
+	"19": {
 		"Title": "Harmonic Ore",
 		"Image": "ore.jpg",
 		"Cost": "11",
-		"Action": ["+6 Wall","+3 Tower"],
+		"Action": ["+6 Wall", "+3 Tower"],
 		"Type": "red"
-
 	},
-		"23": {
+	"20": {
 		"Title": "MondoWall",
 		"Image": "wall.jpg",
 		"Cost": "13",
 		"Action": "+12 Wall",
 		"Type": "red"
-
 	},
-		"24": {
+	"21": {
 		"Title": "Focused Designs",
 		"Image": "tech.jpg",
 		"Cost": "15",
-		"Action": ["+8 Wall","+5 Tower"],
+		"Action": ["+8 Wall", "+5 Tower"],
 		"Type": "red"
-
 	},
-
-		"25": {
+	"22": {
 		"Title": "Great Wall",
 		"Image": "wall.jpg",
 		"Cost": "16",
 		"Action": "+15 Wall",
 		"Type": "red"
-
 	},
-		"26": {
+	"23": {
 		"Title": "Rock Launcher",
 		"Image": "rocks.jpg",
 		"Cost": "18",
-		"Action": ["+6 Wall","10 Damage to enemy"],
+		"Action": ["+6 Wall", "10 Damage to enemy"],
 		"Type": "red"
-
 	},
-		"27": {
+	"24": {
 		"Title": "Dragon's Heart",
 		"Image": "heart.jpg",
 		"Cost": "24",
-		"Action": ["+20 Wall","+8 Tower"],
+		"Action": ["+20 Wall", "+8 Tower"],
 		"Type": "red"
-
 	},
-		"28": {
+	"25": {
 		"Title": "Forced Labor",
 		"Image": "whip.jpg",
 		"Cost": "7",
-		"Action": ["+9 Wall","Lose 5 recruits"],
+		"Action": ["+9 Wall", "Lose 5 recruits"],
 		"Type": "red"
-
 	},
-
-		"29": {
+	"26": {
 		"Title": "Rock Garden",
 		"Image": "rgarden.jpg",
 		"Cost": "1",
-		"Action": ["+1 Wall","+1 Tower","+2 recruits"],
+		"Action": ["+1 Wall", "+1 Tower", "+2 recruits"],
 		"Type": "red"
-
 	},
-		"30": {
+	"27": {
 		"Title": "Flood Water",
 		"Image": "floodwater.jpg",
 		"Cost": "6",
 		"Action": "Player(s) w/lowest Wall are -1 Dungeon and 2 damage to Tower",
 		"Type": "red"
-
 	},
-		"31": {
-		"Title": "Barracks",
-		"Image": "barracks.jpg",
-		"Cost": "10",
-		"Action": ["+6 recruits, +6 Wall","If dungeon < enemy dungeon, +1 dungeon"],
-		"Type": "red"
-
-	},
-		"32": {
+	"28": {
 		"Title": "Battlements",
 		"Image": "battlements.jpg",
 		"Cost": "14",
-		"Action": ["+7 Wall","6 damage to enemy"],
+		"Action": ["+7 Wall", "6 damage to enemy"],
 		"Type": "red"
-
 	},
-		"33": {
+	"29": {
 		"Title": "Shift",
 		"Image": "shift.jpg",
 		"Cost": "14",
 		"Action": "Switch your Wall with enemy Wall",
 		"Type": "red"
-
 	},
-		"34": {
+	"30": {
 		"Title": "Quartz",
 		"Image": "quartz.jpg",
 		"Cost": "1",
-		"Action": ["+1 Tower","Play again"],
+		"Action": ["+1 Tower", "Play again"],
 		"Type": "blue"
-
 	},
-		"35": {
+	"31": {
 		"Title": "Smoky Quartz",
 		"Image": "squartz.jpg",
 		"Cost": "2",
 		"Action": "1 damage to enemy tower. Play again.",
 		"Type": "blue"
-
 	},
-		"36": {
+	"32": {
 		"Title": "Amethyst",
 		"Image": "amethyst.jpg",
 		"Cost": "2",
 		"Action": "+3 Tower",
 		"Type": "blue"
-
 	},
-
-		"37": {
+	"33": {
 		"Title": "Spell Weavers",
 		"Image": "mspell.jpg",
 		"Cost": "3",
 		"Action": "+1 Magic",
 		"Type": "blue"
-
 	},
-		"38": {
+	"34": {
 		"Title": "Prism",
 		"Image": "prism.jpg",
 		"Cost": "2",
-		"Action": ["Draw 1 card","Discard 1 card","Play again"],
+		"Action": ["Draw 1 card", "Discard 1 card", "Play again"],
 		"Type": "blue"
-
 	},
-		"39": {
+	"35": {
 		"Title": "Lodestone",
 		"Image": "magne.jpg",
 		"Cost": "5",
 		"Action": "+3 Tower. This card can't be discarded without pplaying it",
 		"Type": "blue"
-
 	},
-
-		"40": {
+	"36": {
 		"Title": "Solar Flare",
 		"Image": "solar.jpg",
 		"Cost": "4",
-		"Action": ["+2 Tower","2 Damage to enemy tower"],
+		"Action": ["+2 Tower", "2 Damage to enemy tower"],
 		"Type": "blue"
-
 	},
-		"41": {
+	"37": {
 		"Title": "Crystal Matrix",
 		"Image": "crystal.jpg",
 		"Cost": "6",
-		"Action": ["+1 Magic","+3 Tower","+1 Enemy tower"],
+		"Action": ["+1 Magic", "+3 Tower", "+1 Enemy tower"],
 		"Type": "blue"
-
 	},
-		"42": {
+	"38": {
 		"Title": "Gemstone Flaw",
 		"Image": "gem.jpg",
 		"Cost": "2",
 		"Action": "3 damage to enemy tower",
 		"Type": "blue"
-
 	},
-		"43": {
+	"39": {
 		"Title": "Ruby",
 		"Image": "ruby.jpg",
 		"Cost": "3",
 		"Action": "+5 Tower",
 		"Type": "blue"
-
 	},
-		"44": {
+	"40": {
 		"Title": "Gem Spear",
 		"Image": "spear.jpg",
 		"Cost": "4",
 		"Action": "5 damage to enemy tower",
 		"Type": "blue"
-
 	},
-		"45": {
+	"41": {
 		"Title": "Power Burn",
 		"Image": "power.jpg",
 		"Cost": "3",
-		"Action": ["5 damage to your tower","+2 Magic"],
+		"Action": ["5 damage to your tower", "+2 Magic"],
 		"Type": "blue"
-
 	},
-		"46": {
+	"42": {
 		"Title": "Harmonic Vibe",
 		"Image": "vibe.jpg",
 		"Cost": "7",
-		"Action": ["+1 Magic","+3 Tower","+3 Wall"],
+		"Action": ["+1 Magic", "+3 Tower", "+3 Wall"],
 		"Type": "blue"
-
 	},
-		"47": {
+	"43": {
 		"Title": "Parity",
 		"Image": "scales.jpg",
 		"Cost": "7",
 		"Action": "All player's magic equals the highest player's magic",
 		"Type": "blue"
-
 	},
-		"48": {
+	"44": {
 		"Title": "Emerald",
 		"Image": "emerald.jpg",
 		"Cost": "6",
 		"Action": "+8 Tower",
 		"Type": "blue"
-
 	},
-		"49": {
+	"45": {
 		"Title": "Pearl of Wisdom",
 		"Image": "pearl.jpg",
 		"Cost": "9",
-		"Action": ["+5 Tower","+1 Magic"],
+		"Action": ["+5 Tower", "+1 Magic"],
 		"Type": "blue"
-
 	},
-		"50": {
+	"46": {
 		"Title": "Shatterer",
 		"Image": "tremors.jpg",
 		"Cost": "9",
-		"Action": ["-1 Magic","9 damage to enemy tower"],
+		"Action": ["-1 Magic", "9 damage to enemy tower"],
 		"Type": "blue"
-
+	},
+	"47": {
+		"Title": "Crumble stone",
+		"Image": "darkstone.jpg",
+		"Cost": "7",
+		"Action": ["+8 Tower", "Enemy loses 6 bricks"],
+		"Type": "blue"
+	},
+	"48": {
+		"Title": "Sapphire",
+		"Image": "sapphire.jpg",
+		"Cost": "10",
+		"Action": "+11 Tower",
+		"Type": "blue"
+	},
+	"49": {
+		"Title": "Discord",
+		"Image": "dicord.jpg",
+		"Cost": "5",
+		"Action": "7 Damage to all towers, all player's magic -1",
+		"Type": "blue"
+	},
+	"50": {
+		"Title": "Fire Ruby",
+		"Image": "redgem.jpg",
+		"Cost": "13",
+		"Action": ["+6 Tower", "4 Damage to all enemy towers"],
+		"Type": "blue"
+	},
+	"51": {
+		"Title": "Quarry's Help",
+		"Image": "consept.jpg",
+		"Cost": "4",
+		"Action": ["+7 Tower", "Lose 10 bricks"],
+		"Type": "blue"
+	},
+	"52": {
+		"Title": "Crystal Shield",
+		"Image": "shield.jpg",
+		"Cost": "12",
+		"Action": ["+8 Tower", "+3 Wall"],
+		"Type": "blue"
+	},
+	"53": {
+		"Title": "Empathy Gem",
+		"Image": "gem.jpg",
+		"Cost": "14",
+		"Action": ["-+8 Tower", "+1 Dungeon"],
+		"Type": "blue"
+	},
+	"54": {
+		"Title": "Diamond",
+		"Image": "diamond.jpg",
+		"Cost": "16",
+		"Action": "+15 Tower",
+		"Type": "blue"
+	},
+	"55": {
+		"Title": "Sanctuary",
+		"Image": "sanctuary.jpg",
+		"Cost": "15",
+		"Action": ["+10 Tower", "+5 Wall", "Gain 5 recruits"],
+		"Type": "blue"
+	},
+	"56": {
+		"Title": "Lava Jewel",
+		"Image": "jewel.jpg",
+		"Cost": "17",
+		"Action": ["+12 Tower", "6 Damage to all enemies"],
+		"Type": "blue"
+	},
+	"57": {
+		"Title": "Dragon's Eye",
+		"Image": "dragoneye.jpg",
+		"Cost": "21",
+		"Action": "+20 Tower",
+		"Type": "blue"
+	},
+	"58": {
+		"Title": "Crystalize",
+		"Image": "crystalize.jpg",
+		"Cost": "8",
+		"Action": ["+11 Tower", "-6 Wall"],
+		"Type": "blue"
+	},
+	"59": {
+		"Title": "Rainbow",
+		"Image": "rainbow.jpg",
+		"Cost": "0",
+		"Action": "+1 Tower to all players. You gain 3 gems.",
+		"Type": "blue"
+	},
+	"60": {
+		"Title": "Apprentice",
+		"Image": "apprentice.jpg",
+		"Cost": "5",
+		"Action": "+4 Tower, you lose 3 recruits, 2 damage to enemy Tower",
+		"Type": "blue"
+	},
+	"61": {
+		"Title": "Phase Jewel",
+		"Image": "jewel.jpg",
+		"Cost": "18",
+		"Action": ["+13 Tower", "+6 recruits", "+6 bricks"],
+		"Type": "blue"
+	},
+	"62": {
+		"Title": "Mad Cow Disease",
+		"Image": "cow.jpg",
+		"Cost": "0",
+		"Action": "All players lose 6 recruits",
+		"Type": "green"
+	},
+	"63": {
+		"Title": "Faerie",
+		"Image": "faerie.jpg",
+		"Cost": "1",
+		"Action": ["2 Damage", "Play again"],
+		"Type": "green"
+	},
+	"64": {
+		"Title": "Moody Goblins",
+		"Image": "goblin.jpg",
+		"Cost": "1",
+		"Action": ["4 Damage", "You lose 3 gems"],
+		"Type": "green"
+	},
+	"65": {
+		"Title": "Minotaur",
+		"Image": "minotaur.jpg",
+		"Cost": "3",
+		"Action": "+1 Dungeon",
+		"Type": "green"
+	},
+	"66": {
+		"Title": "Elven Scout",
+		"Image": "elf.jpg",
+		"Cost": "2",
+		"Action": ["Draw 1 card", "Discard 1 cars", "Play again"],
+		"Type": "green"
+	},
+	"67": {
+		"Title": "Goblin Mob",
+		"Image": "goblin.jpg",
+		"Cost": "3",
+		"Action": ["6 Damage", "You take 3 damage"],
+		"Type": "green"
+	},
+	"68": {
+		"Title": "Shadow Faerie",
+		"Image": "shadowf.jpg",
+		"Cost": "6",
+		"Action": ["2 Damage to enemy tower", "Play again"],
+		"Type": "green"
+	},
+	"69": {
+		"Title": "Orc",
+		"Image": "ore.jpg",
+		"Cost": "3",
+		"Action": "5 Damage",
+		"Type": "green"
+	},
+	"70": {
+		"Title": "Dwarves",
+		"Image": "dwarf.jpg",
+		"Cost": "5",
+		"Action": ["4 Damage", "+3 Wall"],
+		"Type": "green"
+	},
+	"71": {
+		"Title": "Little Snakes",
+		"Image": "snake.jpg",
+		"Cost": "6",
+		"Action": "4 Damage to enemy tower",
+		"Type": "green"
+	},
+	"72": {
+		"Title": "Troll Trainer",
+		"Image": "troll.jpg",
+		"Cost": "7",
+		"Action": "+2 Dungeon",
+		"Type": "green"
+	},
+	"73": {
+		"Title": "Tower Gremlin",
+		"Image": "gremlin.jpg",
+		"Cost": "8",
+		"Action": ["2 Damage", "+4 Wall", "+2 Tower"],
+		"Type": "green"
+	},
+	"74": {
+		"Title": "Full Moon",
+		"Image": "fullmoon.jpg",
+		"Cost": "0",
+		"Action": "+1 to all player's Dungeon. You gain 3 recruits",
+		"Type": "green"
+	},
+	"75": {
+		"Title": "Slasher",
+		"Image": "slasher.jpg",
+		"Cost": "3",
+		"Action": "6 Damage",
+		"Type": "green"
+	},
+	"76": {
+		"Title": "Ogre",
+		"Image": "ogre.jpg",
+		"Cost": "3",
+		"Action": "7 Damage",
+		"Type": "green"
+	},
+	"77": {
+		"Title": "Imp",
+		"Image": "imp.jpg",
+		"Cost": "5",
+		"Action": "6 Damage. All players lose 5 bricks, gems and recruits",
+		"Type": "green"
+	},
+	"78": {
+		"Title": "Werewolf",
+		"Image": "werewolf.jpg",
+		"Cost": "9",
+		"Action": "9 Damage",
+		"Type": "green"
+	},
+	"79": {
+		"Title": "Succubus",
+		"Image": "succubus.jpg",
+		"Cost": "14",
+		"Action": "5 Damage to enemy Tower, enemy loses 8 recruits",
+		"Type": "green"
+	},
+	"80": {
+		"Title": "Rock Stompers",
+		"Image": "rockgiant.jpg",
+		"Cost": "11",
+		"Action": ["8 Damage", "-1 enemy quarry"],
+		"Type": "green"
+	},
+	"81": {
+		"Title": "Thief",
+		"Image": "thief.jpg",
+		"Cost": "12",
+		"Action": "Enemy loses 10 gems, 5 bricks, you gain 1/2 amt. round up",
+		"Type": "green"
+	},
+	"82": {
+		"Title": "Vampire",
+		"Image": "vampire.jpg",
+		"Cost": "17",
+		"Action": ["10 Damage", "Enemy loses 5 recruits, -1 enemy Dungeon"],
+		"Type": "green"
+	},
+	"83": {
+		"Title": "Dragon",
+		"Image": "dragon.jpg",
+		"Cost": "25",
+		"Action": ["20 Damage", "Enemy loses 10 gems, -1 enemy Dungeon"],
+		"Type": "green"
+	},
+	"84": {
+		"Title": "Gnome",
+		"Image": "gnome.jpg",
+		"Cost": "2",
+		"Action": ["3 Damage", "+1 gem"],
+		"Type": "green"
+	},
+	"85": {
+		"Title": "Berserker",
+		"Image": "berserker.jpg",
+		"Cost": "4",
+		"Action": ["8 Damage", "3 Damage to your Tower"],
+		"Type": "green"
+	},
+	"86": {
+		"Title": "Warlord",
+		"Image": "warlord.jpg",
+		"Cost": "13",
+		"Action": ["13 Damage", "You lose 3 gems"],
+		"Type": "green"
+	},
+	"87": {
+		"Title": "Pegasus Lancer",
+		"Image": "pegasus.jpg",
+		"Cost": "18",
+		"Action": "12 Damage to enemy tower",
+		"Type": "green"
 	}
 }
