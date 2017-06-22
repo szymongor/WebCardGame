@@ -105,6 +105,29 @@
       }
     }
 
+    public function getWall(){
+      return $this->wall;
+    }
+
+    public function setWall($newWall){
+      $this->wall = $newWall;
+    }
+
+    public function getMagic(){
+      return $this->magic;
+    }
+
+    public function setMagic($newMagic){
+      $this->magic = $newMagic;
+    }
+
+    public function getGems(){
+      return $this->gems;
+    }
+
+    public function getBricks(){
+      return $this->bricks;
+    }
     //Cards effects:
 
     public function addWallPoints($amount){

@@ -193,11 +193,64 @@
       $this->playersState[$target]->addRecruits($amount);
     }
 
+    public function wallsShift($target){
+      $currentPlayerWall = $this->playersState[$this->players[$this->turn]]->getWall();
+      $targetPlayerWall = $this->playersState[$target]->getWall();
+      $this->playersState[$this->players[$this->turn]]->setWall($targetPlayerWall);
+      $this->playersState[$target]->setWall($currentPlayerWall);
+    }
 
+    public function magicParity(){
+      $bestMagic = 0;
+      for($i = 0 ; $i < count($this->players) ; $i++){
+        $magicScore = $this->playersState[$i]->getMagic();
+        if($bestMagic < $magicScore ){
+          $bestMagic = $magicScore;
+        }
+      }
+      for($i = 0 ; $i < count($this->players) ; $i++){
+        $magicScore = $this->playersState[$i]->setMagic($bestMagic);
+      }
+    }
 
+    public function thief($target){
+      $targetGems = $this->playersState[$target]->getGems();
+      $targetBricks = $this->playersState[$target]->getBricks();
 
+      $stolenGems = $targetGems;
+      $stolenBricks = $targetBricks;
 
+      if($stolenGems > 10){
+        $stolenGems = 10;
+      }
 
+      if($stolenBricks > 5){
+        $stolenBricks = 5;
+      }
+
+      $this->playersState[$target]->addGems(-10);
+      $this->playersState[$target]->addBricks(-5);
+
+      $this->playersState[$this->players[$this->turn]]->addGems($stolenGems/2);
+      $this->playersState[$this->players[$this->turn]]->addBricks($stolenBricks/2);
+    }
+
+    public function floodWater(){
+      $lowestWall = $this->playersState[0]->getWall();
+      for($i = 0 ; $i < count($this->players) ; $i++){
+        $wall = $this->playersState[$target]->getWall();
+        if($lowestWall > $wall ){
+          $lowestWall = $wall;
+        }
+      }
+      for($i = 0 ; $i < count($this->players) ; $i++){
+        $wall = $this->playersState[$target]->getWall();
+        if($lowestWall == $wall ){
+          $this->playersState[$i]->addDungeon(-1);
+          $this->playersState[$i]->addTowerPoints(-2);
+        }
+      }
+    }
 
   }
 
