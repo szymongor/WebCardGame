@@ -19,7 +19,10 @@
       $this->image = $cardJSON['Image'];
       $this->cost = $cardJSON['Cost'];
       $this->action = $cardJSON['Action'];
-      //$this->effects = $cardObj['Effects'];
+      if(isset($cardJSON['Effects'])){
+        $this->effects = $cardJSON['Effects'];
+      }
+
     }
 
     public function toJson(){
@@ -32,6 +35,10 @@
 
     public function getType(){
       return $this->type;
+    }
+
+    public function getEffects(){
+      return $this->effects;
     }
 
 

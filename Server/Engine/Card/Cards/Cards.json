@@ -4,6 +4,10 @@
 		"Image": "brick.jpg",
 		"Cost": "0",
 		"Action": "All players lose 8 bricks",
+		"Effects": [{
+			"EffectName": "AllPlayersLoseBricks",
+			"EffectParam": "8"
+		}],
 		"Type": "red"
 	},
 	"1": {
@@ -11,6 +15,13 @@
 		"Image": "gems.jpg",
 		"Cost": "0",
 		"Action": ["+2 Bricks", "+2 Gems", "Play Again"],
+		"Effects": [{
+			"EffectName": "AddBricks",
+			"EffectParam": "2"
+		}, {
+			"EffectName": "AddGems",
+			"EffectParam": "2"
+		}],
 		"Type": "red"
 	},
 	"2": {

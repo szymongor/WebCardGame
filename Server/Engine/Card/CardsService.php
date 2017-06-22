@@ -21,9 +21,13 @@
     }
   }
 
-  //$cardsService = new CardsService();
-  //$response = $cardsService->getCardById(7)->toJson();
-  //echo(json_encode($response));
+  // $cardsService = new CardsService();
+  // $response = $cardsService->getCardById(1)->getEffects();
+  // //echo(json_encode($response));
+  //
+  // for($i = 0 ; $i < count($response) ; $i++){
+  //   echo($response[$i]['EffectName'].":".$response[$i]['EffectParam']."</br>");
+  // }
 
 
 ?>

@@ -123,6 +123,7 @@
         $playedCard = $this->cardsService->getCardById($playedCardId);
 
         if($playerState->chceckResources($playedCard->getType(),$playedCard->getCost())){
+          $this->actCardEffects($playedCard, $target);
           $this->startNextTurn();
           $response = array("Status" => "Ok", "Message" => "Done");
         }
@@ -250,6 +251,12 @@
           $this->playersState[$i]->addTowerPoints(-2);
         }
       }
+    }
+
+    //
+
+    public function actCardEffects($card, $target){
+
     }
 
   }
