@@ -3,10 +3,10 @@
 		"Title": "Brick Shortage",
 		"Image": "brick.jpg",
 		"Cost": "0",
-		"Action": "All players lose 8 bricks",
+		"Action": [["All players lose 8 bricks"],
 		"Effects": [{
-			"EffectName": "AllPlayersLoseBricks",
-			"EffectParam": "8"
+			"EffectName": "AddAllPlayersBricks",
+			"EffectParam": "-8"
 		}],
 		"Type": "red"
 	},
@@ -21,7 +21,10 @@
 		}, {
 			"EffectName": "AddGems",
 			"EffectParam": "2"
-		}],
+		}, {
+			"EffectName": "PlayAgain",
+			"EffectParam": "0"
+			}],
 		"Type": "red"
 	},
 	"2": {
@@ -29,13 +32,24 @@
 		"Image": "field.jpg",
 		"Cost": "1",
 		"Action": ["+1 Wall", "Play again"],
+		"Effects": [{
+			"EffectName": "AddWall",
+			"EffectParam": "1"
+		}, {
+			"EffectName": "PlayAgain",
+			"EffectParam": "0"
+			}],
 		"Type": "red"
 	},
 	"3": {
 		"Title": "Miners",
 		"Image": "mine.jpg",
 		"Cost": "3",
-		"Action": "+1 Quarry",
+		"Action": ["+1 Quarry"],
+		"Effects": [{
+			"EffectName": "AddQuarry",
+			"EffectParam": "1"
+		}],
 		"Type": "red"
 	},
 	"4": {
@@ -43,6 +57,13 @@
 		"Image": "mine.jpg",
 		"Cost": "7",
 		"Action": ["+4 Wall", "+1 Quarry"],
+		"Effects": [{
+			"EffectName": "AddWall",
+			"EffectParam": "4"
+		}, {
+			"EffectName": "AddQuarry",
+			"EffectParam": "1"
+			}],
 		"Type": "red"
 	},
 	"5": {
@@ -50,34 +71,63 @@
 		"Image": "work.jpg",
 		"Cost": "2",
 		"Action": ["+5 Wall", "You lose 6 gems"],
+		"Effects": [{
+			"EffectName": "AddWall",
+			"EffectParam": "5"
+		}, {
+			"EffectName": "AddGems",
+			"EffectParam": "-6"
+		}],
 		"Type": "red"
 	},
 	"6": {
 		"Title": "Basic Wall",
 		"Image": "wall.jpg",
 		"Cost": "2",
-		"Action": "+3 Wall",
+		"Action": ["+3 Wall"],
+		"Effects": [{
+			"EffectName": "AddWall",
+			"EffectParam": "3"
+		}],
 		"Type": "red"
 	},
 	"7": {
 		"Title": "Sturdy Wall",
 		"Image": "wall.jpg",
 		"Cost": "3",
-		"Action": "+4 Wall",
+		"Action": ["+4 Wall"],
+		"Effects": [{
+			"EffectName": "AddWall",
+			"EffectParam": "4"
+		}],
 		"Type": "red"
 	},
 	"8": {
 		"Title": "Innovations",
 		"Image": "tech.jpg",
 		"Cost": "2",
-		"Action": "+1 to all player's quarrys, you gain 4 gems",
+		"Action": ["+1 to all player's quarrys", "You gain 4 gems"],
+		"Effects": [{
+			"EffectName": "AddAllPlayerQuarrys",
+			"EffectParam": "1"
+			}, {
+			"EffectName": "AddGems",
+			"EffectParam": "4"
+		}],
 		"Type": "red"
 	},
 	"9": {
 		"Title": "Tremors",
 		"Image": "tremors.jpg",
 		"Cost": "7",
-		"Action": "All walls take 5 damge. Play again.",
+		"Action": ["All walls take 5 damage", "Play again"],
+		"Effects": [{
+			"EffectName": "AddAllPlayerWalls",
+			"EffectParam": "-5"
+			}, {
+			"EffectName": "PlayAgain",
+			"EffectParam": "0"
+		}],
 		"Type": "red"
 	},
 	"10": {
@@ -85,48 +135,85 @@
 		"Image": "door.jpg",
 		"Cost": "8",
 		"Action": ["+1 Magic", "Play again"],
+		"Effects": [{
+			"EffectName": "AddMagic",
+			"EffectParam": "1"
+			}, {
+			"EffectName": "PlayAgain",
+			"EffectParam": "0"
+		}],
 		"Type": "red"
 	},
 	"11": {
 		"Title": "Earthquake",
 		"Image": "earthquake.jpg",
 		"Cost": "0",
-		"Action": "-1 to all player's quarrys",
+		"Action": ["-1 to all player's quarrys"],
+		"Effects": [{
+			"EffectName": "AddAllPlayerQuarrys",
+			"EffectParam": "-1"
+		}],
 		"Type": "red"
 	},
 	"12": {
 		"Title": "Big Wall",
 		"Image": "wall.jpg",
 		"Cost": "5",
-		"Action": "+6 Wall",
+		"Action": ["+6 Wall"],
+		"Effects": [{
+			"EffectName": "AddWall",
+			"EffectParam": "6"
+		}],
 		"Type": "red"
 	},
 	"13": {
 		"Title": "Collapse!",
 		"Image": "collapse.jpg",
 		"Cost": "4",
-		"Action": "-1 Enemy quarry",
+		"Action": ["-1 Enemy quarry"],
+		"Effects": [{
+			"EffectName": "AddEnemyQuarry",
+			"EffectParam": "-1"
+		}],
 		"Type": "red"
 	},
 	"14": {
 		"Title": "New Equipment",
 		"Image": "tools.jpg",
 		"Cost": "6",
-		"Action": "+2 quarry",
+		"Action": ["+2 quarry"],
+		"Effects": [{
+			"EffectName": "AddQuarry",
+			"EffectParam": "2"
+		}],
 		"Type": "red"
 	},
 	"15": {
 		"Title": "Strip Mine",
 		"Image": "mine.jpg",
 		"Cost": "0",
-		"Action": "-1 Quarry, +10 wall. You gain 5 gems",
+		"Action": ["-1 Quarry", "+10 wall", "You gain 5 gems"],
+		"Effects": [{
+			"EffectName": "AddQuarry",
+			"EffectParam": "-1"
+		}, {
+			"EffectName": "AddWall",
+			"EffectParam": "10"
+		}, {
+			"EffectName": "AddGems",
+			"EffectParam": "5"
+		}],
 		"Type": "red"
 	},
 	"16": {
 		"Title": "Reinforced Wall",
 		"Image": "wall.jpg",
 		"Cost": "8",
-		"Action": "+8 Wall",
+		"Action": ["+8 Wall"],
+		"Effects": [{
+			"EffectName": "AddWall",
+			"EffectParam": "8"
+		}],
 		"Type": "red"
 	},
 	"17": {
@@ -134,6 +221,13 @@
 		"Image": "defense.jpg",
 		"Cost": "9",
 		"Action": ["+5 Wall", "+1 Dungeon"],
+		"Effects": [{
+			"EffectName": "AddWall",
+			"EffectParam": "5"
+		}, {
+			"EffectName": "AddDungeon",
+			"EffectParam": "1"
+		}],
 		"Type": "red"
 	},
 	"18": {
@@ -141,6 +235,13 @@
 		"Image": "crystalrocks.jpg",
 		"Cost": "9",
 		"Action": ["+7 Wall", "gain 7 gems"],
+		"Effects": [{
+			"EffectName": "AddWall",
+			"EffectParam": "7"
+		}, {
+			"EffectName": "AddGems",
+			"EffectParam": "7"
+		}],
 		"Type": "red"
 	},
 	"19": {
@@ -148,13 +249,24 @@
 		"Image": "ore.jpg",
 		"Cost": "11",
 		"Action": ["+6 Wall", "+3 Tower"],
+		"Effects": [{
+			"EffectName": "AddWall",
+			"EffectParam": "6"
+		}, {
+			"EffectName": "AddTower",
+			"EffectParam": "3"
+		}],
 		"Type": "red"
 	},
 	"20": {
 		"Title": "MondoWall",
 		"Image": "wall.jpg",
 		"Cost": "13",
-		"Action": "+12 Wall",
+		"Action": ["+12 Wall"],
+		"Effects": [{
+			"EffectName": "AddWall",
+			"EffectParam": "12"
+		}],
 		"Type": "red"
 	},
 	"21": {
@@ -162,13 +274,24 @@
 		"Image": "tech.jpg",
 		"Cost": "15",
 		"Action": ["+8 Wall", "+5 Tower"],
+		"Effects": [{
+			"EffectName": "AddWall",
+			"EffectParam": "8"
+		}, {
+			"EffectName": "AddTower",
+			"EffectParam": "5"
+		}],
 		"Type": "red"
 	},
 	"22": {
 		"Title": "Great Wall",
 		"Image": "wall.jpg",
 		"Cost": "16",
-		"Action": "+15 Wall",
+		"Action": ["+15 Wall"],
+		"Effects": [{
+			"EffectName": "AddWall",
+			"EffectParam": "15"
+		}],
 		"Type": "red"
 	},
 	"23": {
@@ -176,6 +299,13 @@
 		"Image": "rocks.jpg",
 		"Cost": "18",
 		"Action": ["+6 Wall", "10 Damage to enemy"],
+		"Effects": [{
+			"EffectName": "AddWall",
+			"EffectParam": "6"
+		}, {
+			"EffectName": "AddEnemyLife",
+			"EffectParam": "-10"
+		}],
 		"Type": "red"
 	},
 	"24": {
@@ -183,6 +313,13 @@
 		"Image": "heart.jpg",
 		"Cost": "24",
 		"Action": ["+20 Wall", "+8 Tower"],
+		"Effects": [{
+			"EffectName": "AddWall",
+			"EffectParam": "20"
+		}, {
+			"EffectName": "AddTower",
+			"EffectParam": "8"
+		}],
 		"Type": "red"
 	},
 	"25": {
@@ -190,6 +327,13 @@
 		"Image": "whip.jpg",
 		"Cost": "7",
 		"Action": ["+9 Wall", "Lose 5 recruits"],
+		"Effects": [{
+			"EffectName": "AddWall",
+			"EffectParam": "9"
+		}, {
+			"EffectName": "AddRecruits",
+			"EffectParam": "-5"
+		}],
 		"Type": "red"
 	},
 	"26": {
@@ -197,13 +341,33 @@
 		"Image": "rgarden.jpg",
 		"Cost": "1",
 		"Action": ["+1 Wall", "+1 Tower", "+2 recruits"],
+		"Effects": [{
+			"EffectName": "AddWall",
+			"EffectParam": "1"
+		}, {
+			"EffectName": "AddTower",
+			"EffectParam": "1"
+		}, {
+			"EffectName": "AddRecruits",
+			"EffectParam": "2"
+		}],
 		"Type": "red"
 	},
 	"27": {
 		"Title": "Flood Water",
 		"Image": "floodwater.jpg",
 		"Cost": "6",
-		"Action": "Player(s) w/lowest Wall are -1 Dungeon and 2 damage to Tower",
+		"Action": "Player(s) w/lowest Wall are -1 Dungeon and 2 damage to Tower",???
+		"Effects": [{
+			"EffectName": "AddWall",
+			"EffectParam": "1"
+		}, {
+			"EffectName": "AddTower",
+			"EffectParam": "1"
+		}, {
+			"EffectName": "AddRecruits",
+			"EffectParam": "2"
+		}],
 		"Type": "red"
 	},
 	"28": {
@@ -211,13 +375,24 @@
 		"Image": "battlements.jpg",
 		"Cost": "14",
 		"Action": ["+7 Wall", "6 damage to enemy"],
+		"Effects": [{
+			"EffectName": "AddWall",
+			"EffectParam": "7"
+		}, {
+			"EffectName": "AddEnemyLife",
+			"EffectParam": "-6"
+		}],
 		"Type": "red"
 	},
 	"29": {
 		"Title": "Shift",
 		"Image": "shift.jpg",
 		"Cost": "14",
-		"Action": "Switch your Wall with enemy Wall",
+		"Action": ["Switch your Wall with enemy Wall"],
+		"Effects": [{
+			"EffectName": "SwitchWall",
+			"EffectParam": "0"
+		}],
 		"Type": "red"
 	},
 	"30": {
@@ -225,27 +400,49 @@
 		"Image": "quartz.jpg",
 		"Cost": "1",
 		"Action": ["+1 Tower", "Play again"],
+		"Effects": [{
+			"EffectName": "AddTower",
+			"EffectParam": "1"
+		}, {
+			"EffectName": "PlayAgain",
+			"EffectParam": "0"
+		}],
 		"Type": "blue"
 	},
 	"31": {
 		"Title": "Smoky Quartz",
 		"Image": "squartz.jpg",
 		"Cost": "2",
-		"Action": "1 damage to enemy tower. Play again.",
+		"Action": ["1 damage to enemy tower", "Play again"],
+		"Effects": [{
+			"EffectName": "AddEnemyTower",
+			"EffectParam": "-1"
+		}, {
+			"EffectName": "PlayAgain",
+			"EffectParam": "0"
+		}],
 		"Type": "blue"
 	},
 	"32": {
 		"Title": "Amethyst",
 		"Image": "amethyst.jpg",
 		"Cost": "2",
-		"Action": "+3 Tower",
+		"Action": ["+3 Tower"],
+		"Effects": [{
+			"EffectName": "AddTower",
+			"EffectParam": "3"
+		}],
 		"Type": "blue"
 	},
 	"33": {
 		"Title": "Spell Weavers",
 		"Image": "mspell.jpg",
 		"Cost": "3",
-		"Action": "+1 Magic",
+		"Action": ["+1 Magic"],
+		"Effects": [{
+			"EffectName": "AddMagic",
+			"EffectParam": "1"
+		}],
 		"Type": "blue"
 	},
 	"34": {
@@ -253,13 +450,23 @@
 		"Image": "prism.jpg",
 		"Cost": "2",
 		"Action": ["Draw 1 card", "Discard 1 card", "Play again"],
+		"Effects": [{
+			"EffectName": "AddCard",
+			"EffectParam": "1"
+		}, {
+			"EffectName": "AddCard",
+			"EffectParam": "-1"
+		}, {
+			"EffectName": "PlayAgain",
+			"EffectParam": "0"
+		}],
 		"Type": "blue"
 	},
 	"35": {
 		"Title": "Lodestone",
 		"Image": "magne.jpg",
 		"Cost": "5",
-		"Action": "+3 Tower. This card can't be discarded without pplaying it",
+		"Action": "+3 Tower. This card can't be discarded without playing it",???
 		"Type": "blue"
 	},
 	"36": {
@@ -267,6 +474,13 @@
 		"Image": "solar.jpg",
 		"Cost": "4",
 		"Action": ["+2 Tower", "2 Damage to enemy tower"],
+		"Effects": [{
+			"EffectName": "AddTower",
+			"EffectParam": "2"
+		}, {
+			"EffectName": "AddEnemyTower",
+			"EffectParam": "-2"
+		}],
 		"Type": "blue"
 	},
 	"37": {
@@ -274,27 +488,49 @@
 		"Image": "crystal.jpg",
 		"Cost": "6",
 		"Action": ["+1 Magic", "+3 Tower", "+1 Enemy tower"],
+		"Effects": [{
+			"EffectName": "AddMagic",
+			"EffectParam": "1"
+		}, {
+			"EffectName": "AddTower",
+			"EffectParam": "3"
+		}, {
+			"EffectName": "AddEnemyTower",
+			"EffectParam": "1"
+		}],
 		"Type": "blue"
 	},
 	"38": {
 		"Title": "Gemstone Flaw",
 		"Image": "gem.jpg",
 		"Cost": "2",
-		"Action": "3 damage to enemy tower",
+		"Action": ["3 damage to enemy tower"],
+		"Effects": [{
+			"EffectName": "AddEnemyTower",
+			"EffectParam": "-3"
+		}],
 		"Type": "blue"
 	},
 	"39": {
 		"Title": "Ruby",
 		"Image": "ruby.jpg",
 		"Cost": "3",
-		"Action": "+5 Tower",
+		"Action": ["+5 Tower"],
+		"Effects": [{
+			"EffectName": "AddTower",
+			"EffectParam": "5"
+		}],
 		"Type": "blue"
 	},
 	"40": {
 		"Title": "Gem Spear",
 		"Image": "spear.jpg",
 		"Cost": "4",
-		"Action": "5 damage to enemy tower",
+		"Action": ["5 damage to enemy tower"],
+		"Effects": [{
+			"EffectName": "AddEnemyTower",
+			"EffectParam": "-5"
+		}],
 		"Type": "blue"
 	},
 	"41": {
@@ -302,6 +538,13 @@
 		"Image": "power.jpg",
 		"Cost": "3",
 		"Action": ["5 damage to your tower", "+2 Magic"],
+		"Effects": [{
+			"EffectName": "AddTower",
+			"EffectParam": "-5"
+		}, {
+			"EffectName": "AddMagic",
+			"EffectParam": "2"
+		}],
 		"Type": "blue"
 	},
 	"42": {
@@ -309,20 +552,38 @@
 		"Image": "vibe.jpg",
 		"Cost": "7",
 		"Action": ["+1 Magic", "+3 Tower", "+3 Wall"],
+		"Effects": [{
+			"EffectName": "AddMagic",
+			"EffectParam": "1"
+		}, {
+			"EffectName": "AddTower",
+			"EffectParam": "3"
+		}, {
+			"EffectName": "AddWall",
+			"EffectParam": "3"
+		}],
 		"Type": "blue"
 	},
 	"43": {
 		"Title": "Parity",
 		"Image": "scales.jpg",
 		"Cost": "7",
-		"Action": "All player's magic equals the highest player's magic",
+		"Action": ["All player's magic equals the highest player's magic"],
+		"Effects": [{
+			"EffectName": "AllMagicTheHighestMagic",
+			"EffectParam": "X"
+		}],
 		"Type": "blue"
 	},
 	"44": {
 		"Title": "Emerald",
 		"Image": "emerald.jpg",
 		"Cost": "6",
-		"Action": "+8 Tower",
+		"Action": ["+8 Tower"],
+		"Effects": [{
+			"EffectName": "AddTower",
+			"EffectParam": "8"
+		}],
 		"Type": "blue"
 	},
 	"45": {
@@ -330,6 +591,13 @@
 		"Image": "pearl.jpg",
 		"Cost": "9",
 		"Action": ["+5 Tower", "+1 Magic"],
+		"Effects": [{
+			"EffectName": "AddTower",
+			"EffectParam": "5"
+		}, {
+			"EffectName": "AddMagic",
+			"EffectParam": "1"
+		}],
 		"Type": "blue"
 	},
 	"46": {
@@ -337,6 +605,13 @@
 		"Image": "tremors.jpg",
 		"Cost": "9",
 		"Action": ["-1 Magic", "9 damage to enemy tower"],
+		"Effects": [{
+			"EffectName": "AddMagic",
+			"EffectParam": "-1"
+		}, {
+			"EffectName": "AddEnemyTower",
+			"EffectParam": "-9"
+		}],
 		"Type": "blue"
 	},
 	"47": {
@@ -344,20 +619,38 @@
 		"Image": "darkstone.jpg",
 		"Cost": "7",
 		"Action": ["+8 Tower", "Enemy loses 6 bricks"],
+		"Effects": [{
+			"EffectName": "AddTower",
+			"EffectParam": "8"
+		}, {
+			"EffectName": "AddEnemyBricks",
+			"EffectParam": "-6"
+		}],
 		"Type": "blue"
 	},
 	"48": {
 		"Title": "Sapphire",
 		"Image": "sapphire.jpg",
 		"Cost": "10",
-		"Action": "+11 Tower",
+		"Action": ["+11 Tower"],
+		"Effects": [{
+			"EffectName": "AddTower",
+			"EffectParam": "11"
+		}],
 		"Type": "blue"
 	},
 	"49": {
 		"Title": "Discord",
 		"Image": "dicord.jpg",
 		"Cost": "5",
-		"Action": "7 Damage to all towers, all player's magic -1",
+		"Action": ["7 Damage to all towers", "All player's magic -1"],
+		"Effects": [{
+			"EffectName": "AddAllPlayersTowers",
+			"EffectParam": "-7"
+		}, {
+			"EffectName": "AddAllPlayersMagic",
+			"EffectParam": "-1"
+		}],
 		"Type": "blue"
 	},
 	"50": {
@@ -365,6 +658,13 @@
 		"Image": "redgem.jpg",
 		"Cost": "13",
 		"Action": ["+6 Tower", "4 Damage to all enemy towers"],
+		"Effects": [{
+			"EffectName": "AddTower",
+			"EffectParam": "6"
+		}, {
+			"EffectName": "AddAllEnemyTowers",
+			"EffectParam": "-4"
+		}],
 		"Type": "blue"
 	},
 	"51": {
@@ -372,6 +672,13 @@
 		"Image": "consept.jpg",
 		"Cost": "4",
 		"Action": ["+7 Tower", "Lose 10 bricks"],
+		"Effects": [{
+			"EffectName": "AddTower",
+			"EffectParam": "7"
+		}, {
+			"EffectName": "AddBricks",
+			"EffectParam": "-10"
+		}],
 		"Type": "blue"
 	},
 	"52": {
@@ -379,20 +686,38 @@
 		"Image": "shield.jpg",
 		"Cost": "12",
 		"Action": ["+8 Tower", "+3 Wall"],
+		"Effects": [{
+			"EffectName": "AddTower",
+			"EffectParam": "8"
+		}, {
+			"EffectName": "AddWall",
+			"EffectParam": "3"
+		}],
 		"Type": "blue"
 	},
 	"53": {
 		"Title": "Empathy Gem",
 		"Image": "gem.jpg",
 		"Cost": "14",
-		"Action": ["-+8 Tower", "+1 Dungeon"],
+		"Action": ["-+8 Tower", "+1 Dungeon"],???
+		"Effects": [{
+			"EffectName": "AddTower",
+			"EffectParam": "8"
+		}, {
+			"EffectName": "AddDungeon",
+			"EffectParam": "1"
+		}],
 		"Type": "blue"
 	},
 	"54": {
 		"Title": "Diamond",
 		"Image": "diamond.jpg",
 		"Cost": "16",
-		"Action": "+15 Tower",
+		"Action": ["+15 Tower"],
+		"Effects": [{
+			"EffectName": "AddTower",
+			"EffectParam": "15"
+		}],
 		"Type": "blue"
 	},
 	"55": {
@@ -400,6 +725,16 @@
 		"Image": "sanctuary.jpg",
 		"Cost": "15",
 		"Action": ["+10 Tower", "+5 Wall", "Gain 5 recruits"],
+		"Effects": [{
+			"EffectName": "AddTower",
+			"EffectParam": "10"
+		}, {
+			"EffectName": "AddWall",
+			"EffectParam": "5"
+		}, {
+			"EffectName": "AddRecruits",
+			"EffectParam": "5"
+		}],
 		"Type": "blue"
 	},
 	"56": {
@@ -407,13 +742,24 @@
 		"Image": "jewel.jpg",
 		"Cost": "17",
 		"Action": ["+12 Tower", "6 Damage to all enemies"],
+		"Effects": [{
+			"EffectName": "AddTower",
+			"EffectParam": "12"
+		}, {
+			"EffectName": "AddAllEnemyLife",
+			"EffectParam": "-6"
+		}],
 		"Type": "blue"
 	},
 	"57": {
 		"Title": "Dragon's Eye",
 		"Image": "dragoneye.jpg",
 		"Cost": "21",
-		"Action": "+20 Tower",
+		"Action": ["+20 Tower"],
+		"Effects": [{
+			"EffectName": "AddTower",
+			"EffectParam": "20"
+		}],
 		"Type": "blue"
 	},
 	"58": {
@@ -421,20 +767,44 @@
 		"Image": "crystalize.jpg",
 		"Cost": "8",
 		"Action": ["+11 Tower", "-6 Wall"],
+		"Effects": [{
+			"EffectName": "AddTower",
+			"EffectParam": "11"
+		}, {
+			"EffectName": "AddWall",
+			"EffectParam": "-6"
+		}],
 		"Type": "blue"
 	},
 	"59": {
 		"Title": "Rainbow",
 		"Image": "rainbow.jpg",
 		"Cost": "0",
-		"Action": "+1 Tower to all players. You gain 3 gems.",
+		"Action": ["+1 Tower to all players", "You gain 3 gems"],
+		"Effects": [{
+			"EffectName": "AddAllPlayersTowers",
+			"EffectParam": "1"
+		}, {
+			"EffectName": "AddGems",
+			"EffectParam": "3"
+		}],
 		"Type": "blue"
 	},
 	"60": {
 		"Title": "Apprentice",
 		"Image": "apprentice.jpg",
 		"Cost": "5",
-		"Action": "+4 Tower, you lose 3 recruits, 2 damage to enemy Tower",
+		"Action": ["+4 Tower", "you lose 3 recruits", "2 damage to enemy Tower"],
+		"Effects": [{
+			"EffectName": "AddTower",
+			"EffectParam": "4"
+		}, {
+			"EffectName": "AddRecruits",
+			"EffectParam": "-3"
+		}, {
+			"EffectName": "AddEnemyTower",
+			"EffectParam": "-2"
+		}],
 		"Type": "blue"
 	},
 	"61": {
@@ -442,13 +812,27 @@
 		"Image": "jewel.jpg",
 		"Cost": "18",
 		"Action": ["+13 Tower", "+6 recruits", "+6 bricks"],
+		"Effects": [{
+			"EffectName": "AddTower",
+			"EffectParam": "13"
+		}, {
+			"EffectName": "AddRecruits",
+			"EffectParam": "6"
+		}, {
+			"EffectName": "AddBricks",
+			"EffectParam": "6"
+		}],
 		"Type": "blue"
 	},
 	"62": {
 		"Title": "Mad Cow Disease",
 		"Image": "cow.jpg",
 		"Cost": "0",
-		"Action": "All players lose 6 recruits",
+		"Action": ["All players lose 6 recruits"],
+		"Effects": [{
+			"EffectName": "AddAllPlayersRecruits",
+			"EffectParam": "-6"
+		}],
 		"Type": "green"
 	},
 	"63": {
@@ -456,6 +840,13 @@
 		"Image": "faerie.jpg",
 		"Cost": "1",
 		"Action": ["2 Damage", "Play again"],
+		"Effects": [{
+			"EffectName": "AddLife",
+			"EffectParam": "-2"
+		}, {
+			"EffectName": "PlayAgain",
+			"EffectParam": "0"
+		}],
 		"Type": "green"
 	},
 	"64": {
@@ -463,13 +854,24 @@
 		"Image": "goblin.jpg",
 		"Cost": "1",
 		"Action": ["4 Damage", "You lose 3 gems"],
+		"Effects": [{
+			"EffectName": "AddLife",
+			"EffectParam": "-4"
+		}, {
+			"EffectName": "AddGems",
+			"EffectParam": "-3"
+		}],
 		"Type": "green"
 	},
 	"65": {
 		"Title": "Minotaur",
 		"Image": "minotaur.jpg",
 		"Cost": "3",
-		"Action": "+1 Dungeon",
+		"Action": ["+1 Dungeon"],
+		"Effects": [{
+			"EffectName": "AddDungeon",
+			"EffectParam": "1"
+		}],
 		"Type": "green"
 	},
 	"66": {
@@ -477,13 +879,30 @@
 		"Image": "elf.jpg",
 		"Cost": "2",
 		"Action": ["Draw 1 card", "Discard 1 cars", "Play again"],
+		"Effects": [{
+			"EffectName": "AddCard",
+			"EffectParam": "1"
+		}, {
+			"EffectName": "AddCard",
+			"EffectParam": "-1"
+		}, {
+			"EffectName": "PlayAgain",
+			"EffectParam": "0"
+		}],
 		"Type": "green"
 	},
 	"67": {
 		"Title": "Goblin Mob",
 		"Image": "goblin.jpg",
 		"Cost": "3",
-		"Action": ["6 Damage", "You take 3 damage"],
+		"Action": ["6 Damage", "You take 3 damage"],???
+		"Effects": [{
+			"EffectName": "AddLife",
+			"EffectParam": "-6"
+		}, {
+			"EffectName": "AddLife",
+			"EffectParam": "-3"
+		}],
 		"Type": "green"
 	},
 	"68": {
@@ -491,13 +910,24 @@
 		"Image": "shadowf.jpg",
 		"Cost": "6",
 		"Action": ["2 Damage to enemy tower", "Play again"],
+		"Effects": [{
+			"EffectName": "AddEnemyTower",
+			"EffectParam": "-2"
+		}, {
+			"EffectName": "PlayAgain",
+			"EffectParam": "0"
+		}],
 		"Type": "green"
 	},
 	"69": {
 		"Title": "Orc",
 		"Image": "ore.jpg",
 		"Cost": "3",
-		"Action": "5 Damage",
+		"Action": ["5 Damage"],
+		"Effects": [{
+			"EffectName": "AddLife",
+			"EffectParam": "-5"
+		}],
 		"Type": "green"
 	},
 	"70": {
@@ -505,20 +935,35 @@
 		"Image": "dwarf.jpg",
 		"Cost": "5",
 		"Action": ["4 Damage", "+3 Wall"],
+		"Effects": [{
+			"EffectName": "AddLife",
+			"EffectParam": "-4"
+		}, {
+			"EffectName": "AddWall",
+			"EffectParam": "3"
+		}],
 		"Type": "green"
 	},
 	"71": {
 		"Title": "Little Snakes",
 		"Image": "snake.jpg",
 		"Cost": "6",
-		"Action": "4 Damage to enemy tower",
+		"Action": ["4 Damage to enemy tower"],
+		"Effects": [{
+			"EffectName": "AddEnemyTower",
+			"EffectParam": "-4"
+		}],
 		"Type": "green"
 	},
 	"72": {
 		"Title": "Troll Trainer",
 		"Image": "troll.jpg",
 		"Cost": "7",
-		"Action": "+2 Dungeon",
+		"Action": ["+2 Dungeon"],
+		"Effects": [{
+			"EffectName": "AddDungeon",
+			"EffectParam": "2"
+		}],
 		"Type": "green"
 	},
 	"73": {
@@ -526,48 +971,97 @@
 		"Image": "gremlin.jpg",
 		"Cost": "8",
 		"Action": ["2 Damage", "+4 Wall", "+2 Tower"],
+		"Effects": [{
+			"EffectName": "AddLife",
+			"EffectParam": "-2"
+		}, {
+			"EffectName": "AddWall",
+			"EffectParam": "4"
+		}, {
+			"EffectName": "AddTower",
+			"EffectParam": "2"
+		}],
 		"Type": "green"
 	},
 	"74": {
 		"Title": "Full Moon",
 		"Image": "fullmoon.jpg",
 		"Cost": "0",
-		"Action": "+1 to all player's Dungeon. You gain 3 recruits",
+		"Action": ["+1 to all player's Dungeon", "You gain 3 recruits"],
+		"Effects": [{
+			"EffectName": "AddAllPlayersDungeon",
+			"EffectParam": "1"
+		}, {
+			"EffectName": "AddRecruits",
+			"EffectParam": "3"
+		}],
 		"Type": "green"
 	},
 	"75": {
 		"Title": "Slasher",
 		"Image": "slasher.jpg",
 		"Cost": "3",
-		"Action": "6 Damage",
+		"Action": ["6 Damage"],
+		"Effects": [{
+			"EffectName": "AddLife",
+			"EffectParam": "-6"
+		}],
 		"Type": "green"
 	},
 	"76": {
 		"Title": "Ogre",
 		"Image": "ogre.jpg",
 		"Cost": "3",
-		"Action": "7 Damage",
+		"Action": ["7 Damage"],
+		"Effects": [{
+			"EffectName": "AddLife",
+			"EffectParam": "-7"
+		}],
 		"Type": "green"
 	},
 	"77": {
 		"Title": "Imp",
 		"Image": "imp.jpg",
 		"Cost": "5",
-		"Action": "6 Damage. All players lose 5 bricks, gems and recruits",
+		"Action": ["6 Damage", "All players lose 5 bricks", "gems", "and recruits"],
+		"Effects": [{
+			"EffectName": "AddLife",
+			"EffectParam": "-6"
+		}, {
+			"EffectName": "AddAllPlayersBricks",
+			"EffectParam": "-5"
+		}, {
+			"EffectName": "AddAllPlayersGems",
+			"EffectParam": "-5"
+		}, {
+			"EffectName": "AddAllPlayersRecruits",
+			"EffectParam": "-5"
+		}],
 		"Type": "green"
 	},
 	"78": {
 		"Title": "Werewolf",
 		"Image": "werewolf.jpg",
 		"Cost": "9",
-		"Action": "9 Damage",
+		"Action": ["9 Damage"],
+		"Effects": [{
+			"EffectName": "AddLife",
+			"EffectParam": "-9"
+		}],
 		"Type": "green"
 	},
 	"79": {
 		"Title": "Succubus",
 		"Image": "succubus.jpg",
 		"Cost": "14",
-		"Action": "5 Damage to enemy Tower, enemy loses 8 recruits",
+		"Action": ["5 Damage to enemy Tower", "Enemy loses 8 recruits"],
+		"Effects": [{
+			"EffectName": "AddEnemyTower",
+			"EffectParam": "-5"
+		}, {
+			"EffectName": "AddEnemyRecruits",
+			"EffectParam": "-8"
+		}],
 		"Type": "green"
 	},
 	"80": {
@@ -575,13 +1069,33 @@
 		"Image": "rockgiant.jpg",
 		"Cost": "11",
 		"Action": ["8 Damage", "-1 enemy quarry"],
+		"Effects": [{
+			"EffectName": "AddLife",
+			"EffectParam": "-8"
+		}, {
+			"EffectName": "AddEnemyQuarry",
+			"EffectParam": "-1"
+		}],
 		"Type": "green"
 	},
 	"81": {
 		"Title": "Thief",
 		"Image": "thief.jpg",
 		"Cost": "12",
-		"Action": "Enemy loses 10 gems, 5 bricks, you gain 1/2 amt. round up",
+		"Action": ["Enemy loses 10 gems", "5 bricks", "you gain 1/2 amt", "round up"],
+		"Effects": [{
+			"EffectName": "AddEnemyGems",
+			"EffectParam": "-10"
+		}, {
+			"EffectName": "AddEnemyBricks",
+			"EffectParam": "-5"
+		}, {
+			"EffectName": "AddAmt",
+			"EffectParam": "1/2"
+		}, {
+			"EffectName": "RoundUp",
+			"EffectParam": "0"
+		}],
 		"Type": "green"
 	},
 	"82": {
@@ -589,6 +1103,16 @@
 		"Image": "vampire.jpg",
 		"Cost": "17",
 		"Action": ["10 Damage", "Enemy loses 5 recruits, -1 enemy Dungeon"],
+		"Effects": [{
+			"EffectName": "AddLife",
+			"EffectParam": "-10"
+		}, {
+			"EffectName": "AddEnemyRecruits",
+			"EffectParam": "-5"
+		}, {
+			"EffectName": "AddEnemyDungeon",
+			"EffectParam": "-1"
+		}],
 		"Type": "green"
 	},
 	"83": {
@@ -596,6 +1120,16 @@
 		"Image": "dragon.jpg",
 		"Cost": "25",
 		"Action": ["20 Damage", "Enemy loses 10 gems, -1 enemy Dungeon"],
+		"Effects": [{
+			"EffectName": "AddLife",
+			"EffectParam": "-20"
+		}, {
+			"EffectName": "AddEnemyGems",
+			"EffectParam": "-10"
+		}, {
+			"EffectName": "AddEnemyDungeon",
+			"EffectParam": "-1"
+		}],
 		"Type": "green"
 	},
 	"84": {
@@ -603,6 +1137,13 @@
 		"Image": "gnome.jpg",
 		"Cost": "2",
 		"Action": ["3 Damage", "+1 gem"],
+		"Effects": [{
+			"EffectName": "AddLife",
+			"EffectParam": "-3"
+		}, {
+			"EffectName": "AddGems",
+			"EffectParam": "1"
+		}],
 		"Type": "green"
 	},
 	"85": {
@@ -610,6 +1151,13 @@
 		"Image": "berserker.jpg",
 		"Cost": "4",
 		"Action": ["8 Damage", "3 Damage to your Tower"],
+		"Effects": [{
+			"EffectName": "AddLife",
+			"EffectParam": "-8"
+		}, {
+			"EffectName": "AddTower",
+			"EffectParam": "-3"
+		}],
 		"Type": "green"
 	},
 	"86": {
@@ -617,6 +1165,13 @@
 		"Image": "warlord.jpg",
 		"Cost": "13",
 		"Action": ["13 Damage", "You lose 3 gems"],
+		"Effects": [{
+			"EffectName": "AddLife",
+			"EffectParam": "-13"
+		}, {
+			"EffectName": "AddGems",
+			"EffectParam": "-3"
+		}],
 		"Type": "green"
 	},
 	"87": {
@@ -624,6 +1179,10 @@
 		"Image": "pegasus.jpg",
 		"Cost": "18",
 		"Action": "12 Damage to enemy tower",
+		"Effects": [{
+			"EffectName": "AddEnemyTower",
+			"EffectParam": "-12"
+		}],
 		"Type": "green"
 	}
 }
