@@ -67,7 +67,14 @@
     }
 
     public function discardACard($cardPosition){
-      unset($this->hand[$cardPosition]);
+      $newHand = array();
+
+      for($i = 0 ; $i < count($this->hand) ; $i ++){
+        if($i != $cardPosition){
+          $newHand[] = $this->hand[$i];
+        }
+      }
+      $this->hand = $newHand;
     }
 
     public function getCardId($cardPositionInHand){

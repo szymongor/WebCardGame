@@ -128,7 +128,7 @@
 
     private function startNextTurn(){
       $this->turn++;
-      if($this->turn > Count($this->players)){
+      if($this->turn >= Count($this->players)){
         $this->turn = 0;
       }
 
@@ -140,15 +140,14 @@
 
     public function playersMove($playerId, $cardPositionInHand, $isDiscarded, $target){
       if(!$this->checkTurn($playerId)){
-        $response = array("Status" => "Error", "Message" => "Not your turn: ".$this->turn.":".json_encode($this->players));
+        $response = array("Status" => "Error", "Message" => "Not your turn");
       }
       else{
         $playerState = $this->getPlayerStateById($playerId);
         $playedCardId = $playerState->getCardId($cardPositionInHand);
         $playedCard = $this->cardsService->getCardById($playedCardId);
-
         if($isDiscarded){
-          $response = array("Status" => "Ok", "Message" => "Done");
+          $response = array("Status" => "Ok", "Message" => "Done", "GameState" => $this->getGameStateForPlayer($playerId));
           $playerState->discardACard($cardPositionInHand);
           $this->startNextTurn();
         }
@@ -156,7 +155,7 @@
           $this->actCardEffects($playedCard, $target);
           $playerState->discardACard($cardPositionInHand);
           $this->startNextTurn();
-          $response = array("Status" => "Ok", "Message" => "Done");
+          $response = array("Status" => "Ok", "Message" => "Done", "GameState" => $this->getGameStateForPlayer($playerId));
         }
         else{
           $response = array("Status" => "Error", "Message" => "You dont have enough resources");
