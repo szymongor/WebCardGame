@@ -275,26 +275,114 @@
       switch($cardEffect['EffectName']){
         case "AddAllPlayersBricks":
           $this->addAllPlayersBricks($cardEffect['EffectParam']);
-        break;
+          break;
         case "AddBricks":
           $this->addPlayerBricks($cardEffect['EffectParam'],$this->turn);
-        break;
+          break;
+        case "AddEnemyBricks":
+          $this->addPlayerBricks($cardEffect['EffectParam'],$target);
+          break;
+        case "AddAllPlayersGems":
+          $this->AddAllPlayersGems($cardEffect['EffectParam']);
+          break;
         case "AddGems":
           $this->addPlayerGems($cardEffect['EffectParam'],$this->turn);
-        break;
+          break;
+        case "AddAllPlayerWalls":
+          $this->addAllPlayerWalls($cardEffect['EffectParam']);
+          break;
         case "AddWall":
           $this->addPlayerWall($cardEffect['EffectParam'],$this->turn);
-        break;
-        case "AddQuarry":
-          $this->addPlayerQuarry($cardEffect['EffectParam'],$this->turn);
-        break;
+          break;
+        case "SwitchWall":
+          $this->wallsShift($target);
         case "AddAllPlayerQuarrys":
           $this->addAllPlayerQuarries($cardEffect['EffectParam']);
-        break;
+          break;
+        case "AddQuarry":
+          $this->addPlayerQuarry($cardEffect['EffectParam'],$this->turn);
+          break;
+        case "AddEnemyQuarry":
+          $this->addPlayerQuarry($cardEffect['EffectParam'],$target);
+          break;
+        case "AddAllPlayersMagic":
+          $this->addAllPlayersMagic($cardEffect['EffectParam']);
+          break;
+        case "AddMagic":
+          $this->addPlayerMagic($cardEffect['EffectParam'],$this->turn);
+          break;
+        case "AllMagicTheHighestMagic":
+          $this->magicParity();
+          break;
+        case "AddAllPlayersDungeon":
+          $this->addAllPlayersDungeon($cardEffect['EffectParam']);
+          break;
+        case "AddDungeon":
+          $this->addPlayerDungeon($cardEffect['EffectParam'],$this->turn);
+          break;
+        case "AddEnemyDungeon":
+          $this->addPlayerDungeon($cardEffect['EffectParam'],$target);
+          break;
+        case "AddAllPlayersTowers":
+          $this->addAllPlayersTowers($cardEffect['EffectParam']);
+          break;
+        case "AddTower":
+          $this->addPlayerTower($cardEffect['EffectParam'],$this->turn);
+          break;
+        case "AddAllEnemyTowers":
+          $this->addAllEnemyTowers($cardEffect['EffectParam'],$this->turn);
+          break;
+        case "AddEnemyTower":
+          $this->addPlayerTower($cardEffect['EffectParam'],$target);
+          break;
+        case "AddAllPlayersRecruits":
+          $this->addAllPlayersRecruits($cardEffect['EffectParam']);
+          break;
+        case "AddRecruits":
+          $this->addPlayerRecruits($cardEffect['EffectParam'],$this->turn);
+          break;
+        case "AddEnemyRecruits":
+          $this->addPlayerRecruits($cardEffect['EffectParam'],$target);
+          break;
+        case "AddCard":
+          $this->addCards($cardEffect['EffectParam'],$this->turn);
+          break;
+        case "FloodWater":
+          $this->floodWater();
+          break;
+        case "DealDamage":
+          $this->dealDamageToPlayer($cardEffect['EffectParam'],$target);
+          break;
+        case "DealDamageToAllEnemies":
+          $this->dealDamageToAllEnemies($cardEffect['EffectParam'],$this->turn);
+          break;
+        case "TakeDamage":
+          $this->dealDamageToPlayer($cardEffect['EffectParam'],$this->turn);
+          break;
+        case "Thief":
+          $this->thief($target);
+          break;
+        case "PlayAgain":
+          break;
         default:
           echo($cardEffect['EffectName']);
-        break;
+          break;
       }
+    }
+
+    private function addCards($amount,$target){
+      if($amount>0){
+        for($i = 0 ; $i < amount ; $i++){
+          $cardId = $this->drawACard();
+          $this->playersState[$target]->addACard($cardId);
+        }
+      }
+      // else {
+      //   amount = amount * (-1);
+      //   for($i = 0 ; $i < amount ; $i++){
+      //     $playerState->discardACard(??positionInHand);
+      //   }
+      // }
     }
 
     private function addAllPlayersBricks($amount){
@@ -306,6 +394,58 @@
     private function addAllPlayerQuarries($amount){
       for($i = 0 ; $i < count($this->players) ; $i++ ){
         $this->addPlayerQuarry($amount, $i);
+      }
+    }
+
+    private function addAllPlayersGems($amount){
+      for($i = 0 ; $i < count($this->players) ; $i++ ){
+        $this->addPlayerGems($amount, $i);
+      }
+    }
+
+    private function addAllPlayerWalls($amount){
+      for($i = 0 ; $i < count($this->players) ; $i++ ){
+        $this->addPlayerWall($amount, $i);
+      }
+    }
+
+    private function addAllPlayersMagic($amount){
+      for($i = 0 ; $i < count($this->players) ; $i++ ){
+        $this->addPlayerMagic($amount, $i);
+      }
+    }
+
+    private function addAllPlayersDungeon($amount){
+      for($i = 0 ; $i < count($this->players) ; $i++ ){
+        $this->addPlayerDungeon($amount, $i);
+      }
+    }
+
+    private function addAllPlayersTowers($amount){
+      for($i = 0 ; $i < count($this->players) ; $i++ ){
+        $this->addPlayerTower($amount, $i);
+      }
+    }
+
+    private function addAllEnemyTowers($amount,$currentPlayer){
+      for($i = 0 ; $i < count($this->players) ; $i++ ){
+        if($i!=$currentPlayer){
+            $this->addPlayerTower($amount, $i);
+        }
+      }
+    }
+
+    private function addAllPlayersRecruits($amount){
+      for($i = 0 ; $i < count($this->players) ; $i++ ){
+        $this->addPlayerRecruits($amount, $i);
+      }
+    }
+
+    private function dealDamageToAllEnemies($amount,$currentPlayer){
+      for($i = 0 ; $i < count($this->players) ; $i++ ){
+        if($i!=$currentPlayer){
+            $this->dealDamageToPlayer($amount, $i);
+        }
       }
     }
 
