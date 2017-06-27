@@ -93,48 +93,6 @@
       return $this->playersState[$index];
     }
 
-    private function currentTurnPlayerId(){
-      return $this->players[$this->turn];
-    }
-
-    private function checkTurn($playerIdToCheck){
-      if($this->currentTurnPlayerId() == $playerIdToCheck){
-        return true;
-      }
-      else{
-        return false;
-      }
-    }
-
-    private function startNextTurn(){
-      $this->turn++;
-      if($this->turn > Count($this->players)){
-        $this->turn = 0;
-      }
-    }
-
-    public function playersMove($playerId, $cardPositionInHand, $isDiscarded, $target){
-      if(!$this->checkTurn($playerId)){
-        $response = array("Status" => "Error", "Message" => "Not your turn: ".$this->turn.":".json_encode($this->players));
-      }
-      else{
-        $playerState = $this->getPlayerStateById($playerId);
-        $playedCardId = $playerState->getCardId($cardPositionInHand);
-        $playedCard = $this->cardsService->getCardById($playedCardId);
-
-        if($playerState->chceckResources($playedCard->getType(),$playedCard->getCost())){
-          $this->actCardEffects($playedCard, $target);
-          $this->startNextTurn();
-          $response = array("Status" => "Ok", "Message" => "Done");
-        }
-        else{
-          $response = array("Status" => "Error", "Message" => "You dont have enough resources");
-        }
-      //to do - act card effect, ..., discard and draw new card.
-      }
-      return $response;
-    }
-
     public function getGameStateForPlayer($playerId){
       $gameArray = array();
       $gameArray['Players'] = $this->players;
@@ -153,7 +111,59 @@
         }
       }
       return $gameArray;
+    }
 
+    private function currentTurnPlayerId(){
+      return $this->players[$this->turn];
+    }
+
+    private function checkTurn($playerIdToCheck){
+      if($this->currentTurnPlayerId() == $playerIdToCheck){
+        return true;
+      }
+      else{
+        return false;
+      }
+    }
+
+    private function startNextTurn(){
+      $this->turn++;
+      if($this->turn > Count($this->players)){
+        $this->turn = 0;
+      }
+
+      $card = $this->drawACard();
+      $this->playersState[$this->turn]->addACard($card);
+      $this->playersState[$this->turn]->beginTurn($card);
+
+    }
+
+    public function playersMove($playerId, $cardPositionInHand, $isDiscarded, $target){
+      if(!$this->checkTurn($playerId)){
+        $response = array("Status" => "Error", "Message" => "Not your turn: ".$this->turn.":".json_encode($this->players));
+      }
+      else{
+        $playerState = $this->getPlayerStateById($playerId);
+        $playedCardId = $playerState->getCardId($cardPositionInHand);
+        $playedCard = $this->cardsService->getCardById($playedCardId);
+
+        if($isDiscarded){
+          $response = array("Status" => "Ok", "Message" => "Done");
+          $playerState->discardACard($cardPositionInHand);
+          $this->startNextTurn();
+        }
+        elseif($playerState->chceckResources($playedCard->getType(),$playedCard->getCost())){
+          $this->actCardEffects($playedCard, $target);
+          $playerState->discardACard($cardPositionInHand);
+          $this->startNextTurn();
+          $response = array("Status" => "Ok", "Message" => "Done");
+        }
+        else{
+          $response = array("Status" => "Error", "Message" => "You dont have enough resources");
+        }
+      //to do - act card effect, ..., discard and draw new card.
+      }
+      return $response;
     }
 
     //Cards effect:
@@ -256,7 +266,21 @@
     //
 
     public function actCardEffects($card, $target){
+      $cardEffects = $card->getEffects();
+      for($i = 0 ; $i < count($cardEffects) ; $i++){
+        $this->actCardEffect($cardEffects[$i],$target);
+      }
+    }
 
+    private function actCardEffect($cardEffect, $target){
+      switch($cardEffect['EffectName']){
+        case "AddAllPlayersBricks":
+          echo($cardEffect['EffectName']);
+        break;
+        default:
+          echo($cardEffect['EffectName']);
+        break;
+      }
     }
 
   }

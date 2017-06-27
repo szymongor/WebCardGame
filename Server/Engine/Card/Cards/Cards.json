@@ -839,8 +839,8 @@
 		"Cost": "1",
 		"Action": ["2 Damage", "Play again"],
 		"Effects": [{
-			"EffectName": "AddLife",
-			"EffectParam": "-2"
+			"EffectName": "DealDamage",
+			"EffectParam": "2"
 		}, {
 			"EffectName": "PlayAgain",
 			"EffectParam": "0"
@@ -853,8 +853,8 @@
 		"Cost": "1",
 		"Action": ["4 Damage", "You lose 3 gems"],
 		"Effects": [{
-			"EffectName": "AddLife",
-			"EffectParam": "-4"
+			"EffectName": "DealDamage",
+			"EffectParam": "4"
 		}, {
 			"EffectName": "AddGems",
 			"EffectParam": "-3"

@@ -3,6 +3,8 @@
 
   class PlayerState{
 
+    private static $CARDS_ON_HAND = 6;
+
     private $tower;
     private $wall;
 
@@ -62,6 +64,10 @@
 
     public function addACard($cardsId){
       $this->hand[] = $cardsId;
+    }
+
+    public function discardACard($cardPosition){
+      unset($this->hand[$cardPosition]);
     }
 
     public function getCardId($cardPositionInHand){
@@ -128,11 +134,17 @@
     public function getBricks(){
       return $this->bricks;
     }
+
+    public function beginTurn(){
+      $this->bricks += $this->quarry;
+      $this->gems += $this->magic;
+      $this->recruits += $this->dungeon;
+    }
     //Cards effects:
 
     public function addWallPoints($amount){
       $this->wall += $amount;
-      $passDamage = 0
+      $passDamage = 0;
       if($this->wall < 0){
         $passDamage = $this->wall;
         $this->wall = 0;
@@ -142,7 +154,7 @@
 
     public function addTowerPoints($amount){
       $this->tower += $amount;
-      if($this->tower < 0){}
+      if($this->tower < 0){
         $this->tower = 0;
       }
     }
@@ -154,42 +166,42 @@
 
     public function addQuarry($amount){
       $this->quarry += $amount;
-      if($this->quarry < 0){}
+      if($this->quarry < 0){
         $this->quarry = 0;
       }
     }
 
     public function addBricks($amount){
       $this->bricks += $amount;
-      if($this->bricks < 0){}
+      if($this->bricks < 0){
         $this->bricks = 0;
       }
     }
 
     public function addMagic($amount){
       $this->magic += $amount;
-      if($this->magic < 0){}
+      if($this->magic < 0){
         $this->magic = 0;
       }
     }
 
     public function addGems($amount){
       $this->gems += $amount;
-      if($this->gems < 0){}
+      if($this->gems < 0){
         $this->bricks = 0;
       }
     }
 
     public function addDungeon($amount){
       $this->dungeon += $amount;
-      if($this->dungeon < 0){}
+      if($this->dungeon < 0){
         $this->bricks = 0;
       }
     }
 
     public function addRecruits($amount){
       $this->recruits += $amount;
-      if($this->recruits < 0){}
+      if($this->recruits < 0){
         $this->bricks = 0;
       }
     }
