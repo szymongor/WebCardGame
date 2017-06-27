@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<html lang="pl-PL">
+		<meta charset="utf-8">
+		<title>Arcomage</title>
+		<meta name="Arcomage">
+    <script type="text/javascript" src="../../libs/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="GameJS/MarlenasResize.js"></script>
+      <script type="text/javascript" src="GameJS/GameView.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+  <body>
+    <div class="enemy_player1">
+    	<table class="enemy_table">
+        <tr>
+          <td id="enemy1Name" style="text-decoration: underline;">Player: </td>
+        </tr>
+        <tr>
+    			<td id="enemy1Wall">WALL: </td>
+    			<td>TOWER: 12</td>
+    		</tr>
+    		<tr class="up_stats">
+    			<td>BRICKS: 23</td>
+          <td>QUARRY: 23</td>
+        </tr>
+        <tr class="up_stats">
+    			<td>GEMS: 12</td>
+          <td>MAGIC: 12</td>
+        </tr>
+        <tr class="up_stats">
+    			<td>RECRUITS: 2</td>
+          <td>DUNGEON: 2</td>
+    		</tr>
+
+    	</table>
+    </div>
+  <div class="enemy_player2">
+  	<table>
+      <tr>
+        <td style="text-decoration: underline;">PLAYER: player2</td>
+      </tr>
+      <tr>
+        <td>WALL: 23</td>
+        <td>TOWER: 12</td>
+      </tr>
+      <tr class="up_stats">
+        <td>BRICKS: 23</td>
+        <td>QUARRY: 23</td>
+      </tr>
+      <tr class="up_stats">
+        <td>GEMS: 12</td>
+        <td>MAGIC: 12</td>
+      </tr>
+      <tr class="up_stats">
+        <td>RECRUITS: 2</td>
+        <td>DUNGEON: 2</td>
+      </tr>
+  	</table>
+  </div>
+  <div class="enemy_player3">
+  	<table>
+      <tr>
+        <td style="text-decoration: underline;">PLAYER: player3</td>
+      </tr>
+      <tr>
+        <td>WALL: 23</td>
+        <td>TOWER: 12</td>
+      </tr>
+      <tr class="up_stats">
+        <td>BRICKS: 23</td>
+        <td>QUARRY: 23</td>
+      </tr>
+      <tr class="up_stats">
+        <td>GEMS: 12</td>
+        <td>MAGIC: 12</td>
+      </tr>
+      <tr class="up_stats">
+        <td>RECRUITS: 2</td>
+        <td>DUNGEON: 2</td>
+      </tr>
+  	</table>
+  </div>
+
+  <div class="player">
+    <table id="table">
+    	<tr>
+    		<td colspan="2" id="player_name">player_name</td>
+    	</tr>
+    	<tr>
+        <td>WALL: 23</td>
+        <td>TOWER: 12</td>
+      </tr>
+
+      <tr>
+      	<td class="td1_width" rowspan="2">
+          <div id="playerCards">
+          	<img src="tlo_czerwone.jpg" alt="" onload="resize_image(this);">
+          	<img src="tlo_czerwone.jpg" alt="">
+          	<img src="tlo_czerwone.jpg" alt="">
+          	<img src="tlo_czerwone.jpg" alt="">
+          	<img src="tlo_czerwone.jpg" alt="">
+          	<img src="tlo_czerwone.jpg" alt="">
+          <div>
+      	</td>
+    	</tr>
+    </table>
+    <table id="table">
+      <tr class="up_stats">
+        <td>BRICKS: 23</td>
+        <td>QUARRY: 23</td>
+        <td>GEMS: 12</td>
+        <td>MAGIC: 12</td>
+        <td>RECRUITS: 2</td>
+        <td>DUNGEON: 2</td>
+      </tr>
+    </table>
+
+  </div>
+  </body>
+</html>

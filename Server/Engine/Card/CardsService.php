@@ -10,7 +10,7 @@
       $this->cardsDao = new CardsDao();
     }
 
-    private function getCardsFile(){
+    public function getCardsFile(){
       return $this->cardsDao->getCardsFile();
     }
 

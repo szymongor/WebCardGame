@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<html lang="pl-PL">
+		<meta charset="utf-8">
+		<title>Arcomage</title>
+		<meta name="Arcomage">
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	
+
+<body>
+
+<div class="enemy_player1">
+
+	<table class="enemy_table">
+
+		<tr class="up_stats">
+			<td>BRICKS: 23</td>
+			<td>GEMS: 12</td>
+			<td>RECRUITS: 2</td>
+		</tr>
+
+		<tr>
+			<td>WALL: 23</td>
+			<td>TOWER: 12</td>
+			<td style="text-decoration: underline;">PLAYER: cośtam</td>
+		</tr>
+
+	</table>
+
+
+</div>
+
+<div class="enemy_player2">
+
+	<table>
+
+		<tr>
+			<td>BRICKS: 23</td>
+			<td>GEMS: 23</td>
+			<td>RECRUITS: 23</td>
+		</tr>
+		
+		<tr>
+			<td>WALL: 12</td>
+			<td>TOWER: 12</td>
+			<td style="text-decoration: underline;">PLAYER: costam</td>
+		</tr>
+
+	</table>
+
+</div>
+
+<div class="enemy_player3">
+
+	<table>
+
+		<tr>
+			<td>BRICKS: 23</td>
+			<td>GEMS: 23</td>
+			<td>RECRUITS: 23</td>
+		</tr>
+		
+		<tr>
+			<td>WALL: 12</td>
+			<td>TOWER: 12</td>
+			<td style="text-decoration: underline;">PLAYER: costam</td>
+		</tr>
+
+	</table>
+
+</div>
+
+<div class="player">
+
+<table id="table">
+
+	<tr>
+		<td colspan="2" id="player_name">player_name</td>
+	</tr>
+
+	<tr>    
+		<td class="td1_width">WALL: 4</td>
+		<td rowspan="2" class="right_stats">BRICKS: 14</td>
+	</tr>
+
+	<tr><td class="td1_width">TOWER: 3</td></tr>
+
+	<tr>
+	<td class="td1_width" rowspan="2">
+	<img src="tlo_czerwone.jpg" alt="" onload="resize_image(this);">
+	<img src="tlo_czerwone.jpg" alt="">
+	<img src="tlo_czerwone.jpg" alt="">
+	<img src="tlo_czerwone.jpg" alt="">
+	<img src="tlo_czerwone.jpg" alt="">
+	<img src="tlo_czerwone.jpg" alt="">
+	</td>	
+	<td class="right_stats">GEMS: 23</td>
+	</tr>
+	
+	<tr>
+	<td class="right_stats">RECRUITS: 81</td>
+	</tr>
+
+</table>
+
+</div>
+
+<script>
+var max_width = 300;
+
+function resize_image(image) {
+	 if(img.width > max_width) {
+        // obliczamy proporcje szerokość do wysokość
+        factor = img.width / img.height;
+        // obliczamy proporcjonalną wysokość, zaokrąglamy ją używając Math.floor();
+        height = Math.floor(max_width / factor);
+        // nadajemy obrazkowi nowe wymiary
+        img.width = max_width;
+        img.height = height;
+    }
+}
+
+
+</script>
+</body>
+
+
+</html>
