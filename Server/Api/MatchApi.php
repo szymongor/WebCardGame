@@ -1,6 +1,8 @@
 <?php
   require_once "ApiUtils.php";
   require_once "../Engine/Match/MatchService.php";
+  require_once "../Engine/Card/CardsService.php";
+
 
   session_start();
 
@@ -35,6 +37,11 @@
         echo(json_encode($response));
       }
     break;
+    case "cards":
+      $cardsService = new CardsService();
+      $response = $cardsService->getCardsFile();
+      echo(json_encode($response));
+      break;
   }
 
 

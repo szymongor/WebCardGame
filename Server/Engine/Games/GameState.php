@@ -274,11 +274,38 @@
     private function actCardEffect($cardEffect, $target){
       switch($cardEffect['EffectName']){
         case "AddAllPlayersBricks":
-          echo($cardEffect['EffectName']);
+          $this->addAllPlayersBricks($cardEffect['EffectParam']);
+        break;
+        case "AddBricks":
+          $this->addPlayerBricks($cardEffect['EffectParam'],$this->turn);
+        break;
+        case "AddGems":
+          $this->addPlayerGems($cardEffect['EffectParam'],$this->turn);
+        break;
+        case "AddWall":
+          $this->addPlayerWall($cardEffect['EffectParam'],$this->turn);
+        break;
+        case "AddQuarry":
+          $this->addPlayerQuarry($cardEffect['EffectParam'],$this->turn);
+        break;
+        case "AddAllPlayerQuarrys":
+          $this->addAllPlayerQuarries($cardEffect['EffectParam']);
         break;
         default:
           echo($cardEffect['EffectName']);
         break;
+      }
+    }
+
+    private function addAllPlayersBricks($amount){
+      for($i = 0 ; $i < count($this->players) ; $i++ ){
+        $this->addPlayerBricks($amount, $i);
+      }
+    }
+
+    private function addAllPlayerQuarries($amount){
+      for($i = 0 ; $i < count($this->players) ; $i++ ){
+        $this->addPlayerQuarry($amount, $i);
       }
     }
 
