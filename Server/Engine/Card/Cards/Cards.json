@@ -3,7 +3,7 @@
 		"Title": "Brick Shortage",
 		"Image": "brick.jpg",
 		"Cost": "0",
-		"Action": [["All players lose 8 bricks"],
+		"Action": ["All players lose 8 bricks"],
 		"Effects": [{
 			"EffectName": "AddAllPlayersBricks",
 			"EffectParam": "-8"
@@ -303,8 +303,8 @@
 			"EffectName": "AddWall",
 			"EffectParam": "6"
 		}, {
-			"EffectName": "AddEnemyLife",
-			"EffectParam": "-10"
+			"EffectName": "DealDamage",
+			"EffectParam": "10"
 		}],
 		"Type": "red"
 	},
@@ -357,16 +357,10 @@
 		"Title": "Flood Water",
 		"Image": "floodwater.jpg",
 		"Cost": "6",
-		"Action": "Player(s) w/lowest Wall are -1 Dungeon and 2 damage to Tower",???
+		"Action": "Player(s) w/lowest Wall are -1 Dungeon and 2 damage to Tower",
 		"Effects": [{
-			"EffectName": "AddWall",
-			"EffectParam": "1"
-		}, {
-			"EffectName": "AddTower",
-			"EffectParam": "1"
-		}, {
-			"EffectName": "AddRecruits",
-			"EffectParam": "2"
+			"EffectName": "FloodWater",
+			"EffectParam": "0"
 		}],
 		"Type": "red"
 	},
@@ -379,8 +373,8 @@
 			"EffectName": "AddWall",
 			"EffectParam": "7"
 		}, {
-			"EffectName": "AddEnemyLife",
-			"EffectParam": "-6"
+			"EffectName": "DealDamage",
+			"EffectParam": "6"
 		}],
 		"Type": "red"
 	},
@@ -466,7 +460,11 @@
 		"Title": "Lodestone",
 		"Image": "magne.jpg",
 		"Cost": "5",
-		"Action": "+3 Tower. This card can't be discarded without playing it",???
+		"Action": "+3 Tower. This card can't be discarded without playing it",
+		"Effects": [{
+			"EffectName": "AddTower",
+			"EffectParam": "3"
+		}],
 		"Type": "blue"
 	},
 	"36": {
@@ -699,7 +697,7 @@
 		"Title": "Empathy Gem",
 		"Image": "gem.jpg",
 		"Cost": "14",
-		"Action": ["-+8 Tower", "+1 Dungeon"],???
+		"Action": ["+8 Tower", "+1 Dungeon"],
 		"Effects": [{
 			"EffectName": "AddTower",
 			"EffectParam": "8"
@@ -746,8 +744,8 @@
 			"EffectName": "AddTower",
 			"EffectParam": "12"
 		}, {
-			"EffectName": "AddAllEnemyLife",
-			"EffectParam": "-6"
+			"EffectName": "DealDamageToAllEnemies",
+			"EffectParam": "6"
 		}],
 		"Type": "blue"
 	},
@@ -794,7 +792,7 @@
 		"Title": "Apprentice",
 		"Image": "apprentice.jpg",
 		"Cost": "5",
-		"Action": ["+4 Tower", "you lose 3 recruits", "2 damage to enemy Tower"],
+		"Action": ["+4 Tower", "You lose 3 recruits", "2 damage to enemy Tower"],
 		"Effects": [{
 			"EffectName": "AddTower",
 			"EffectParam": "4"
@@ -895,13 +893,13 @@
 		"Title": "Goblin Mob",
 		"Image": "goblin.jpg",
 		"Cost": "3",
-		"Action": ["6 Damage", "You take 3 damage"],???
+		"Action": ["6 Damage", "You take 3 damage"],
 		"Effects": [{
-			"EffectName": "AddLife",
-			"EffectParam": "-6"
+			"EffectName": "DealDamage",
+			"EffectParam": "6"
 		}, {
-			"EffectName": "AddLife",
-			"EffectParam": "-3"
+			"EffectName": "TakeDamage",
+			"EffectParam": "3"
 		}],
 		"Type": "green"
 	},
@@ -925,8 +923,8 @@
 		"Cost": "3",
 		"Action": ["5 Damage"],
 		"Effects": [{
-			"EffectName": "AddLife",
-			"EffectParam": "-5"
+			"EffectName": "DealDamage",
+			"EffectParam": "5"
 		}],
 		"Type": "green"
 	},
@@ -936,8 +934,8 @@
 		"Cost": "5",
 		"Action": ["4 Damage", "+3 Wall"],
 		"Effects": [{
-			"EffectName": "AddLife",
-			"EffectParam": "-4"
+			"EffectName": "DealDamage",
+			"EffectParam": "4"
 		}, {
 			"EffectName": "AddWall",
 			"EffectParam": "3"
@@ -972,8 +970,8 @@
 		"Cost": "8",
 		"Action": ["2 Damage", "+4 Wall", "+2 Tower"],
 		"Effects": [{
-			"EffectName": "AddLife",
-			"EffectParam": "-2"
+			"EffectName": "DealDamage",
+			"EffectParam": "2"
 		}, {
 			"EffectName": "AddWall",
 			"EffectParam": "4"
@@ -1003,8 +1001,8 @@
 		"Cost": "3",
 		"Action": ["6 Damage"],
 		"Effects": [{
-			"EffectName": "AddLife",
-			"EffectParam": "-6"
+			"EffectName": "DealDamage",
+			"EffectParam": "6"
 		}],
 		"Type": "green"
 	},
@@ -1014,8 +1012,8 @@
 		"Cost": "3",
 		"Action": ["7 Damage"],
 		"Effects": [{
-			"EffectName": "AddLife",
-			"EffectParam": "-7"
+			"EffectName": "DealDamage",
+			"EffectParam": "7"
 		}],
 		"Type": "green"
 	},
@@ -1025,8 +1023,8 @@
 		"Cost": "5",
 		"Action": ["6 Damage", "All players lose 5 bricks", "gems", "and recruits"],
 		"Effects": [{
-			"EffectName": "AddLife",
-			"EffectParam": "-6"
+			"EffectName": "DealDamage",
+			"EffectParam": "6"
 		}, {
 			"EffectName": "AddAllPlayersBricks",
 			"EffectParam": "-5"
@@ -1045,8 +1043,8 @@
 		"Cost": "9",
 		"Action": ["9 Damage"],
 		"Effects": [{
-			"EffectName": "AddLife",
-			"EffectParam": "-9"
+			"EffectName": "DealDamage",
+			"EffectParam": "9"
 		}],
 		"Type": "green"
 	},
@@ -1070,8 +1068,8 @@
 		"Cost": "11",
 		"Action": ["8 Damage", "-1 enemy quarry"],
 		"Effects": [{
-			"EffectName": "AddLife",
-			"EffectParam": "-8"
+			"EffectName": "DealDamage",
+			"EffectParam": "8"
 		}, {
 			"EffectName": "AddEnemyQuarry",
 			"EffectParam": "-1"
@@ -1084,16 +1082,7 @@
 		"Cost": "12",
 		"Action": ["Enemy loses 10 gems", "5 bricks", "you gain 1/2 amt", "round up"],
 		"Effects": [{
-			"EffectName": "AddEnemyGems",
-			"EffectParam": "-10"
-		}, {
-			"EffectName": "AddEnemyBricks",
-			"EffectParam": "-5"
-		}, {
-			"EffectName": "AddAmt",
-			"EffectParam": "1/2"
-		}, {
-			"EffectName": "RoundUp",
+			"EffectName": "Thief",
 			"EffectParam": "0"
 		}],
 		"Type": "green"
@@ -1104,8 +1093,8 @@
 		"Cost": "17",
 		"Action": ["10 Damage", "Enemy loses 5 recruits, -1 enemy Dungeon"],
 		"Effects": [{
-			"EffectName": "AddLife",
-			"EffectParam": "-10"
+			"EffectName": "DealDamage",
+			"EffectParam": "10"
 		}, {
 			"EffectName": "AddEnemyRecruits",
 			"EffectParam": "-5"
@@ -1121,8 +1110,8 @@
 		"Cost": "25",
 		"Action": ["20 Damage", "Enemy loses 10 gems, -1 enemy Dungeon"],
 		"Effects": [{
-			"EffectName": "AddLife",
-			"EffectParam": "-20"
+			"EffectName": "DealDamage",
+			"EffectParam": "20"
 		}, {
 			"EffectName": "AddEnemyGems",
 			"EffectParam": "-10"
@@ -1138,8 +1127,8 @@
 		"Cost": "2",
 		"Action": ["3 Damage", "+1 gem"],
 		"Effects": [{
-			"EffectName": "AddLife",
-			"EffectParam": "-3"
+			"EffectName": "DealDamage",
+			"EffectParam": "3"
 		}, {
 			"EffectName": "AddGems",
 			"EffectParam": "1"
@@ -1152,8 +1141,8 @@
 		"Cost": "4",
 		"Action": ["8 Damage", "3 Damage to your Tower"],
 		"Effects": [{
-			"EffectName": "AddLife",
-			"EffectParam": "-8"
+			"EffectName": "DealDamage",
+			"EffectParam": "8"
 		}, {
 			"EffectName": "AddTower",
 			"EffectParam": "-3"
@@ -1166,8 +1155,8 @@
 		"Cost": "13",
 		"Action": ["13 Damage", "You lose 3 gems"],
 		"Effects": [{
-			"EffectName": "AddLife",
-			"EffectParam": "-13"
+			"EffectName": "DealDamage",
+			"EffectParam": "13"
 		}, {
 			"EffectName": "AddGems",
 			"EffectParam": "-3"
