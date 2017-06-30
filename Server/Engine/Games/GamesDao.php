@@ -197,11 +197,11 @@
         else{
           $this->setPlayerPlayingGameInfo($playerId, $gameId);
           $this->setPlayerPlayingGameFile($playerId, $gameId);
-          $response = array('Status'=>'Ok', 'Message' => 'You are assigned to the game: '.$gameId);
+          $response = array('Status'=>'Ok', 'Message' => 'c.You are assigned to the game: '.$gameId);
         }
       }
       catch(PlayerAlreadyAssignedException $e){
-        $response = array('Status'=>'Error', 'Message' => 'You are already assigned to the game');
+        $response = array('Status'=>'Error', 'Message' => 'c2.You are already assigned to the game'.$e->getMessage());
       }
       return $response;
     }
@@ -211,7 +211,7 @@
     	$queryStr = sprintf("INSERT INTO `plays`(`user`, `game`) VALUES (%s,\"%s\")",$playerId,$gameId);
     	$result = @$this->db_connect->query($queryStr);
       if (!$result) {
-          throw new PlayerAlreadyAssignedException("");
+          throw new PlayerAlreadyAssignedException($queryStr);
       }
       mysqli_close($this->db_connect);
     }

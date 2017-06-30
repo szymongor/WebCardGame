@@ -29,11 +29,18 @@ function appendGameItem(title, gameId, owner){
     itemStr += '<span class="btn btn-xs btn-default" onclick="deleteGame()">';
     itemStr += '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
     itemStr += 'Delete game</span>';
+    itemStr += '<span class="btn btn-xs btn-default" onclick="startGame(\''+gameId+'\')">';
+    itemStr += '<span class="glyphicon glyphicon-play" aria-hidden="true"></span>';
+    itemStr += 'Start game</span>';
+    itemStr += '</span>';
   }
-  itemStr += '<span class="btn btn-xs btn-default" onclick="joinGame(\''+gameId+'\')">';
-  itemStr += '<span class="glyphicon glyphicon-play" aria-hidden="true"></span>';
-  itemStr += 'Join game</span>';
-  itemStr += '</span>';
+  else{
+    itemStr += '<span class="btn btn-xs btn-default" onclick="joinGame(\''+gameId+'\')">';
+    itemStr += '<span class="glyphicon glyphicon-play" aria-hidden="true"></span>';
+    itemStr += 'Join game</span>';
+    itemStr += '</span>';
+  }
+
   itemStr += '</a>';
   $('#gamesList').append(itemStr);
 }
@@ -46,4 +53,8 @@ function showAddNewGameModal(){
 
 function hideAddNewGameModal(){
   $('#addNewGame-modal').modal('hide');
+}
+
+function startGame(gameId){
+  gamesApi.startGame();
 }

@@ -6,7 +6,7 @@ function GamesApi(){
   		url: 'Server/Api/GamesApi.php/pendingGames',
       data : {},
   		success: function(data){
-          console.log(data);
+          //console.log(data);
           var serverResponse = $.parseJSON(data);
           pendingGamesResponse(serverResponse);
           //checkServerResponse(serverResponse);
@@ -33,6 +33,7 @@ function GamesApi(){
   		url: 'Server/Api/GamesApi.php/joinGame',
       data : {'gameName':gameName},
   		success: function(data){
+        console.log(data);
         var serverResponse = $.parseJSON(data);
         joinGameResponse(serverResponse);
   		}
@@ -48,6 +49,19 @@ function GamesApi(){
         console.log(data);
         //var serverResponse = $.parseJSON(data);
         //joinGameResponse(serverResponse);
+  		}
+  	});
+  };
+
+  this.startGame = function(){
+  	$.ajax({
+  		type: 'POST',
+  		url: 'Server/Api/GamesApi.php/startGame',
+      data : {},
+  		success: function(data){
+        console.log(data);
+        var serverResponse = $.parseJSON(data);
+        startGameResponse(serverResponse);
   		}
   	});
   };

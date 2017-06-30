@@ -1,7 +1,7 @@
 {
 	"0": {
 		"Title": "Brick Shortage",
-		"Image": "brick.jpg",
+		"Image": "Brick_Shortage.jpg",
 		"Cost": "0",
 		"Action": ["All players lose 8 bricks"],
 		"Effects": [{
@@ -12,7 +12,7 @@
 	},
 	"1": {
 		"Title": "Lucky Cache",
-		"Image": "gems.jpg",
+		"Image": "Lucky_Cache.jpg",
 		"Cost": "0",
 		"Action": ["+2 Bricks", "+2 Gems", "Play Again"],
 		"Effects": [{
@@ -24,12 +24,12 @@
 		}, {
 			"EffectName": "PlayAgain",
 			"EffectParam": "0"
-			}],
+		}],
 		"Type": "red"
 	},
 	"2": {
 		"Title": "Friendly Terrain",
-		"Image": "field.jpg",
+		"Image": "Friendly_Terrain.jpg",
 		"Cost": "1",
 		"Action": ["+1 Wall", "Play again"],
 		"Effects": [{
@@ -38,12 +38,12 @@
 		}, {
 			"EffectName": "PlayAgain",
 			"EffectParam": "0"
-			}],
+		}],
 		"Type": "red"
 	},
 	"3": {
 		"Title": "Miners",
-		"Image": "mine.jpg",
+		"Image": "Miners.jpg",
 		"Cost": "3",
 		"Action": ["+1 Quarry"],
 		"Effects": [{
@@ -54,7 +54,7 @@
 	},
 	"4": {
 		"Title": "Dwarven Miners",
-		"Image": "mine.jpg",
+		"Image": "Dwarven_Miners.jpg",
 		"Cost": "7",
 		"Action": ["+4 Wall", "+1 Quarry"],
 		"Effects": [{
@@ -63,12 +63,12 @@
 		}, {
 			"EffectName": "AddQuarry",
 			"EffectParam": "1"
-			}],
+		}],
 		"Type": "red"
 	},
 	"5": {
 		"Title": "Work Overtime",
-		"Image": "work.jpg",
+		"Image": "Work_Overtime.jpg",
 		"Cost": "2",
 		"Action": ["+5 Wall", "You lose 6 gems"],
 		"Effects": [{
@@ -82,7 +82,7 @@
 	},
 	"6": {
 		"Title": "Basic Wall",
-		"Image": "wall.jpg",
+		"Image": "Basic_Wall.jpg",
 		"Cost": "2",
 		"Action": ["+3 Wall"],
 		"Effects": [{
@@ -93,7 +93,7 @@
 	},
 	"7": {
 		"Title": "Sturdy Wall",
-		"Image": "wall.jpg",
+		"Image": "Sturdy_Wall.jpg",
 		"Cost": "3",
 		"Action": ["+4 Wall"],
 		"Effects": [{
@@ -104,13 +104,13 @@
 	},
 	"8": {
 		"Title": "Innovations",
-		"Image": "tech.jpg",
+		"Image": "Innovations.jpg",
 		"Cost": "2",
 		"Action": ["+1 to all player's quarrys", "You gain 4 gems"],
 		"Effects": [{
 			"EffectName": "AddAllPlayerQuarrys",
 			"EffectParam": "1"
-			}, {
+		}, {
 			"EffectName": "AddGems",
 			"EffectParam": "4"
 		}],
@@ -118,13 +118,13 @@
 	},
 	"9": {
 		"Title": "Tremors",
-		"Image": "tremors.jpg",
+		"Image": "Tremors.jpg",
 		"Cost": "7",
 		"Action": ["All walls take 5 damage", "Play again"],
 		"Effects": [{
 			"EffectName": "AddAllPlayerWalls",
 			"EffectParam": "-5"
-			}, {
+		}, {
 			"EffectName": "PlayAgain",
 			"EffectParam": "0"
 		}],
@@ -132,13 +132,13 @@
 	},
 	"10": {
 		"Title": "Secret Room",
-		"Image": "door.jpg",
+		"Image": "Secret_Room.jpg",
 		"Cost": "8",
 		"Action": ["+1 Magic", "Play again"],
 		"Effects": [{
 			"EffectName": "AddMagic",
 			"EffectParam": "1"
-			}, {
+		}, {
 			"EffectName": "PlayAgain",
 			"EffectParam": "0"
 		}],
@@ -146,7 +146,7 @@
 	},
 	"11": {
 		"Title": "Earthquake",
-		"Image": "earthquake.jpg",
+		"Image": "Earthquake.jpg",
 		"Cost": "0",
 		"Action": ["-1 to all player's quarrys"],
 		"Effects": [{
@@ -157,7 +157,7 @@
 	},
 	"12": {
 		"Title": "Big Wall",
-		"Image": "wall.jpg",
+		"Image": "Big_Wall.jpg",
 		"Cost": "5",
 		"Action": ["+6 Wall"],
 		"Effects": [{
@@ -167,8 +167,8 @@
 		"Type": "red"
 	},
 	"13": {
-		"Title": "Collapse!",
-		"Image": "collapse.jpg",
+		"Title": "Collapse",
+		"Image": "Collapse.jpg",
 		"Cost": "4",
 		"Action": ["-1 Enemy quarry"],
 		"Effects": [{
@@ -179,7 +179,7 @@
 	},
 	"14": {
 		"Title": "New Equipment",
-		"Image": "tools.jpg",
+		"Image": "New_Equipment.jpg",
 		"Cost": "6",
 		"Action": ["+2 quarry"],
 		"Effects": [{
@@ -190,7 +190,7 @@
 	},
 	"15": {
 		"Title": "Strip Mine",
-		"Image": "mine.jpg",
+		"Image": "Strip_Mine.jpg",
 		"Cost": "0",
 		"Action": ["-1 Quarry", "+10 wall", "You gain 5 gems"],
 		"Effects": [{
@@ -207,7 +207,7 @@
 	},
 	"16": {
 		"Title": "Reinforced Wall",
-		"Image": "wall.jpg",
+		"Image": "Reinforced_Wall.jpg",
 		"Cost": "8",
 		"Action": ["+8 Wall"],
 		"Effects": [{
@@ -218,7 +218,7 @@
 	},
 	"17": {
 		"Title": "Porticulus",
-		"Image": "defense.jpg",
+		"Image": "Porticulus.jpg",
 		"Cost": "9",
 		"Action": ["+5 Wall", "+1 Dungeon"],
 		"Effects": [{
@@ -232,7 +232,7 @@
 	},
 	"18": {
 		"Title": "Crystal Rocks",
-		"Image": "crystalrocks.jpg",
+		"Image": "Crystal_Rocks.jpg",
 		"Cost": "9",
 		"Action": ["+7 Wall", "gain 7 gems"],
 		"Effects": [{
@@ -246,7 +246,7 @@
 	},
 	"19": {
 		"Title": "Harmonic Ore",
-		"Image": "ore.jpg",
+		"Image": "Harmonic_Ore.jpg",
 		"Cost": "11",
 		"Action": ["+6 Wall", "+3 Tower"],
 		"Effects": [{
@@ -260,7 +260,7 @@
 	},
 	"20": {
 		"Title": "MondoWall",
-		"Image": "wall.jpg",
+		"Image": "MondoWall.jpg",
 		"Cost": "13",
 		"Action": ["+12 Wall"],
 		"Effects": [{
@@ -271,7 +271,7 @@
 	},
 	"21": {
 		"Title": "Focused Designs",
-		"Image": "tech.jpg",
+		"Image": "Focused_Designs.jpg",
 		"Cost": "15",
 		"Action": ["+8 Wall", "+5 Tower"],
 		"Effects": [{
@@ -285,7 +285,7 @@
 	},
 	"22": {
 		"Title": "Great Wall",
-		"Image": "wall.jpg",
+		"Image": "Great_Wall.jpg",
 		"Cost": "16",
 		"Action": ["+15 Wall"],
 		"Effects": [{
@@ -296,7 +296,7 @@
 	},
 	"23": {
 		"Title": "Rock Launcher",
-		"Image": "rocks.jpg",
+		"Image": "Rock_Launcher.jpg",
 		"Cost": "18",
 		"Action": ["+6 Wall", "10 Damage to enemy"],
 		"Effects": [{
@@ -310,7 +310,7 @@
 	},
 	"24": {
 		"Title": "Dragon's Heart",
-		"Image": "heart.jpg",
+		"Image": "Dragons_Heart.jpg",
 		"Cost": "24",
 		"Action": ["+20 Wall", "+8 Tower"],
 		"Effects": [{
@@ -324,7 +324,7 @@
 	},
 	"25": {
 		"Title": "Forced Labor",
-		"Image": "whip.jpg",
+		"Image": "Forced_Labor.jpg",
 		"Cost": "7",
 		"Action": ["+9 Wall", "Lose 5 recruits"],
 		"Effects": [{
@@ -338,7 +338,7 @@
 	},
 	"26": {
 		"Title": "Rock Garden",
-		"Image": "rgarden.jpg",
+		"Image": "Rock_Garden.jpg",
 		"Cost": "1",
 		"Action": ["+1 Wall", "+1 Tower", "+2 recruits"],
 		"Effects": [{
@@ -355,7 +355,7 @@
 	},
 	"27": {
 		"Title": "Flood Water",
-		"Image": "floodwater.jpg",
+		"Image": "Flood_Water.jpg",
 		"Cost": "6",
 		"Action": "Player(s) w/lowest Wall are -1 Dungeon and 2 damage to Tower",
 		"Effects": [{
@@ -366,7 +366,7 @@
 	},
 	"28": {
 		"Title": "Battlements",
-		"Image": "battlements.jpg",
+		"Image": "Battlements.jpg",
 		"Cost": "14",
 		"Action": ["+7 Wall", "6 damage to enemy"],
 		"Effects": [{
@@ -380,7 +380,7 @@
 	},
 	"29": {
 		"Title": "Shift",
-		"Image": "shift.jpg",
+		"Image": "Shift.jpg",
 		"Cost": "14",
 		"Action": ["Switch your Wall with enemy Wall"],
 		"Effects": [{
@@ -391,7 +391,7 @@
 	},
 	"30": {
 		"Title": "Quartz",
-		"Image": "quartz.jpg",
+		"Image": "Quartz.jpg",
 		"Cost": "1",
 		"Action": ["+1 Tower", "Play again"],
 		"Effects": [{
@@ -405,7 +405,7 @@
 	},
 	"31": {
 		"Title": "Smoky Quartz",
-		"Image": "squartz.jpg",
+		"Image": "Smoky_Quartz.jpg",
 		"Cost": "2",
 		"Action": ["1 damage to enemy tower", "Play again"],
 		"Effects": [{
@@ -419,7 +419,7 @@
 	},
 	"32": {
 		"Title": "Amethyst",
-		"Image": "amethyst.jpg",
+		"Image": "Amethyst.jpg",
 		"Cost": "2",
 		"Action": ["+3 Tower"],
 		"Effects": [{
@@ -430,7 +430,7 @@
 	},
 	"33": {
 		"Title": "Spell Weavers",
-		"Image": "mspell.jpg",
+		"Image": "Spell_Weavers.jpg",
 		"Cost": "3",
 		"Action": ["+1 Magic"],
 		"Effects": [{
@@ -441,7 +441,7 @@
 	},
 	"34": {
 		"Title": "Prism",
-		"Image": "prism.jpg",
+		"Image": "Prism.jpg",
 		"Cost": "2",
 		"Action": ["Draw 1 card", "Discard 1 card", "Play again"],
 		"Effects": [{
@@ -458,7 +458,7 @@
 	},
 	"35": {
 		"Title": "Lodestone",
-		"Image": "magne.jpg",
+		"Image": "Lodestone.jpg",
 		"Cost": "5",
 		"Action": "+3 Tower. This card can't be discarded without playing it",
 		"Effects": [{
@@ -469,7 +469,7 @@
 	},
 	"36": {
 		"Title": "Solar Flare",
-		"Image": "solar.jpg",
+		"Image": "Solar_Flare.jpg",
 		"Cost": "4",
 		"Action": ["+2 Tower", "2 Damage to enemy tower"],
 		"Effects": [{
@@ -483,7 +483,7 @@
 	},
 	"37": {
 		"Title": "Crystal Matrix",
-		"Image": "crystal.jpg",
+		"Image": "Crystal_Matrix.jpg",
 		"Cost": "6",
 		"Action": ["+1 Magic", "+3 Tower", "+1 Enemy tower"],
 		"Effects": [{
@@ -500,7 +500,7 @@
 	},
 	"38": {
 		"Title": "Gemstone Flaw",
-		"Image": "gem.jpg",
+		"Image": "Gemstone_Flaw.jpg",
 		"Cost": "2",
 		"Action": ["3 damage to enemy tower"],
 		"Effects": [{
@@ -511,7 +511,7 @@
 	},
 	"39": {
 		"Title": "Ruby",
-		"Image": "ruby.jpg",
+		"Image": "Ruby.jpg",
 		"Cost": "3",
 		"Action": ["+5 Tower"],
 		"Effects": [{
@@ -522,7 +522,7 @@
 	},
 	"40": {
 		"Title": "Gem Spear",
-		"Image": "spear.jpg",
+		"Image": "Gem_Spear.jpg",
 		"Cost": "4",
 		"Action": ["5 damage to enemy tower"],
 		"Effects": [{
@@ -533,7 +533,7 @@
 	},
 	"41": {
 		"Title": "Power Burn",
-		"Image": "power.jpg",
+		"Image": "Power_Burn.jpg",
 		"Cost": "3",
 		"Action": ["5 damage to your tower", "+2 Magic"],
 		"Effects": [{
@@ -547,7 +547,7 @@
 	},
 	"42": {
 		"Title": "Harmonic Vibe",
-		"Image": "vibe.jpg",
+		"Image": "Harmonic_Vibe.jpg",
 		"Cost": "7",
 		"Action": ["+1 Magic", "+3 Tower", "+3 Wall"],
 		"Effects": [{
@@ -564,7 +564,7 @@
 	},
 	"43": {
 		"Title": "Parity",
-		"Image": "scales.jpg",
+		"Image": "Parity.jpg",
 		"Cost": "7",
 		"Action": ["All player's magic equals the highest player's magic"],
 		"Effects": [{
@@ -575,7 +575,7 @@
 	},
 	"44": {
 		"Title": "Emerald",
-		"Image": "emerald.jpg",
+		"Image": "Emerald.jpg",
 		"Cost": "6",
 		"Action": ["+8 Tower"],
 		"Effects": [{
@@ -586,7 +586,7 @@
 	},
 	"45": {
 		"Title": "Pearl of Wisdom",
-		"Image": "pearl.jpg",
+		"Image": "Pearl_of_Wisdom.jpg",
 		"Cost": "9",
 		"Action": ["+5 Tower", "+1 Magic"],
 		"Effects": [{
@@ -600,7 +600,7 @@
 	},
 	"46": {
 		"Title": "Shatterer",
-		"Image": "tremors.jpg",
+		"Image": "Shatterer.jpg",
 		"Cost": "9",
 		"Action": ["-1 Magic", "9 damage to enemy tower"],
 		"Effects": [{
@@ -614,7 +614,7 @@
 	},
 	"47": {
 		"Title": "Crumble stone",
-		"Image": "darkstone.jpg",
+		"Image": "Crumblestone.jpg",
 		"Cost": "7",
 		"Action": ["+8 Tower", "Enemy loses 6 bricks"],
 		"Effects": [{
@@ -628,7 +628,7 @@
 	},
 	"48": {
 		"Title": "Sapphire",
-		"Image": "sapphire.jpg",
+		"Image": "Sapphire.jpg",
 		"Cost": "10",
 		"Action": ["+11 Tower"],
 		"Effects": [{
@@ -639,7 +639,7 @@
 	},
 	"49": {
 		"Title": "Discord",
-		"Image": "dicord.jpg",
+		"Image": "Discord.jpg",
 		"Cost": "5",
 		"Action": ["7 Damage to all towers", "All player's magic -1"],
 		"Effects": [{
@@ -653,7 +653,7 @@
 	},
 	"50": {
 		"Title": "Fire Ruby",
-		"Image": "redgem.jpg",
+		"Image": "Fire_Ruby.jpg",
 		"Cost": "13",
 		"Action": ["+6 Tower", "4 Damage to all enemy towers"],
 		"Effects": [{
@@ -667,7 +667,7 @@
 	},
 	"51": {
 		"Title": "Quarry's Help",
-		"Image": "consept.jpg",
+		"Image": "Quarrys_Help.jpg",
 		"Cost": "4",
 		"Action": ["+7 Tower", "Lose 10 bricks"],
 		"Effects": [{
@@ -681,7 +681,7 @@
 	},
 	"52": {
 		"Title": "Crystal Shield",
-		"Image": "shield.jpg",
+		"Image": "Crystal_Shield.jpg",
 		"Cost": "12",
 		"Action": ["+8 Tower", "+3 Wall"],
 		"Effects": [{
@@ -695,7 +695,7 @@
 	},
 	"53": {
 		"Title": "Empathy Gem",
-		"Image": "gem.jpg",
+		"Image": "Empathy_Gem.jpg",
 		"Cost": "14",
 		"Action": ["+8 Tower", "+1 Dungeon"],
 		"Effects": [{
@@ -709,7 +709,7 @@
 	},
 	"54": {
 		"Title": "Diamond",
-		"Image": "diamond.jpg",
+		"Image": "Diamond.jpg",
 		"Cost": "16",
 		"Action": ["+15 Tower"],
 		"Effects": [{
@@ -720,7 +720,7 @@
 	},
 	"55": {
 		"Title": "Sanctuary",
-		"Image": "sanctuary.jpg",
+		"Image": "Sanctuary.jpg",
 		"Cost": "15",
 		"Action": ["+10 Tower", "+5 Wall", "Gain 5 recruits"],
 		"Effects": [{
@@ -737,7 +737,7 @@
 	},
 	"56": {
 		"Title": "Lava Jewel",
-		"Image": "jewel.jpg",
+		"Image": "Lava_Jewel.jpg",
 		"Cost": "17",
 		"Action": ["+12 Tower", "6 Damage to all enemies"],
 		"Effects": [{
@@ -751,7 +751,7 @@
 	},
 	"57": {
 		"Title": "Dragon's Eye",
-		"Image": "dragoneye.jpg",
+		"Image": "Dragons_Eye.jpg",
 		"Cost": "21",
 		"Action": ["+20 Tower"],
 		"Effects": [{
@@ -762,7 +762,7 @@
 	},
 	"58": {
 		"Title": "Crystalize",
-		"Image": "crystalize.jpg",
+		"Image": "Crystalize.jpg",
 		"Cost": "8",
 		"Action": ["+11 Tower", "-6 Wall"],
 		"Effects": [{
@@ -776,7 +776,7 @@
 	},
 	"59": {
 		"Title": "Rainbow",
-		"Image": "rainbow.jpg",
+		"Image": "Rainbow.jpg",
 		"Cost": "0",
 		"Action": ["+1 Tower to all players", "You gain 3 gems"],
 		"Effects": [{
@@ -790,7 +790,7 @@
 	},
 	"60": {
 		"Title": "Apprentice",
-		"Image": "apprentice.jpg",
+		"Image": "Apprentice.jpg",
 		"Cost": "5",
 		"Action": ["+4 Tower", "You lose 3 recruits", "2 damage to enemy Tower"],
 		"Effects": [{
@@ -807,7 +807,7 @@
 	},
 	"61": {
 		"Title": "Phase Jewel",
-		"Image": "jewel.jpg",
+		"Image": "Phase_Jewel.jpg",
 		"Cost": "18",
 		"Action": ["+13 Tower", "+6 recruits", "+6 bricks"],
 		"Effects": [{
@@ -824,7 +824,7 @@
 	},
 	"62": {
 		"Title": "Mad Cow Disease",
-		"Image": "cow.jpg",
+		"Image": "Mad_Cow_Disease.jpg",
 		"Cost": "0",
 		"Action": ["All players lose 6 recruits"],
 		"Effects": [{
@@ -835,7 +835,7 @@
 	},
 	"63": {
 		"Title": "Faerie",
-		"Image": "faerie.jpg",
+		"Image": "Faerie.jpg",
 		"Cost": "1",
 		"Action": ["2 Damage", "Play again"],
 		"Effects": [{
@@ -849,7 +849,7 @@
 	},
 	"64": {
 		"Title": "Moody Goblins",
-		"Image": "goblin.jpg",
+		"Image": "Moody_Goblins.jpg",
 		"Cost": "1",
 		"Action": ["4 Damage", "You lose 3 gems"],
 		"Effects": [{
@@ -863,7 +863,7 @@
 	},
 	"65": {
 		"Title": "Minotaur",
-		"Image": "minotaur.jpg",
+		"Image": "Minotaur.jpg",
 		"Cost": "3",
 		"Action": ["+1 Dungeon"],
 		"Effects": [{
@@ -874,7 +874,7 @@
 	},
 	"66": {
 		"Title": "Elven Scout",
-		"Image": "elf.jpg",
+		"Image": "Elven_Scout.jpg",
 		"Cost": "2",
 		"Action": ["Draw 1 card", "Discard 1 cars", "Play again"],
 		"Effects": [{
@@ -891,7 +891,7 @@
 	},
 	"67": {
 		"Title": "Goblin Mob",
-		"Image": "goblin.jpg",
+		"Image": "Goblin_Mob.jpg",
 		"Cost": "3",
 		"Action": ["6 Damage", "You take 3 damage"],
 		"Effects": [{
@@ -905,7 +905,7 @@
 	},
 	"68": {
 		"Title": "Shadow Faerie",
-		"Image": "shadowf.jpg",
+		"Image": "Shadow_Faerie.jpg",
 		"Cost": "6",
 		"Action": ["2 Damage to enemy tower", "Play again"],
 		"Effects": [{
@@ -919,7 +919,7 @@
 	},
 	"69": {
 		"Title": "Orc",
-		"Image": "ore.jpg",
+		"Image": "Orc.jpg",
 		"Cost": "3",
 		"Action": ["5 Damage"],
 		"Effects": [{
@@ -930,7 +930,7 @@
 	},
 	"70": {
 		"Title": "Dwarves",
-		"Image": "dwarf.jpg",
+		"Image": "Dwarves.jpg",
 		"Cost": "5",
 		"Action": ["4 Damage", "+3 Wall"],
 		"Effects": [{
@@ -944,7 +944,7 @@
 	},
 	"71": {
 		"Title": "Little Snakes",
-		"Image": "snake.jpg",
+		"Image": "Little_Snakes.jpg",
 		"Cost": "6",
 		"Action": ["4 Damage to enemy tower"],
 		"Effects": [{
@@ -955,7 +955,7 @@
 	},
 	"72": {
 		"Title": "Troll Trainer",
-		"Image": "troll.jpg",
+		"Image": "Troll_Trainer.jpg",
 		"Cost": "7",
 		"Action": ["+2 Dungeon"],
 		"Effects": [{
@@ -966,7 +966,7 @@
 	},
 	"73": {
 		"Title": "Tower Gremlin",
-		"Image": "gremlin.jpg",
+		"Image": "Tower_Gremlin.jpg",
 		"Cost": "8",
 		"Action": ["2 Damage", "+4 Wall", "+2 Tower"],
 		"Effects": [{
@@ -983,7 +983,7 @@
 	},
 	"74": {
 		"Title": "Full Moon",
-		"Image": "fullmoon.jpg",
+		"Image": "Full_Moon.jpg",
 		"Cost": "0",
 		"Action": ["+1 to all player's Dungeon", "You gain 3 recruits"],
 		"Effects": [{
@@ -997,7 +997,7 @@
 	},
 	"75": {
 		"Title": "Slasher",
-		"Image": "slasher.jpg",
+		"Image": "Slasher.jpg",
 		"Cost": "3",
 		"Action": ["6 Damage"],
 		"Effects": [{
@@ -1008,7 +1008,7 @@
 	},
 	"76": {
 		"Title": "Ogre",
-		"Image": "ogre.jpg",
+		"Image": "Ogre.jpg",
 		"Cost": "3",
 		"Action": ["7 Damage"],
 		"Effects": [{
@@ -1019,7 +1019,7 @@
 	},
 	"77": {
 		"Title": "Imp",
-		"Image": "imp.jpg",
+		"Image": "Imp.jpg",
 		"Cost": "5",
 		"Action": ["6 Damage", "All players lose 5 bricks", "gems", "and recruits"],
 		"Effects": [{
@@ -1039,7 +1039,7 @@
 	},
 	"78": {
 		"Title": "Werewolf",
-		"Image": "werewolf.jpg",
+		"Image": "Werewolf.jpg",
 		"Cost": "9",
 		"Action": ["9 Damage"],
 		"Effects": [{
@@ -1050,7 +1050,7 @@
 	},
 	"79": {
 		"Title": "Succubus",
-		"Image": "succubus.jpg",
+		"Image": "Succubus.jpg",
 		"Cost": "14",
 		"Action": ["5 Damage to enemy Tower", "Enemy loses 8 recruits"],
 		"Effects": [{
@@ -1064,7 +1064,7 @@
 	},
 	"80": {
 		"Title": "Rock Stompers",
-		"Image": "rockgiant.jpg",
+		"Image": "Rock_Stompers.jpg",
 		"Cost": "11",
 		"Action": ["8 Damage", "-1 enemy quarry"],
 		"Effects": [{
@@ -1078,7 +1078,7 @@
 	},
 	"81": {
 		"Title": "Thief",
-		"Image": "thief.jpg",
+		"Image": "Thief.jpg",
 		"Cost": "12",
 		"Action": ["Enemy loses 10 gems", "5 bricks", "you gain 1/2 amt", "round up"],
 		"Effects": [{
@@ -1089,7 +1089,7 @@
 	},
 	"82": {
 		"Title": "Vampire",
-		"Image": "vampire.jpg",
+		"Image": "Vampire.jpg",
 		"Cost": "17",
 		"Action": ["10 Damage", "Enemy loses 5 recruits, -1 enemy Dungeon"],
 		"Effects": [{
@@ -1106,7 +1106,7 @@
 	},
 	"83": {
 		"Title": "Dragon",
-		"Image": "dragon.jpg",
+		"Image": "Dragon.jpg",
 		"Cost": "25",
 		"Action": ["20 Damage", "Enemy loses 10 gems, -1 enemy Dungeon"],
 		"Effects": [{
@@ -1123,7 +1123,7 @@
 	},
 	"84": {
 		"Title": "Gnome",
-		"Image": "gnome.jpg",
+		"Image": "Gnome.jpg",
 		"Cost": "2",
 		"Action": ["3 Damage", "+1 gem"],
 		"Effects": [{
@@ -1137,7 +1137,7 @@
 	},
 	"85": {
 		"Title": "Berserker",
-		"Image": "berserker.jpg",
+		"Image": "Berserker.jpg",
 		"Cost": "4",
 		"Action": ["8 Damage", "3 Damage to your Tower"],
 		"Effects": [{
@@ -1151,7 +1151,7 @@
 	},
 	"86": {
 		"Title": "Warlord",
-		"Image": "warlord.jpg",
+		"Image": "Warlord.jpg",
 		"Cost": "13",
 		"Action": ["13 Damage", "You lose 3 gems"],
 		"Effects": [{
@@ -1165,7 +1165,7 @@
 	},
 	"87": {
 		"Title": "Pegasus Lancer",
-		"Image": "pegasus.jpg",
+		"Image": "Pegasus_Lancer.jpg",
 		"Cost": "18",
 		"Action": "12 Damage to enemy tower",
 		"Effects": [{

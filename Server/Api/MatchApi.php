@@ -29,7 +29,8 @@
     case "getGameState":
       if (isset($_SESSION['loggedUserId'])){
         $matchService = new MatchService();
-        $response = $matchService->getGameStateForPlayer($_SESSION['loggedUserId']);
+        $gameState = $matchService->getGameStateForPlayer($_SESSION['loggedUserId']);
+        $response = array('Status' => "Ok", "GameState" => $gameState, "Id" => $_SESSION['loggedUserId']);
         echo(json_encode($response));
       }
       else{

@@ -1,7 +1,4 @@
 <?php
-
-
-
   function getRequestType($requestURI){
     $requestType = explode('/', $requestURI);
     foreach ($requestType as $key => $value) {
@@ -11,6 +8,4 @@
     }
     return "None";
   }
-
-
 ?>

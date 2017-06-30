@@ -1,0 +1,96 @@
+
+
+	body{
+		background-image: url("background.jpg");
+		font-size: 1vw;
+	}
+
+	.player{
+	width: 85%;
+	height: 30%;
+	border: 1px solid;
+	margin: 25% auto 0 auto;
+	background-image: url("table_background2.png");
+
+	}
+
+	#table{
+	height: inherit;
+	color: white;
+	text-shadow: 1px 1px 2px blue;
+	}
+
+	#player_name{
+	text-align: center;
+
+	}
+
+	.td1_width{
+	 width: 78%;
+	}
+
+	.td1_width img{
+	max-width: 15%;
+
+
+	}
+
+	.right_stats{
+	font-size: 2vw;
+	}
+
+	.enemy_player1{
+	background-image: url("enemy_background.png");
+	width: 50%;
+	height: 15%;
+	margin: 1% auto 0 auto;
+	border: 1px solid;
+	color: white;
+	text-shadow: 1px 1px 2px blue;
+	}
+
+	.up_stats td{
+	width: 15%;
+	height: 3%;
+	}
+
+	.enemy_player2{
+	background-image: url("enemy_background.png");
+	float: left;
+	width: 15%;
+	height: 7%;
+	margin: 8% 0 0 1%;
+	border: 1px solid;
+	color: white;
+	text-shadow: 1px 1px 2px blue;
+	}
+
+.enemy_player3{
+	background-image: url("enemy_background.png");
+	float: right;
+	width: 15%;
+	height: 7%;
+	margin: 8% 1% 0 0;
+	border: 1px solid;
+	color: white;
+	text-shadow: 1px 1px 2px blue;
+	}
+
+.card{
+	padding: 3px;
+}
+
+.card:hover {
+   border:3px solid green;
+}
+
+.turn {
+   border:5px solid blue;
+}
+
+
+@keyframes move {
+	from{left:auto;top:auto;}
+	to{left:0px; top:0px}
+
+}

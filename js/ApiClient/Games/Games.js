@@ -1,4 +1,7 @@
 var gamesApi = new GamesApi();
+var matchApi = new MatchApi();
+
+var gameState = {};
 
 function createNewGame(){
   var gameName = $('#gameNameInput').val();
@@ -46,9 +49,29 @@ function joinGame(gameName){
 function joinGameResponse(response){
   if(response.Status == "Ok"){
     console.log("To do: open game View: " );
+    matchApi.waitingToStart();
   }
   else{
     console.log(response.Message);
+  }
+}
+
+function joinGameWaiting(serverResponse){
+  if(serverResponse['GameState']['Pending'] != undefined){
+    if(serverResponse['GameState']['Pending'] == 1){
+      console.log(serverResponse['GameState']['Pending']);
+      setTimeout(function(){matchApi.waitingToStart(); }, 3000);
+    }
+    else{
+      console.log("Start");
+      window.location.replace("GameView.html");
+    }
+  }
+}
+
+function startGameResponse(serverResponse){
+  if(serverResponse['Status'] == "Ok"){
+    window.location.replace("GameView.html");
   }
 }
 

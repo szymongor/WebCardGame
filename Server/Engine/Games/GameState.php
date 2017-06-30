@@ -4,17 +4,20 @@
 
   class GameState{
 
-    private static $CARDS_NUMBER = 102;
+    private static $CARDS_NUMBER = 87;
     private static $CARDS_ON_HAND = 6;
 
     private $cardsService;
 
     private $players;
     private $pending;
+    private $gameStatus;
+    private $matchWinner;
 
     private $turn;
     private $cardsDeck;
     private $playersState;
+    private $history;
 
     public function __construct($gameStateJSON){
       $this->cardsService = new CardsService();
@@ -22,6 +25,9 @@
       $this->players = $gamesStateObj['Players'];
       $this->pending = $gamesStateObj['Pending'];
       $this->turn = $gamesStateObj['Turn'];
+      $this->gameStatus = $gamesStateObj['GameStatus'];
+      $this->matchWinner = $gamesStateObj['MatchWinner'];
+      $this->history = $gamesStateObj['History'];
       if($this->pending == 0){
         $this->playersState = array();
         for($i = 0 ; $i < count($gamesStateObj['PlayersState']) ; $i++){
@@ -43,6 +49,9 @@
           $gameArray['PlayersState'][] = $this->playersState[$i]->toArray();
         }
       }
+      $gameArray['History'] = $this->history;
+      $gameArray['GameStatus'] = $this->gameStatus;
+      $gameArray['MatchWinner'] = $this->matchWinner;
       return $gameArray;
     }
 
@@ -98,6 +107,9 @@
       $gameArray['Players'] = $this->players;
       $gameArray['Pending'] = $this->pending;
       $gameArray['Turn'] = $this->turn;
+      $gameArray['History'] =  $this->history;
+      $gameArray['GameStatus'] = $this->gameStatus;
+      $gameArray['MatchWinner'] = $this->matchWinner;
       if($this->pending == 0){
         $gameArray['PlayersState'] = array();
         for($i = 0 ; $i < count($this->playersState) ; $i++){
@@ -149,13 +161,21 @@
         if($isDiscarded){
           $response = array("Status" => "Ok", "Message" => "Done", "GameState" => $this->getGameStateForPlayer($playerId));
           $playerState->discardACard($cardPositionInHand);
+          $this->checkGameEnd();
+          if($this->gameStatus == "End"){
+            $response['MatchStatus'] = 'End';
+          }
           $this->startNextTurn();
         }
         elseif($playerState->chceckResources($playedCard->getType(),$playedCard->getCost())){
           $this->actCardEffects($playedCard, $target);
           $playerState->discardACard($cardPositionInHand);
-          $this->startNextTurn();
+          $this->checkGameEnd();
+          if($this->gameStatus == "End"){
+            $response['MatchStatus'] = 'End';
+          }
           $response = array("Status" => "Ok", "Message" => "Done", "GameState" => $this->getGameStateForPlayer($playerId));
+          $this->startNextTurn();
         }
         else{
           $response = array("Status" => "Error", "Message" => "You dont have enough resources");
@@ -165,6 +185,20 @@
       return $response;
     }
 
+    public function checkGameEnd(){
+      for($i = 0 ; $i < count($this->players) ; $i++){
+        $playerStatus = $this->playersState[$i]->checkPlayerEnd();
+        if($playerStatus == "Win"){
+          $this->gameStatus = "End";
+          $this->matchWinner = $i;
+        }
+        elseif ($playerStatus == "Loose") {
+          $this->gameStatus = "End";
+          //TO DO
+          $this->matchWinner = $i+1;
+        }
+      }
+    }
     //Cards effect:
 
     public function addPlayerWall($amount, $target){
@@ -372,7 +406,7 @@
 
     private function addCards($amount,$target){
       if($amount>0){
-        for($i = 0 ; $i < amount ; $i++){
+        for($i = 0 ; $i < $amount ; $i++){
           $cardId = $this->drawACard();
           $this->playersState[$target]->addACard($cardId);
         }

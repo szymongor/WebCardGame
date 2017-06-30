@@ -1,6 +1,6 @@
 <?php
   require_once "ApiUtils.php";
-  require_once $_SERVER['DOCUMENT_ROOT']."/CardGame/Server/Engine/Users/UsersService.php";
+  require_once "../Engine/Users/UsersService.php";
   require_once "../Engine/Games/GamesService.php";
 
   session_start();

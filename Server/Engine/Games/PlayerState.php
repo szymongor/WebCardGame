@@ -213,6 +213,17 @@
       }
     }
 
+    public function checkPlayerEnd(){
+      if($this->tower > 35){
+        return "Win";
+      }
+      elseif ($this->tower == 0) {
+        return "Loose";
+      }
+      else{
+        return "Ok";
+      }
+    }
   }
 
 

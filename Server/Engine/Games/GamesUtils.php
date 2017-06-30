@@ -8,7 +8,10 @@
 
     public function newGameJson(){
       $players = array();
-      $gameArray = array('Players' => $players, 'Pending' => 1, 'Turn' => 0);
+      $history = array();
+      $gameArray = array('History' => $history, 'Players' => $players, 'Pending' => 1, 'Turn' => 0,
+        'GameStatus' => "The game is in progress", 'MatchWinner' => "Nobody yet"
+     );
       return $gameArray;
     }
 

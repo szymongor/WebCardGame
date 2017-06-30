@@ -20,7 +20,7 @@ function register(){
   var userEmail = $('#emailInput').val();
   var userPassword1 = $('#password1Input').val();
   var userPassword2 = $('#password2Input').val();
-
+  loginApi.register(userLogin, userEmail, userPassword1);
   console.log(userLogin+":"+userEmail+":"+userPassword1);
 }
 

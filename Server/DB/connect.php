@@ -1,6 +1,6 @@
 <?php
 	$host = "localhost";
-	$db_user = "root";
-	$db_password = "";
-	$db_name = "boardgamesusers";
+	$db_user = "szymgor_cardGame";
+	$db_password = "12345678";
+	$db_name = "szymgor_cardGame";
 ?>

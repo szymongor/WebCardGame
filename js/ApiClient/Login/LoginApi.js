@@ -4,7 +4,7 @@ function LoginApi(){
   	$.ajax({
   		type: 'POST',
   		url: 'Server/Api/UserApi.php/login',
-      data : {'login':"Szymon",'password':"12345678"},
+      data : {'login':login,'password':password},
   		success: function(data){
           //console.log(data);
           var serverResponse = $.parseJSON(data);
@@ -22,5 +22,18 @@ function LoginApi(){
   		}
   	});
   };
+
+  this.register = function(login, email, password){
+    $.ajax({
+  		type: 'POST',
+  		url: 'Server/Api/UserApi.php/register',
+      data : {'login':login,'password':password, 'email':email},
+  		success: function(data){
+          //console.log(data);
+          var serverResponse = $.parseJSON(data);
+          checkServerLoginResponse(serverResponse);
+  		}
+  	});
+  }
 
 }
